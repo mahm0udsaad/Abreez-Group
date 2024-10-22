@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Gift, Menu } from "lucide-react";
+import Image from "next/image";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,8 +22,13 @@ export default function NavBar() {
     >
       <div className="container mx-auto flex h-16 items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Gift className="h-8 w-8 text-blue-600" />
-          <h1 className="text-2xl font-bold text-blue-600">Abreez Group</h1>
+          <Image
+            src="/logo.svg"
+            alt="Abreez Group Logo"
+            width={160}
+            height={160}
+            className="hidden md:block"
+          />
         </div>
         <nav className="hidden md:block">
           <ul className="flex space-x-6">

@@ -12,7 +12,7 @@ import {
 
 const Footer = () => (
   <footer id="contact" className="bg-gray-100 p-12">
-    <div className="container">
+    <div className="container mx-auto">
       <div className="grid md:grid-cols-4 gap-8">
         <div>
           <h3 className="text-lg font-semibold mb-4 text-blue-600">
