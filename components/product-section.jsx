@@ -11,51 +11,19 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { ChevronRight, Gift, Briefcase, Shirt, Coffee } from "lucide-react";
+import { ChevronRight, Package } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import productsData from "@/data/products.json";
 
 export default function ProductSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const products = [
-    {
-      name: "Custom USB Drives",
-      description: "High-capacity branded USB drives for your corporate needs.",
-      icon: Gift,
-      image: "/placeholder.svg",
-    },
-    {
-      name: "Custom USB Drives",
-      description: "High-capacity branded USB drives for your corporate needs.",
-      icon: Gift,
-      image: "/placeholder.svg",
-    },
-    {
-      name: "Custom USB Drives",
-      description: "High-capacity branded USB drives for your corporate needs.",
-      icon: Gift,
-      image: "/placeholder.svg",
-    },
-    {
-      name: "Branded Power Banks",
-      description: "Portable chargers with your company logo.",
-      icon: Briefcase,
-      image: "/placeholder.svg",
-    },
-    {
-      name: "Corporate Apparel",
-      description: "High-quality branded clothing for your team.",
-      icon: Shirt,
-      image: "/placeholder.svg",
-    },
-    {
-      name: "Promotional Drinkware",
-      description: "Branded mugs, tumblers, and water bottles.",
-      icon: Coffee,
-      image: "/placeholder.svg",
-    },
-  ];
+  // Get first 8 products from all categories combined
+  const products = productsData.categorizedProducts
+    .flatMap((category) => category.products)
+    .slice(0, 8);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -86,23 +54,23 @@ export default function ProductSection() {
         <CardContent className="p-0">
           <div className="relative">
             <Image
-              src={product.image}
+              src={product.images.main}
               alt={product.name}
               width={300}
               height={300}
               className="w-full h-48 object-cover"
             />
             <div className="absolute inset-0 bg-blue-600 bg-opacity-70 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-              <product.icon className="text-white h-16 w-16" />
+              <Package className="text-white h-16 w-16" />
             </div>
           </div>
           <div className="p-6">
-            <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
-            <p className="text-sm text-gray-600 mb-4">{product.description}</p>
-            <Button variant="outline" className="w-full group">
-              Learn More
-              <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
+            <h3 className="font-semibold text-lg mb-2 line-clamp-1">
+              {product.name}
+            </h3>
+            <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+              {product.description}
+            </p>
           </div>
         </CardContent>
       </Card>
@@ -128,10 +96,10 @@ export default function ProductSection() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          {/* Desktop view - all 4 products */}
+          {/* Desktop view - grid layout */}
           <div className="hidden lg:grid lg:grid-cols-4 gap-6">
             {products.map((product, index) => (
-              <ProductCard key={index} product={product} index={index} />
+              <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
 
@@ -145,7 +113,7 @@ export default function ProductSection() {
             >
               <CarouselContent>
                 {products.map((product, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2">
+                  <CarouselItem key={product.id} className="md:basis-1/2">
                     <ProductCard product={product} index={index} />
                   </CarouselItem>
                 ))}
@@ -154,6 +122,16 @@ export default function ProductSection() {
               <CarouselNext />
             </Carousel>
           </div>
+
+          {/* Explore More button */}
+          <motion.div className="mt-12 text-center" variants={itemVariants}>
+            <Link href="/products">
+              <Button size="lg" className="group bg-[color:--primary-color]">
+                Explore More Products
+                <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

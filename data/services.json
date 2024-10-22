@@ -1,0 +1,1095 @@
+{
+  "totalServices": 26,
+  "services": [
+    {
+      "id": 1,
+      "title": "Services we offer.",
+      "description": "",
+      "image": null,
+      "imageAlt": null,
+      "fullContent": "Services we offer.",
+      "columnClass": "elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-144e5b1",
+      "columnId": "144e5b1",
+      "links": [],
+      "widgets": [
+        {
+          "type": "heading.default",
+          "content": "Services we offer."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "UV Printing Service",
+      "description": "",
+      "image": "https://abreezgroup.com/wp-content/uploads/2022/03/UV-Printing.jpg",
+      "imageAlt": null,
+      "fullContent": "UV Printing Service",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-de37fb8",
+      "columnId": "de37fb8",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "UV Printing Service"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Commercial Screen Printing",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-industrial-screen-printing.jpg",
+      "imageAlt": null,
+      "fullContent": "Commercial Screen Printing",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-4fcc670",
+      "columnId": "4fcc670",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Commercial Screen Printing"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Pad Printing Service",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-pad-printing.jpg",
+      "imageAlt": null,
+      "fullContent": "Pad Printing Service",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-e4bcd84",
+      "columnId": "e4bcd84",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Pad Printing Service"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Heat Transfer T-Shirt Service",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-shirt-heat-transfer.jpg",
+      "imageAlt": null,
+      "fullContent": "Heat Transfer T-Shirt Service",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-53bfd40",
+      "columnId": "53bfd40",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Heat Transfer T-Shirt Service"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Vinyl Cutting",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/07/vinyl-printing-service.jpg",
+      "imageAlt": null,
+      "fullContent": "Vinyl Cutting",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-814764c",
+      "columnId": "814764c",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Vinyl Cutting"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Digital Printing Sandblast Effect",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/sandblasting-service.jpg",
+      "imageAlt": null,
+      "fullContent": "Digital Printing Sandblast Effect",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-92fc530",
+      "columnId": "92fc530",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Digital Printing Sandblast Effect"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Heat Transfer Print and Cut",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-heat-transfer-print-and-cut.jpg",
+      "imageAlt": null,
+      "fullContent": "Heat Transfer Print and Cut",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-d533e60",
+      "columnId": "d533e60",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Heat Transfer Print and Cut"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Sublimation Printing Service",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-mug-Sublimation.jpg",
+      "imageAlt": null,
+      "fullContent": "Sublimation Printing Service",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-a345af7",
+      "columnId": "a345af7",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Sublimation Printing Service"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "PVC ID Card Printing",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/id-card-printing.jpg",
+      "imageAlt": null,
+      "fullContent": "PVC ID Card Printing",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-318a453",
+      "columnId": "318a453",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "PVC ID Card Printing"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Digital Printing Service",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-digital-printing.jpg",
+      "imageAlt": null,
+      "fullContent": "Digital Printing Service",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-6f25bfc",
+      "columnId": "6f25bfc",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Digital Printing Service"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Commercial & Industrial Labels & Tags",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/digital-print-sticker.jpg",
+      "imageAlt": null,
+      "fullContent": "Commercial & Industrial Labels & Tags",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-9d021c5",
+      "columnId": "9d021c5",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Commercial & Industrial Labels & Tags"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Laser Cutting & Engraving",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-laser-cutting-engraving.jpg",
+      "imageAlt": null,
+      "fullContent": "Laser Cutting & Engraving",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-f784ce6",
+      "columnId": "f784ce6",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Laser Cutting & Engraving"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Crystal Laser 2D / 3D Engraving",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-crystal-engraving.jpg",
+      "imageAlt": null,
+      "fullContent": "Crystal Laser 2D / 3D Engraving",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-a5afeef",
+      "columnId": "a5afeef",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Crystal Laser 2D / 3D Engraving"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Debossing /Embossing  Service",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/07/debossing-service.jpg",
+      "imageAlt": null,
+      "fullContent": "Debossing /Embossing  Service",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-f7502c5",
+      "columnId": "f7502c5",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Debossing /Embossing  Service"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Indoor Wall & Desk Signs",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-indoor-and-desk-sign.jpg",
+      "imageAlt": null,
+      "fullContent": "Indoor Wall & Desk Signs",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-7c72fee",
+      "columnId": "7c72fee",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Indoor Wall & Desk Signs"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Assembly",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-assembly.jpg",
+      "imageAlt": null,
+      "fullContent": "Assembly",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-b4e29a3",
+      "columnId": "b4e29a3",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Assembly"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Folder Making",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-folder-making.jpg",
+      "imageAlt": null,
+      "fullContent": "Folder Making",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-cd900d0",
+      "columnId": "cd900d0",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Folder Making"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Box Making",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/box-making.jpg",
+      "imageAlt": null,
+      "fullContent": "Box Making",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-33f31fc",
+      "columnId": "33f31fc",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Box Making"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Router and Manual Cutting",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-manual-router-cutting.jpg",
+      "imageAlt": null,
+      "fullContent": "Router and Manual Cutting",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-740b392",
+      "columnId": "740b392",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Router and Manual Cutting"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Laser Metal Markings",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-laser-marking.jpg",
+      "imageAlt": null,
+      "fullContent": "Laser Metal Markings",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-5807ebc",
+      "columnId": "5807ebc",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Laser Metal Markings"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Hot Foiling",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-foiling.jpg",
+      "imageAlt": null,
+      "fullContent": "Hot Foiling",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-e3121fb",
+      "columnId": "e3121fb",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Hot Foiling"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Custom Made Products",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/customized-badges.jpg",
+      "imageAlt": null,
+      "fullContent": "Custom Made Products",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-34cf24f",
+      "columnId": "34cf24f",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Custom Made Products"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Embroidery & Stitching",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-stitching.jpg",
+      "imageAlt": null,
+      "fullContent": "Embroidery & Stitching",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-5f086b5",
+      "columnId": "5f086b5",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Embroidery & Stitching"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Epoxy Coating",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/Epoxy-Coating.jpg",
+      "imageAlt": null,
+      "fullContent": "Epoxy Coating",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-a9a879b",
+      "columnId": "a9a879b",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Epoxy Coating"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Data Transfer",
+      "description": "",
+      "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/data-transfer-service.jpg",
+      "imageAlt": null,
+      "fullContent": "Data Transfer",
+      "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-e19eea8",
+      "columnId": "e19eea8",
+      "links": [],
+      "widgets": [
+        {
+          "type": "image.default",
+          "content": ""
+        },
+        {
+          "type": "heading.default",
+          "content": "Data Transfer"
+        }
+      ]
+    }
+  ],
+  "servicesByType": {
+    "heading.default": [
+      {
+        "id": 1,
+        "title": "Services we offer.",
+        "description": "",
+        "image": null,
+        "imageAlt": null,
+        "fullContent": "Services we offer.",
+        "columnClass": "elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-144e5b1",
+        "columnId": "144e5b1",
+        "links": [],
+        "widgets": [
+          {
+            "type": "heading.default",
+            "content": "Services we offer."
+          }
+        ]
+      }
+    ],
+    "image.default": [
+      {
+        "id": 2,
+        "title": "UV Printing Service",
+        "description": "",
+        "image": "https://abreezgroup.com/wp-content/uploads/2022/03/UV-Printing.jpg",
+        "imageAlt": null,
+        "fullContent": "UV Printing Service",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-de37fb8",
+        "columnId": "de37fb8",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "UV Printing Service"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Commercial Screen Printing",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-industrial-screen-printing.jpg",
+        "imageAlt": null,
+        "fullContent": "Commercial Screen Printing",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-4fcc670",
+        "columnId": "4fcc670",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Commercial Screen Printing"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Pad Printing Service",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-pad-printing.jpg",
+        "imageAlt": null,
+        "fullContent": "Pad Printing Service",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-e4bcd84",
+        "columnId": "e4bcd84",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Pad Printing Service"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Heat Transfer T-Shirt Service",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-shirt-heat-transfer.jpg",
+        "imageAlt": null,
+        "fullContent": "Heat Transfer T-Shirt Service",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-53bfd40",
+        "columnId": "53bfd40",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Heat Transfer T-Shirt Service"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Vinyl Cutting",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/07/vinyl-printing-service.jpg",
+        "imageAlt": null,
+        "fullContent": "Vinyl Cutting",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-814764c",
+        "columnId": "814764c",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Vinyl Cutting"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Digital Printing Sandblast Effect",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/sandblasting-service.jpg",
+        "imageAlt": null,
+        "fullContent": "Digital Printing Sandblast Effect",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-92fc530",
+        "columnId": "92fc530",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Digital Printing Sandblast Effect"
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Heat Transfer Print and Cut",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-heat-transfer-print-and-cut.jpg",
+        "imageAlt": null,
+        "fullContent": "Heat Transfer Print and Cut",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-d533e60",
+        "columnId": "d533e60",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Heat Transfer Print and Cut"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Sublimation Printing Service",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-mug-Sublimation.jpg",
+        "imageAlt": null,
+        "fullContent": "Sublimation Printing Service",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-a345af7",
+        "columnId": "a345af7",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Sublimation Printing Service"
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "PVC ID Card Printing",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/id-card-printing.jpg",
+        "imageAlt": null,
+        "fullContent": "PVC ID Card Printing",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-318a453",
+        "columnId": "318a453",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "PVC ID Card Printing"
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Digital Printing Service",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-digital-printing.jpg",
+        "imageAlt": null,
+        "fullContent": "Digital Printing Service",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-6f25bfc",
+        "columnId": "6f25bfc",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Digital Printing Service"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Commercial & Industrial Labels & Tags",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/digital-print-sticker.jpg",
+        "imageAlt": null,
+        "fullContent": "Commercial & Industrial Labels & Tags",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-9d021c5",
+        "columnId": "9d021c5",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Commercial & Industrial Labels & Tags"
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Laser Cutting & Engraving",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-laser-cutting-engraving.jpg",
+        "imageAlt": null,
+        "fullContent": "Laser Cutting & Engraving",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-f784ce6",
+        "columnId": "f784ce6",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Laser Cutting & Engraving"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Crystal Laser 2D / 3D Engraving",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-crystal-engraving.jpg",
+        "imageAlt": null,
+        "fullContent": "Crystal Laser 2D / 3D Engraving",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-a5afeef",
+        "columnId": "a5afeef",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Crystal Laser 2D / 3D Engraving"
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Debossing /Embossing  Service",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/07/debossing-service.jpg",
+        "imageAlt": null,
+        "fullContent": "Debossing /Embossing  Service",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-f7502c5",
+        "columnId": "f7502c5",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Debossing /Embossing  Service"
+          }
+        ]
+      },
+      {
+        "id": 16,
+        "title": "Indoor Wall & Desk Signs",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-indoor-and-desk-sign.jpg",
+        "imageAlt": null,
+        "fullContent": "Indoor Wall & Desk Signs",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-7c72fee",
+        "columnId": "7c72fee",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Indoor Wall & Desk Signs"
+          }
+        ]
+      },
+      {
+        "id": 17,
+        "title": "Assembly",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-assembly.jpg",
+        "imageAlt": null,
+        "fullContent": "Assembly",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-b4e29a3",
+        "columnId": "b4e29a3",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Assembly"
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "title": "Folder Making",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-folder-making.jpg",
+        "imageAlt": null,
+        "fullContent": "Folder Making",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-cd900d0",
+        "columnId": "cd900d0",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Folder Making"
+          }
+        ]
+      },
+      {
+        "id": 19,
+        "title": "Box Making",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/box-making.jpg",
+        "imageAlt": null,
+        "fullContent": "Box Making",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-33f31fc",
+        "columnId": "33f31fc",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Box Making"
+          }
+        ]
+      },
+      {
+        "id": 20,
+        "title": "Router and Manual Cutting",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-manual-router-cutting.jpg",
+        "imageAlt": null,
+        "fullContent": "Router and Manual Cutting",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-740b392",
+        "columnId": "740b392",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Router and Manual Cutting"
+          }
+        ]
+      },
+      {
+        "id": 21,
+        "title": "Laser Metal Markings",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-laser-marking.jpg",
+        "imageAlt": null,
+        "fullContent": "Laser Metal Markings",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-5807ebc",
+        "columnId": "5807ebc",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Laser Metal Markings"
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "title": "Hot Foiling",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-foiling.jpg",
+        "imageAlt": null,
+        "fullContent": "Hot Foiling",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-e3121fb",
+        "columnId": "e3121fb",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Hot Foiling"
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "title": "Custom Made Products",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/customized-badges.jpg",
+        "imageAlt": null,
+        "fullContent": "Custom Made Products",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-34cf24f",
+        "columnId": "34cf24f",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Custom Made Products"
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "title": "Embroidery & Stitching",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/our-services-stitching.jpg",
+        "imageAlt": null,
+        "fullContent": "Embroidery & Stitching",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-5f086b5",
+        "columnId": "5f086b5",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Embroidery & Stitching"
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "title": "Epoxy Coating",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/09/Epoxy-Coating.jpg",
+        "imageAlt": null,
+        "fullContent": "Epoxy Coating",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-a9a879b",
+        "columnId": "a9a879b",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Epoxy Coating"
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "title": "Data Transfer",
+        "description": "",
+        "image": "https://www.mtcpromo.com/wp-content/uploads/2021/08/data-transfer-service.jpg",
+        "imageAlt": null,
+        "fullContent": "Data Transfer",
+        "columnClass": "elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-e19eea8",
+        "columnId": "e19eea8",
+        "links": [],
+        "widgets": [
+          {
+            "type": "image.default",
+            "content": ""
+          },
+          {
+            "type": "heading.default",
+            "content": "Data Transfer"
+          }
+        ]
+      }
+    ]
+  }
+}

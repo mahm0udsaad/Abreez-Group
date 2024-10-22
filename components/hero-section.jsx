@@ -10,8 +10,10 @@ import {
   Palette,
 } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export function HeroSection() {
+  const router = useRouter();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-blue-900">
       <motion.div
@@ -49,6 +51,7 @@ export function HeroSection() {
               size="lg"
               variant="secondary"
               className="text-blue-600 hover:text-blue-700 bg-white hover:bg-gray-100"
+              onClick={() => router.push("/products")}
             >
               Explore Our Products
               <ArrowRight className="ml-2 h-5 w-5" />
