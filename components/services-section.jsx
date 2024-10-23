@@ -2,9 +2,10 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Card, CardContent } from "@/components/ui/card";
 import { Printer, Factory, PackageCheck } from "lucide-react"; // Import Lucide Icons
 import servicesData from "@/data/services";
+import Image from "next/image";
+import { useTranslation } from "@/app/i18n/client";
 
 // Service categories mapping
 const serviceCategories = {
@@ -33,16 +34,15 @@ const serviceCategories = {
     "Folder Making",
     "Commercial & Industrial Labels & Tags",
     "Hot Foiling",
-    "Debossing /Embossing  Service",
+    "Debossing /Embossing Service",
     "Vinyl Cutting",
   ],
 };
 
-const ServicesSection = () => {
-  // Access the services array from the imported data
+const ServicesSection = ({ lng }) => {
+  const { t } = useTranslation(lng, "common");
   const { services } = servicesData;
 
-  // Remove the first service since it's just a title
   const filteredServices =
     services?.filter((service) => service.id !== 1) || [];
 
@@ -68,7 +68,6 @@ const ServicesSection = () => {
 
   const categorizedServices = categorizeServices(filteredServices);
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -99,12 +98,12 @@ const ServicesSection = () => {
     <section id="services" className="py-16 md:py-24 bg-gray-100">
       <div className="container mx-auto" ref={ref}>
         <motion.h2
-          className="text-3xl font-bold mb-12 text-center text-blue-600"
+          className="text-5xl font-bold mb-12 text-center text-[#114270]"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          Our Comprehensive Services
+          {t("services.title")}
         </motion.h2>
 
         <Tabs defaultValue="printing" className="w-full">
@@ -113,19 +112,21 @@ const ServicesSection = () => {
               value="printing"
               className="text-lg flex items-center justify-center"
             >
-              <Printer className="mr-2 h-6 w-6" /> Printing Solutions
+              <Printer className="mr-2 h-6 w-6" /> {t("services.tabs.printing")}
             </TabsTrigger>
             <TabsTrigger
               value="manufacturing"
               className="text-lg flex items-center justify-center"
             >
-              <Factory className="mr-2 h-6 w-6" /> Manufacturing Services
+              <Factory className="mr-2 h-6 w-6" />{" "}
+              {t("services.tabs.manufacturing")}
             </TabsTrigger>
             <TabsTrigger
               value="packaging"
               className="text-lg flex items-center justify-center"
             >
-              <PackageCheck className="mr-2 h-6 w-6" /> Packaging Solutions
+              <PackageCheck className="mr-2 h-6 w-6" />{" "}
+              {t("services.tabs.packaging")}
             </TabsTrigger>
           </TabsList>
 
@@ -138,26 +139,27 @@ const ServicesSection = () => {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
                 {services.map((service) => (
-                  <motion.div key={service.id} variants={itemVariants}>
-                    <Card className="transition-all duration-300 hover:shadow-lg overflow-hidden">
-                      <div className="aspect-w-16 aspect-h-9 relative">
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="object-cover w-full h-68"
-                        />
-                      </div>
-                      <CardContent className="p-6">
-                        <div className="flex flex-col items-center text-center">
-                          <h3 className="text-xl font-semibold mb-2">
-                            {service.title}
-                          </h3>
-                          <p className="text-gray-600">
-                            {service.description || service.fullContent}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
+                  <motion.div
+                    dir={lng === "ar" ? "rtl" : "ltr"}
+                    key={service.id}
+                    variants={itemVariants}
+                    className="bg-gray-100 rounded-lg overflow-hidden shadow-lg"
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={500}
+                      height={400}
+                      className="w-full h-64 object-cover"
+                    />
+                    <div className="p-6">
+                      <h3 className="text-2xl font-semibold mb-2">
+                        {/* Translate dynamically while rendering */}
+                        {t(
+                          `services.servicesCategories.${category}.${service.title}`,
+                        )}
+                      </h3>
+                    </div>
                   </motion.div>
                 ))}
               </motion.div>

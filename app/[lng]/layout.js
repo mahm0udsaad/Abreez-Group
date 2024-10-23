@@ -18,10 +18,10 @@ export default function RootLayout({ children, params: { lng } }) {
     <html lang={lng} dir={dir(lng)}>
       <link rel="icon" href="/fav.jpg" />
       <body className="min-h-screen bg-gray-50">
-        <NavBar />
+        <NavBar lng={lng} />
         {children}
         <Toaster />
-        <Footer />
+        <Footer lng={lng} />
       </body>
     </html>
   );

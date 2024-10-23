@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
@@ -14,15 +14,18 @@ import {
 } from "@/components/ui/pagination";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   ChevronRight,
   Package,
   Circle,
   Search,
   ChevronLeft,
+  Sparkles,
 } from "lucide-react";
 import productsData from "@/data/products.json";
 import Image from "next/image";
+import ProductHeader from "./component/products-header";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -37,6 +40,7 @@ export function ProductListing() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const scrollContainerRef = useRef(null);
+  const [selectedColors, setSelectedColors] = useState({});
 
   // Flatten and filter products based on search and category
   const filteredProducts = useMemo(() => {
@@ -80,214 +84,198 @@ export function ProductListing() {
     }
   };
 
+  const handleColorClick = (productId, colorName) => {
+    setSelectedColors((prev) => ({
+      ...prev,
+      [productId]: prev[productId] === colorName ? null : colorName,
+    }));
+  };
+
   return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-2 text-center text-blue-600">
-        Our Product Catalog
-      </h1>
-      <p className="text-center text-gray-600 mb-8">
-        Discover our wide range of high-quality products
-      </p>
-      <div className="mb-6">
-        <div className="relative mb-4">
-          <Input
-            type="text"
-            placeholder="Search products..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
-          />
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-        </div>
-        <div className="relative">
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10"
-            onClick={() => scroll("left")}
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      <div className="max-w-7xl mx-auto">
+        <ProductHeader
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          categories={categories}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+
+        {currentProducts.length === 0 ? (
+          <motion.p
+            className="text-center text-gray-500 mt-8 text-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          <div
-            ref={scrollContainerRef}
-            className="w-11/12 mx-auto flex overflow-x-auto space-x-2 px-4 pb-2 main-scrollbar"
+            No products found.
+          </motion.p>
+        ) : (
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={"outline"}
-                onClick={() => setSelectedCategory(category)}
-                className={
-                  selectedCategory === category
-                    ? "text-sm whitespace-nowrap flex-shrink-0 bg-blue-600 text-white"
-                    : "text-sm whitespace-nowrap flex-shrink-0"
-                }
+            {currentProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                {category}
-              </Button>
-            ))}
-          </div>
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10"
-            onClick={() => scroll("right")}
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
-      {currentProducts.length === 0 ? (
-        <div className="h-[50dvh] flex justify-center">
-          <p className="text-center text-gray-500 mt-8">No products found.</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {currentProducts.map((product) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Card className="h-full flex flex-col overflow-hidden">
-                <div className="relative">
-                  <Image
-                    src={product.images.main}
-                    alt={product.name}
-                    className="w-full h-64 object-contain"
-                    width={480}
-                    height={360}
-                  />
-                  <Badge
-                    variant={
-                      product.totalAvailable > 0 ? "secondary" : "destructive"
-                    }
-                    className="absolute top-2 right-2"
-                  >
-                    {product.totalAvailable > 0
-                      ? `${product.totalAvailable} available`
-                      : "Out of stock"}
-                  </Badge>
-                </div>
-                <CardContent className="p-4 flex-grow">
-                  <div className="flex justify-between items-start mb-2">
-                    <div className="flex-grow">
-                      <h2 className="text-xl font-semibold line-clamp-1">
-                        {product.name}
-                      </h2>
-                      <p className="text-gray-600 line-clamp-2">
-                        {product.description}
-                      </p>
-                    </div>
+                <Card className="h-full flex flex-col overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={product.images.main}
+                      alt={product.name}
+                      width={480}
+                      height={360}
+                      className="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <AnimatePresence>
+                      {selectedColors[product.id] && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 0.2 }}
+                          exit={{ opacity: 0 }}
+                          className="absolute inset-0"
+                          style={{
+                            backgroundColor: selectedColors[product.id],
+                          }}
+                        />
+                      )}
+                    </AnimatePresence>
+                    <Badge
+                      variant={
+                        product.totalAvailable > 0 ? "secondary" : "destructive"
+                      }
+                      className="absolute top-2 right-2"
+                    >
+                      {product.totalAvailable > 0
+                        ? `${product.totalAvailable} available`
+                        : "Out of stock"}
+                    </Badge>
                   </div>
-                  <div className="mt-2 space-y-1">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium">
-                        Reseller Price:
-                      </span>
-                      <span className="text-lg font-bold text-blue-600">
-                        ${product.resellerPrice.toFixed(2)}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium">
-                        Corporate Price:
-                      </span>
-                      <span className="text-lg font-bold text-green-600">
-                        ${product.corporatePrice.toFixed(2)}
-                      </span>
-                    </div>
-                  </div>
-                  {product.colors && product.colors.length > 0 && (
-                    <div className="mt-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Package className="h-5 w-5 text-gray-500" />
-                        <span className="font-semibold text-gray-700">
-                          Available Colors:
-                        </span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
-                        {product.colors.map((color) => (
-                          <div
-                            key={color.name}
-                            className="flex items-center justify-between bg-gray-100 rounded-md px-2 py-1"
-                          >
-                            <div className="flex items-center gap-1">
-                              <Circle
-                                className="h-4 w-4"
-                                fill={color.name}
-                                color={color.name}
-                              />
-                              <span className="text-xs capitalize">
-                                {color.name}
+                  <CardContent className="p-4 flex-grow">
+                    <Tabs defaultValue="info" className="w-full">
+                      <TabsList className="grid w-full grid-cols-2">
+                        <TabsTrigger value="info">Info</TabsTrigger>
+                        <TabsTrigger value="description">
+                          Description
+                        </TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="info">
+                        <h2 className="text-xl font-semibold line-clamp-1 mb-2">
+                          {product.name}
+                        </h2>
+                        {product.colors && product.colors.length > 0 && (
+                          <div className="mt-4">
+                            <div className="flex items-center gap-2 mb-2">
+                              <Package className="h-5 w-5 text-blue-500" />
+                              <span className="font-semibold text-gray-700">
+                                Available Colors:
                               </span>
                             </div>
-                            <span className="text-xs font-medium">
-                              {color.available} pcs
-                            </span>
+                            <div className="grid grid-cols-2 gap-2">
+                              {product.colors.map((color) => (
+                                <Button
+                                  key={color.name}
+                                  variant="outline"
+                                  className={`flex items-center justify-between px-2 py-1 h-auto transition-all duration-300 ${
+                                    selectedColors[product.id] === color.name
+                                      ? "ring-2 ring-blue-500 bg-blue-50"
+                                      : "hover:bg-gray-100"
+                                  }`}
+                                  onClick={() =>
+                                    handleColorClick(product.id, color.name)
+                                  }
+                                >
+                                  <div className="flex items-center gap-1">
+                                    <Circle
+                                      className="h-4 w-4"
+                                      fill={color.name}
+                                      color={color.name}
+                                    />
+                                    <span className="text-xs capitalize">
+                                      {color.name}
+                                    </span>
+                                  </div>
+                                  <span className="text-xs font-medium">
+                                    {color.available} pcs
+                                  </span>
+                                </Button>
+                              ))}
+                            </div>
                           </div>
-                        ))}
-                      </div>
+                        )}
+                      </TabsContent>
+                      <TabsContent value="description">
+                        <p className="text-sm text-gray-600">
+                          {product.description}
+                        </p>
+                      </TabsContent>
+                    </Tabs>
+                    <div className="mt-4">
+                      {product.category.map((cat) => (
+                        <Badge
+                          key={cat.name}
+                          variant="outline"
+                          className="mt-2 mr-2 bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300"
+                        >
+                          {cat.name}
+                        </Badge>
+                      ))}
                     </div>
-                  )}
-                  <div className="mt-2">
-                    {product.category.map((cat) => (
-                      <Badge
-                        key={cat.name}
-                        variant="outline"
-                        className="mt-2 mr-2"
-                      >
-                        {cat.name}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter className="p-4">
-                  <Button className="w-full">
-                    View Details
-                    <ChevronRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      )}
-      {filteredProducts.length > ITEMS_PER_PAGE && (
-        <Pagination className="mt-8">
-          <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious
-                onClick={() => paginate(currentPage - 1)}
-                disabled={currentPage === 1}
-              />
-            </PaginationItem>
-            {Array.from(
-              { length: Math.ceil(filteredProducts.length / ITEMS_PER_PAGE) },
-              (_, i) => (
-                <PaginationItem key={i}>
-                  <PaginationLink
-                    onClick={() => paginate(i + 1)}
-                    isActive={currentPage === i + 1}
-                  >
-                    {i + 1}
-                  </PaginationLink>
-                </PaginationItem>
-              ),
-            )}
-            <PaginationItem>
-              <PaginationNext
-                onClick={() => paginate(currentPage + 1)}
-                disabled={
-                  currentPage ===
-                  Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
-                }
-              />
-            </PaginationItem>
-          </PaginationContent>
-        </Pagination>
-      )}
+                  </CardContent>
+                  <CardFooter className="p-4">
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
+                      View Details
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+
+        {filteredProducts.length > ITEMS_PER_PAGE && (
+          <Pagination className="mt-12">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={() => paginate(currentPage - 1)}
+                  disabled={currentPage === 1}
+                />
+              </PaginationItem>
+              {Array.from(
+                { length: Math.ceil(filteredProducts.length / ITEMS_PER_PAGE) },
+                (_, i) => (
+                  <PaginationItem key={i}>
+                    <PaginationLink
+                      onClick={() => paginate(i + 1)}
+                      isActive={currentPage === i + 1}
+                    >
+                      {i + 1}
+                    </PaginationLink>
+                  </PaginationItem>
+                ),
+              )}
+              <PaginationItem>
+                <PaginationNext
+                  onClick={() => paginate(currentPage + 1)}
+                  disabled={
+                    currentPage ===
+                    Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
+                  }
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        )}
+      </div>
     </div>
   );
 }

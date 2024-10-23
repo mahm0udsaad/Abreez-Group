@@ -2,23 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { AutoScrollingRow } from "./wrappers/autoScroll";
+import { useTranslation } from "@/app/i18n/client";
 
-export default function ClientSecion() {
-  const scrollRef = useRef(null);
-
-  useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (scrollContainer) {
-      const scrollWidth = scrollContainer.scrollWidth;
-      const animationDuration = scrollWidth / 50; // Adjust speed here
-
-      scrollContainer.style.setProperty("--scroll-width", `${scrollWidth}px`);
-      scrollContainer.style.setProperty(
-        "--animation-duration",
-        `${animationDuration}s`,
-      );
-    }
-  }, []);
+export default function ClientSecion({ lng }) {
+  const { t } = useTranslation(lng, "common");
 
   const clients = [
     "/clients/1.jpg",
@@ -37,7 +25,6 @@ export default function ClientSecion() {
     "/clients/19.png",
     "/clients/24.png",
     "/clients/26.png",
-    "/clients/29.jpg",
     "/clients/48.jpg",
     "/clients/54.png",
     "/clients/65.png",
@@ -52,38 +39,27 @@ export default function ClientSecion() {
     "/clients/890.jpg",
     "/clients/3222.png",
   ];
+  const duplicatedClients = [...clients, ...clients, ...clients]; // Triple to ensure smooth infinite scroll
 
   return (
-    <section
-      id="clients"
-      className="py-16 md:py-24 bg-gray-100 overflow-hidden"
-    >
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center text-blue-600">
-          Our Trusted Clients
+    <section dir="ltr" className="py-20 bg-gray-100">
+      <div className="container mx-auto px-4">
+        <h2 className="text-5xl font-bold mb-12 text-center text-[#114270]">
+          {t("clients")}
         </h2>
-        <div className="relative">
-          <div
-            ref={scrollRef}
-            className="flex animate-scroll"
-            style={{
-              "--scroll-width": "5000px",
-              "--animation-duration": "100s",
-            }}
-          >
-            {[...clients, ...clients].map((src, index) => (
-              <div key={index} className="flex-shrink-0 mx-8 flex items-center">
-                <Image
-                  src={src}
-                  alt={`Client ${index + 1}`}
-                  width={250}
-                  height={64}
-                  className="max-h-20 w-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <AutoScrollingRow lng={lng}>
+          {duplicatedClients.map((src, index) => (
+            <div key={index} className="flex-shrink-0 mx-8 flex items-center">
+              <Image
+                src={src}
+                alt={`Client ${index + 1}`}
+                width={250}
+                height={64}
+                className="max-h-20 w-auto object-contain"
+              />
+            </div>
+          ))}
+        </AutoScrollingRow>
       </div>
     </section>
   );

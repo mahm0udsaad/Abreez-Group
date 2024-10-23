@@ -1,13 +1,26 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "@/app/i18n/client";
+import { Button } from "../ui/button";
+import LanguageSwitcher from "../btns/lang-switch";
 
-export default function NavBar() {
+export default function NavBar({ lng }) {
+  const { t } = useTranslation(lng, "common");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+
+  const navItems = [
+    { name: t("navigation.home"), href: "/#" },
+    { name: t("navigation.about"), href: "/#about" },
+    { name: t("navigation.services"), href: "/#services" },
+    { name: t("navigation.portfolio"), href: "/#portfolio" },
+    { name: t("navigation.testimonials"), href: "/#testimonials" },
+    { name: t("navigation.faq"), href: "/#faq" },
+    { name: t("navigation.contact"), href: "/#contact" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrollPosition(window.scrollY);
@@ -17,45 +30,61 @@ export default function NavBar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      dir="ltr"
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrollPosition > 50 ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex h-16 items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <Link href="/">
+        <Link href="/">
+          {scrollPosition < 50 ? (
+            <Image
+              priority
+              src="/abreez-logo-white.png"
+              alt="Abreez Group Logo"
+              width={160}
+              height={160}
+              className="w-32 md:w-40"
+            />
+          ) : (
             <Image
               priority
               src="/logo.svg"
               alt="Abreez Group Logo"
               width={160}
               height={160}
-              className="hidden md:block"
+              className="w-32 md:w-40"
             />
-          </Link>
-        </div>
+          )}
+        </Link>
         <nav className="hidden md:block">
           <ul className="flex space-x-6">
-            {["About", "Services", "Products", "Contact"].map((item) => (
-              <li key={item}>
+            {navItems.map((item) => (
+              <li key={item.name}>
                 <a
-                  href={`#${item.toLowerCase()}`}
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  href={`${item.href}`}
+                  className={
+                    scrollPosition > 50
+                      ? "text-gray-600 hover:text-[#8cc63f] transition-colors"
+                      : "text-white hover:text-[#8cc63f] transition-colors"
+                  }
                 >
-                  {item}
+                  {item.name}
                 </a>
               </li>
             ))}
           </ul>
         </nav>
         <div className="flex items-center space-x-4">
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-            Get a Quote
-          </Button>
+          <LanguageSwitcher currentLang={lng} />
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className={`md:hidden ${
+              scrollPosition > 50
+                ? "text-gray-600 hover:text-[#8cc63f]"
+                : "text-white hover:text-[#8cc63f]"
+            } transition-colors`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <Menu className="h-6 w-6" />
@@ -64,14 +93,14 @@ export default function NavBar() {
       </div>
       {isMenuOpen && (
         <nav className="md:hidden bg-white border-t">
-          <ul className="flex flex-col p-4">
-            {["About", "Services", "Products", "Contact"].map((item) => (
-              <li key={item} className="py-2">
+          <ul className="flex flex-col space-y-4 p-4">
+            {navItems.map((item) => (
+              <li key={item.name}>
                 <a
-                  href={`#${item.toLowerCase()}`}
-                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                  href={`${item.href}`}
+                  className="block py-2 text-gray-600 hover:text-[#8cc63f] transition-colors"
                 >
-                  {item}
+                  {item.name}
                 </a>
               </li>
             ))}

@@ -1,3 +1,4 @@
+// LanguageSwitcher.js
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
@@ -35,8 +36,12 @@ export default function LanguageSwitcher({ currentLang }) {
     <div className="flex gap-2 mx-3">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon" className="w-12 px-0 border">
-            <LanguagesIcon className="size-6" />
+          <Button
+            variant="ghost"
+            size="icon"
+            className="w-12 px-0 bg-[#2495d3] hover:bg-blue-700 hover:text-white text-white"
+          >
+            <LanguagesIcon className="size-8" />
             <span className="sr-only">Switch language</span>
           </Button>
         </DropdownMenuTrigger>

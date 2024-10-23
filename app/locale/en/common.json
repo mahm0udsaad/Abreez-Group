@@ -1,1 +1,184 @@
-{}
+{
+  "footer": {
+    "about": {
+      "title": "About Abreez Group",
+      "description": "Leading provider of promotional gifts and corporate solutions since 2013. ISO certified with a strong presence in UAE and Saudi Arabia."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "links": ["About Us", "Our Services", "Products", "Contact Us"]
+    },
+
+    "contactUs": {
+      "title": "Contact Us",
+      "details": {
+        "address": "Al Wurud, King Abdul Aziz, Riyadh, Saudi Arabia",
+        "email": "info@abreezgroup.com",
+        "phone": "+966 56 000 6682",
+        "hours": "Mon - Sun / 9:00 AM - 7:00 PM"
+      }
+    },
+    "socialMedia": {
+      "title": "Follow Us",
+      "platforms": ["Facebook", "Twitter", "Youtube", "Instagram", "Linkedin"]
+    },
+    "footerNote": "© 2023 Abreez Group - All Rights Reserved"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+
+  "featuredProducts": "Featured Products",
+  "clients": "Our Clients",
+  "hero": {
+    "title": "Welcome to Abreez Group",
+    "subtitle": "Leading provider of promotional gifts and integrated corporate solutions",
+    "cta": "Explore Our Products"
+  },
+  "about": {
+    "title": "About Abreez Group",
+    "description1": "Founded in 2013, Abreez Group has rapidly grown to become the leading provider of promotional gifts and integrated corporate solutions in the Middle East. With a strong presence in the UAE and Saudi Arabia, we cater to diverse needs across the region.",
+    "description2": "Our commitment to quality and innovation has earned us the ISO certification and numerous accolades. We're driven by our vision to be the most inspiring brand in the industry, delivering creative and impactful solutions that exceed expectations.",
+    "stats": {
+      "products": {
+        "title": "10,000+",
+        "subtitle": "Products"
+      },
+      "presence": {
+        "title": "Regional",
+        "subtitle": "Presence"
+      },
+      "solutions": {
+        "title": "Eco-Friendly",
+        "subtitle": "Solutions"
+      },
+      "certification": {
+        "title": "ISO",
+        "subtitle": "Certified"
+      }
+    }
+  },
+  "services": {
+    "title": "Our Comprehensive Services",
+    "tabs": {
+      "printing": "Printing Solutions",
+      "manufacturing": "Manufacturing Services",
+      "packaging": "Packaging Solutions"
+    },
+    "servicesCategories": {
+      "printing": {
+        "UV Printing Service": "UV Printing Service",
+        "Commercial Screen Printing": "Commercial Screen Printing",
+        "Pad Printing Service": "Pad Printing Service",
+        "Digital Printing Service": "Digital Printing Service",
+        "Heat Transfer T-Shirt Service": "Heat Transfer T-Shirt Service",
+        "Sublimation Printing Service": "Sublimation Printing Service",
+        "Digital Printing Sandblast Effect": "Digital Printing Sandblast Effect",
+        "PVC ID Card Printing": "PVC ID Card Printing"
+      },
+      "manufacturing": {
+        "Laser Cutting & Engraving": "Laser Cutting & Engraving",
+        "Crystal Laser 2D / 3D Engraving": "Crystal Laser 2D / 3D Engraving",
+        "Router and Manual Cutting": "Router and Manual Cutting",
+        "Laser Metal Markings": "Laser Metal Markings",
+        "Assembly": "Assembly",
+        "Custom Made Products": "Custom Made Products",
+        "Embroidery & Stitching": "Embroidery & Stitching",
+        "Epoxy Coating": "Epoxy Coating"
+      },
+      "packaging": {
+        "Box Making": "Box Making",
+        "Folder Making": "Folder Making",
+        "Commercial & Industrial Labels & Tags": "Commercial & Industrial Labels & Tags",
+        "Hot Foiling": "Hot Foiling",
+        "Debossing /Embossing Service": "Debossing / Embossing Service",
+        "Vinyl Cutting": "Vinyl Cutting"
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "items": {
+      "usb": {
+        "title": "Custom USB Drives for Tech Conference",
+        "description": "Branded USB drives with preloaded conference materials for a major tech event."
+      },
+      "bottles": {
+        "title": "Eco-Friendly Water Bottles for Corporate Retreat",
+        "description": "Customized reusable water bottles for a company-wide sustainability initiative."
+      },
+      "giftBoxes": {
+        "title": "Luxury Gift Boxes for VIP Clients",
+        "description": "Bespoke gift boxes featuring premium products for high-value clients."
+      },
+      "apparel": {
+        "title": "Branded Apparel for Sports Team",
+        "description": "Custom-designed and printed uniforms for a professional sports team."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "items": [
+      {
+        "text": "Abreez Group has consistently delivered high-quality promotional products that have significantly boosted our brand visibility. Their attention to detail and customer service is unparalleled.",
+        "author": "John Doe",
+        "position": "CEO, Tech Innovators Inc."
+      },
+      {
+        "text": "Working with Abreez Group has been a game-changer for our marketing efforts. Their innovative solutions and quick turnaround times have made them an invaluable partner.",
+        "author": "Jane Smith",
+        "position": "Marketing Director, Global Solutions Ltd."
+      },
+      {
+        "text": "The team at Abreez Group goes above and beyond to ensure client satisfaction. Their creative approach to promotional products has helped us stand out in a crowded market.",
+        "author": "Alex Johnson",
+        "position": "Founder, StartUp Ventures"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What types of promotional products do you offer?",
+        "answer": "We offer a wide range of promotional products including custom USB drives, eco-friendly water bottles, branded apparel, luxury gift boxes, and much more. Our product line is constantly expanding to meet the diverse needs of our clients."
+      },
+      {
+        "question": "How long does it take to fulfill an order?",
+        "answer": "Order fulfillment time varies depending on the product and quantity. Typically, our standard production time is 7-10 business days after artwork approval. For rush orders, please contact our sales team to discuss expedited options."
+      },
+      {
+        "question": "Do you offer design services?",
+        "answer": "Yes, we have an in-house design team that can help bring your ideas to life. Whether you need a logo created or assistance with product design, our experienced designers are here to help."
+      },
+      {
+        "question": "What is your minimum order quantity?",
+        "answer": "Our minimum order quantity varies by product. For most items, we have a minimum order of 100 units. However, for some specialty or custom-made products, the minimum may be higher. Please contact us for specific product minimums."
+      },
+      {
+        "question": "Do you ship internationally?",
+        "answer": "Yes, we offer international shipping to most countries. Shipping costs and delivery times will vary based on the destination and chosen shipping method. Please contact our sales team for a quote on international orders."
+      }
+    ]
+  },
+  "learnMore": "Learn More",
+  "contact": {
+    "title": "Ready to Elevate Your Brand?",
+    "subtitle": "Let's create impactful promotional solutions together. Contact us today to discuss your unique needs and discover how Abreez Group can help you stand out in the market.",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message"
+    }
+  }
+}
