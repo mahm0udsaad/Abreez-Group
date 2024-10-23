@@ -1,88 +1,81 @@
 "use client";
 
-import { useState, useMemo, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  ChevronRight,
-  Package,
-  Circle,
-  Search,
-  ChevronLeft,
-  Sparkles,
-} from "lucide-react";
+import { ChevronRight, Package, Circle } from "lucide-react";
 import productsData from "@/data/products.json";
 import Image from "next/image";
 import ProductHeader from "./component/products-header";
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_LOAD = 12; // Number of items to load per batch
 
 // Extract unique categories from the data
-const categories = [
-  "All",
-  ...new Set(productsData.categorizedProducts.map((category) => category.name)),
-];
+const categories = ["All", ...productsData.categories.map((cat) => cat.name)];
 
-export function ProductListing() {
-  const [currentPage, setCurrentPage] = useState(1);
+export function ProductListing({ lng }) {
+  const [loadedProducts, setLoadedProducts] = useState(ITEMS_PER_LOAD); // Track how many products to load
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const scrollContainerRef = useRef(null);
   const [selectedColors, setSelectedColors] = useState({});
+  const loadMoreRef = useRef(null); // Ref for the load more trigger
 
   // Flatten and filter products based on search and category
   const filteredProducts = useMemo(() => {
     let products = [];
 
     if (selectedCategory === "All") {
-      // Get all products from categorizedProducts
       products = productsData.categorizedProducts.flatMap(
         (category) => category.products,
       );
     } else {
-      // Get products from specific category
       const categoryData = productsData.categorizedProducts.find(
         (category) => category.name === selectedCategory,
       );
       products = categoryData ? categoryData.products : [];
     }
 
-    // Apply search filter
     return products.filter((product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase()),
     );
   }, [searchTerm, selectedCategory]);
 
-  const indexOfLastProduct = currentPage * ITEMS_PER_PAGE;
-  const indexOfFirstProduct = indexOfLastProduct - ITEMS_PER_PAGE;
-  const currentProducts = filteredProducts.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct,
-  );
+  // Get the current products to display
+  const currentProducts = filteredProducts.slice(0, loadedProducts);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const scroll = (direction) => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 200;
-      scrollContainerRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
+  // Function to load more products
+  const loadMoreProducts = () => {
+    if (loadedProducts < filteredProducts.length) {
+      setLoadedProducts((prev) => prev + ITEMS_PER_LOAD);
     }
   };
+
+  // Set up IntersectionObserver to trigger load more when scrolling
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMoreProducts();
+        }
+      },
+      {
+        rootMargin: "200px", // Trigger when 200px away from the bottom
+      },
+    );
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current);
+    }
+
+    return () => {
+      if (loadMoreRef.current) {
+        observer.unobserve(loadMoreRef.current);
+      }
+    };
+  }, [loadedProducts, filteredProducts]);
 
   const handleColorClick = (productId, colorName) => {
     setSelectedColors((prev) => ({
@@ -100,11 +93,12 @@ export function ProductListing() {
           categories={categories}
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          lng={lng}
         />
 
         {currentProducts.length === 0 ? (
           <motion.p
-            className="text-center text-gray-500 mt-8 text-xl"
+            className="text-center text-gray-500 mt-8 text-xl min-h-screen"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -113,7 +107,7 @@ export function ProductListing() {
           </motion.p>
         ) : (
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-screen pb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -241,40 +235,15 @@ export function ProductListing() {
           </motion.div>
         )}
 
-        {filteredProducts.length > ITEMS_PER_PAGE && (
-          <Pagination className="mt-12">
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious
-                  onClick={() => paginate(currentPage - 1)}
-                  disabled={currentPage === 1}
-                />
-              </PaginationItem>
-              {Array.from(
-                { length: Math.ceil(filteredProducts.length / ITEMS_PER_PAGE) },
-                (_, i) => (
-                  <PaginationItem key={i}>
-                    <PaginationLink
-                      onClick={() => paginate(i + 1)}
-                      isActive={currentPage === i + 1}
-                    >
-                      {i + 1}
-                    </PaginationLink>
-                  </PaginationItem>
-                ),
-              )}
-              <PaginationItem>
-                <PaginationNext
-                  onClick={() => paginate(currentPage + 1)}
-                  disabled={
-                    currentPage ===
-                    Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
-                  }
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
-        )}
+        {/* Observer element to trigger infinite scroll */}
+        <div
+          ref={loadMoreRef}
+          className="h-20 flex justify-center items-center"
+        >
+          {loadedProducts < filteredProducts.length && (
+            <p>Loading more products...</p>
+          )}
+        </div>
       </div>
     </div>
   );

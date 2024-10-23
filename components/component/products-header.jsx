@@ -2,8 +2,16 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { Search, Sparkles, Check, ChevronsUpDown } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useTranslation } from "@/app/i18n/client";
 
 export default function ProductHeader({
   searchTerm,
@@ -11,11 +19,16 @@ export default function ProductHeader({
   categories,
   selectedCategory,
   setSelectedCategory,
+  lng,
 }) {
   const [isSticky, setIsSticky] = useState(false);
   const headerRef = useRef(null);
   const categoriesRef = useRef(null);
-  const scrollContainerRef = useRef(null);
+  const { t } = useTranslation(lng, "common");
+  // Process categories to ensure they're in the correct format
+  const processedCategories = Array.isArray(categories)
+    ? categories.map((cat) => (typeof cat === "string" ? cat : cat.name))
+    : [];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,21 +42,11 @@ export default function ProductHeader({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scroll = (direction) => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 200;
-      scrollContainerRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <>
       <div
         ref={headerRef}
-        className="relative mb-8 overflow-hidden rounded-3xl shadow-lg mt-2"
+        className="relative mb-8 overflow-hidden rounded-3xl shadow-lg pt-4"
       >
         {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
@@ -55,11 +58,11 @@ export default function ProductHeader({
             className="w-full h-full object-cover"
           />
           {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/40 to-green-500/40 " />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/40 to-green-500/40 backdrop-blur-sm" />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 p-12 bg-white/10 backdrop-blur-md">
+        <div className="relative z-10 p-12 bg-white/10 ">
           <motion.div
             className="max-w-3xl mx-auto"
             initial={{ opacity: 0, y: -20 }}
@@ -68,7 +71,7 @@ export default function ProductHeader({
           >
             <h1 className="text-4xl font-bold mb-2 text-center text-white flex items-center justify-center">
               <Sparkles className="w-8 h-8 mr-2 text-yellow-300" />
-              Our Product Catalog
+              {t("catalog.title")}
             </h1>
             <motion.p
               className="text-center text-white/90 mb-8 text-lg"
@@ -76,18 +79,53 @@ export default function ProductHeader({
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Discover our wide range of high-quality products
+              {t("catalog.description")}
             </motion.p>
 
-            <div className="relative mb-4 max-w-2xl mx-auto">
-              <Input
-                type="text"
-                placeholder="Search products..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 pr-4 py-2 w-full rounded-full border-2 border-white/30 bg-white/20 backdrop-blur-lg focus:border-white/50 focus:ring focus:ring-white/20 focus:ring-opacity-50 transition-all duration-300 text-white placeholder-white/70"
-              />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/70" />
+            <div className="flex gap-4 max-w-2xl mx-auto">
+              <div className="relative flex-1">
+                <Input
+                  type="text"
+                  placeholder={t("catalog.searchPlaceholder")}
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10 pr-4 py-2 w-full rounded-lg border-2 border-white/30 bg-white/20 backdrop-blur-lg focus:border-white/50 focus:ring focus:ring-white/20 focus:ring-opacity-50 transition-all duration-300 text-white placeholder-white/70"
+                />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/70" />
+              </div>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    role="combobox"
+                    aria-expanded={false}
+                    className="w-[200px] justify-between border-2 border-white/30 bg-white/20 backdrop-blur-lg hover:bg-white/30 text-white"
+                  >
+                    {selectedCategory || "Select category..."}
+                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-[200px]">
+                  {processedCategories.map((category) => (
+                    <DropdownMenuItem
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className="flex items-center"
+                    >
+                      <Check
+                        className={cn(
+                          "mr-2 h-4 w-4",
+                          selectedCategory === category
+                            ? "opacity-100"
+                            : "opacity-0",
+                        )}
+                      />
+                      {category}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </motion.div>
         </div>
@@ -98,51 +136,55 @@ export default function ProductHeader({
         className={`${
           isSticky
             ? "fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-md py-4"
-            : "bg-transparent py-2"
+            : "hidden"
         } transition-all duration-300`}
       >
-        <div className="max-w-7xl mx-auto px-8 relative">
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white"
-            onClick={() => scroll("left")}
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex gap-4 max-w-2xl mx-auto">
+            <div className="relative flex-1">
+              <Input
+                type="text"
+                placeholder="Search products..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 pr-4 py-2 w-full rounded-lg"
+              />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+            </div>
 
-          <div
-            ref={scrollContainerRef}
-            className="flex overflow-x-auto space-x-2 px-8 py-2 no-scrollbar"
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
-          >
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
-                onClick={() => setSelectedCategory(category)}
-                className={`text-sm whitespace-nowrap flex-shrink-0 transition-all duration-300 ${
-                  selectedCategory === category
-                    ? "bg-blue-600 text-white hover:bg-blue-700"
-                    : "bg-white/80 backdrop-blur-sm text-blue-600 hover:bg-white"
-                }`}
-              >
-                {category}
-              </Button>
-            ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  role="combobox"
+                  aria-expanded={false}
+                  className="w-[200px] justify-between"
+                >
+                  {selectedCategory || "Select category..."}
+                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-[200px]">
+                {processedCategories.map((category) => (
+                  <DropdownMenuItem
+                    key={category}
+                    onClick={() => setSelectedCategory(category)}
+                    className="flex items-center"
+                  >
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        selectedCategory === category
+                          ? "opacity-100"
+                          : "opacity-0",
+                      )}
+                    />
+                    {category}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
-
-          <Button
-            variant="outline"
-            size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white"
-            onClick={() => scroll("right")}
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
         </div>
       </div>
     </>

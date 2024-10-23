@@ -9,6 +9,11 @@
     "blog": "المدونة",
     "contact": "اتصل بنا"
   },
+  "catalog": {
+    "title": "فهرس منتجاتنا",
+    "description": "استكشف مجموعتنا الواسعة من المنتجات عالية الجودة",
+    "searchPlaceholder": "ابحث عن المنتجات..."
+  },
   "clients": "عملائنا",
   "featuredProducts": "منتجاتنا المميزة",
   "hero": {

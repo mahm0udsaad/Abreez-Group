@@ -1,13 +1,19 @@
+// middleware.js
 import { NextResponse } from "next/server";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { languages, fallbackLng } from "./app/i18n/settings";
 
 function getLocale(request) {
+  // Check for the NEXT_LOCALE cookie first
+  const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
+  if (cookieLocale && languages.includes(cookieLocale)) {
+    return cookieLocale;
+  }
+
   const negotiatorHeaders = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-  // Use a different name to avoid conflict
   const availableLanguages = languages;
 
   const browserLanguages = new Negotiator({
@@ -38,7 +44,6 @@ export function middleware(request) {
   }
 }
 
-// Update matcher without capturing groups
 export const config = {
   matcher: [
     "/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|jpg|png|css|js)$).*)",

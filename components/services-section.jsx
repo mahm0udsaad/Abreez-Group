@@ -107,12 +107,12 @@ const ServicesSection = ({ lng }) => {
         </motion.h2>
 
         <Tabs defaultValue="printing" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full h-24 sm:grid-cols-3 mb-8">
             <TabsTrigger
               value="printing"
               className="text-lg flex items-center justify-center"
             >
-              <Printer className="mr-2 h-6 w-6" /> {t("services.tabs.printing")}
+              <Printer className="mx-2 h-6 w-6" /> {t("services.tabs.printing")}
             </TabsTrigger>
             <TabsTrigger
               value="manufacturing"

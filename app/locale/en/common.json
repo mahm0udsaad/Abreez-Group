@@ -1,4 +1,9 @@
 {
+  "catalog": {
+    "title": "Our Product Catalog",
+    "searchPlaceholder": "Search for products...",
+    "description": "Explore our extensive range of high-quality products"
+  },
   "footer": {
     "about": {
       "title": "About Abreez Group",
