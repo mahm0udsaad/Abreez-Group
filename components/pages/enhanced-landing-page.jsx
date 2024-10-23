@@ -117,10 +117,10 @@ export function EnhancedLandingPage({ lng }) {
             {t("hero.subtitle")}
           </motion.p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/products">
-              <Button className="bg-[#2495d3] text-white px-8 py-3 rounded-full font-semibold text-lg transition duration-300 hover:bg-[#0d355a] shadow-lg">
+            <Link href="/products"
+            className="bg-[#2495d3] text-white px-8 py-3 rounded-full font-semibold text-lg transition duration-300 hover:bg-[#0d355a] shadow-lg"
+            >
                 {t("hero.cta")}
-              </Button>
             </Link>
           </motion.div>
         </div>

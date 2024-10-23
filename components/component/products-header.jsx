@@ -63,7 +63,7 @@ export default function ProductHeader({
           <div className="absolute inset-0 bg-gradient-to-b from-blue-500/40 to-green-500/40 backdrop-blur-sm" />
         </div>
 
-        <div className="relative z-10 p-12 bg-white/10 ">
+        <div className="relative z-10 p-12">
           <motion.div
             className="max-w-3xl mx-auto"
             initial={{ opacity: 0, y: -20 }}
@@ -75,7 +75,7 @@ export default function ProductHeader({
               {t("catalog.title")}
             </h1>
             <motion.p
-              className="text-center text-white/90 mb-8 text-lg"
+              className="text-center text-white/90 mb-8 text-lg font-semibold"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -101,14 +101,14 @@ export default function ProductHeader({
                     variant="outline"
                     role="combobox"
                     aria-expanded={false}
-                    className="w-[200px] justify-between border-2 border-white/30 bg-white/20 backdrop-blur-lg hover:bg-white/30 text-white"
+                    className="w-[200px] justify-between border-2 border-white/30 bg-white/20 backdrop-blur-lg hover:bg-white/30"
                   >
                     {t(`categories.${selectedCategory}`) ||
                       "Select category..."}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[200px]">
+                <DropdownMenuContent className="w-[200px] border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold">
                   {processedCategories.map((category) => (
                     <DropdownMenuItem
                       key={category}
@@ -137,19 +137,19 @@ export default function ProductHeader({
         ref={categoriesRef}
         className={`${
           isSticky
-            ? "fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-md py-4"
+            ? "fixed top-0 left-0 right-0 z-50 bg-white/20 backdrop-blur-lg shadow-md py-4"
             : "hidden"
         } transition-all duration-300`}
       >
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex gap-4 max-w-2xl mx-auto">
-            <div className="relative flex-1">
+            <div className="relative flex-1 ">
               <Input
                 type="text"
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={handleSearch}
-                className="pl-10 pr-4 py-2 w-full rounded-lg"
+                className="pl-10 pr-4 py-2 w-full rounded-lg bg-white/20 backdrop-blur-lg"
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </div>
@@ -160,13 +160,13 @@ export default function ProductHeader({
                   variant="outline"
                   role="combobox"
                   aria-expanded={false}
-                  className="w-[200px] justify-between"
+                  className="w-[200px] justify-between bg-white/20 backdrop-blur-lg"
                 >
                   {t(`categories.${selectedCategory}`) || "Select category..."}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[200px]">
+              <DropdownMenuContent className="w-[200px] border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold">
                 {processedCategories.map((category) => (
                   <DropdownMenuItem
                     key={category}

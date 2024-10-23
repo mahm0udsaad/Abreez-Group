@@ -6,12 +6,14 @@ import Link from "next/link";
 import { useTranslation } from "@/app/i18n/client";
 import { Button } from "../ui/button";
 import LanguageSwitcher from "../btns/lang-switch";
+import { usePathname } from "next/navigation";
 
 export default function NavBar({ lng }) {
   const { t } = useTranslation(lng, "common");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-
+  const pathname = usePathname();
+  const pathnameList = pathname.split("/");
   const navItems = [
     { name: t("navigation.home"), href: "/#" },
     { name: t("navigation.about"), href: "/#about" },
@@ -31,7 +33,9 @@ export default function NavBar({ lng }) {
   return (
     <header
       dir="ltr"
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
+      className={`${
+        pathnameList.includes("products") ? "absolute" : "fixed"
+      }  top-0 z-50 w-full transition-all duration-300 ${
         scrollPosition > 50 ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
