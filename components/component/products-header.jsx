@@ -102,7 +102,8 @@ export default function ProductHeader({
                     aria-expanded={false}
                     className="w-[200px] justify-between border-2 border-white/30 bg-white/20 backdrop-blur-lg hover:bg-white/30 text-white"
                   >
-                    {selectedCategory || "Select category..."}
+                    {t(`categories.${selectedCategory}`) ||
+                      "Select category..."}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </DropdownMenuTrigger>
@@ -121,7 +122,7 @@ export default function ProductHeader({
                             : "opacity-0",
                         )}
                       />
-                      {category}
+                      {t(`categories.${category}`)}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -160,7 +161,7 @@ export default function ProductHeader({
                   aria-expanded={false}
                   className="w-[200px] justify-between"
                 >
-                  {selectedCategory || "Select category..."}
+                  {t(`categories.${selectedCategory}`) || "Select category..."}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </DropdownMenuTrigger>
@@ -179,7 +180,7 @@ export default function ProductHeader({
                           : "opacity-0",
                       )}
                     />
-                    {category}
+                    {t(`categories.${category}`)}
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>

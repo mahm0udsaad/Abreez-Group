@@ -10,6 +10,7 @@ import { ChevronRight, Package, Circle } from "lucide-react";
 import productsData from "@/data/products.json";
 import Image from "next/image";
 import ProductHeader from "./component/products-header";
+import { useTranslation } from "@/app/i18n/client";
 
 const ITEMS_PER_LOAD = 12; // Number of items to load per batch
 
@@ -22,7 +23,7 @@ export function ProductListing({ lng }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedColors, setSelectedColors] = useState({});
   const loadMoreRef = useRef(null); // Ref for the load more trigger
-
+  const { t } = useTranslation(lng, "common");
   // Flatten and filter products based on search and category
   const filteredProducts = useMemo(() => {
     let products = [];
@@ -103,7 +104,7 @@ export function ProductListing({ lng }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            No products found.
+            {t("no_products_found")}
           </motion.p>
         ) : (
           <motion.div
@@ -148,19 +149,27 @@ export function ProductListing({ lng }) {
                       className="absolute top-2 right-2"
                     >
                       {product.totalAvailable > 0
-                        ? `${product.totalAvailable} available`
-                        : "Out of stock"}
+                        ? t("available") +
+                          " " +
+                          product.colors.reduce(
+                            (acc, c) => acc + c.available,
+                            0,
+                          )
+                        : t("out_of_stock")}
                     </Badge>
                   </div>
                   <CardContent className="p-4 flex-grow">
                     <Tabs defaultValue="info" className="w-full">
                       <TabsList className="grid w-full grid-cols-2">
-                        <TabsTrigger value="info">Info</TabsTrigger>
+                        <TabsTrigger value="info">{t("tabs.info")}</TabsTrigger>
                         <TabsTrigger value="description">
-                          Description
+                          {t("tabs.description")}
                         </TabsTrigger>
                       </TabsList>
-                      <TabsContent value="info">
+                      <TabsContent
+                        dir={lng === "en" ? "ltr" : "rtl"}
+                        value="info"
+                      >
                         <h2 className="text-xl font-semibold line-clamp-1 mb-2">
                           {product.name}
                         </h2>
@@ -169,7 +178,7 @@ export function ProductListing({ lng }) {
                             <div className="flex items-center gap-2 mb-2">
                               <Package className="h-5 w-5 text-blue-500" />
                               <span className="font-semibold text-gray-700">
-                                Available Colors:
+                                <span>{t("available_colors")}</span>
                               </span>
                             </div>
                             <div className="grid grid-cols-2 gap-2">
@@ -197,7 +206,7 @@ export function ProductListing({ lng }) {
                                     </span>
                                   </div>
                                   <span className="text-xs font-medium">
-                                    {color.available} pcs
+                                    {color.available} {t("pcs")}
                                   </span>
                                 </Button>
                               ))}
@@ -225,7 +234,7 @@ export function ProductListing({ lng }) {
                   </CardContent>
                   <CardFooter className="p-4">
                     <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
-                      View Details
+                      {t("view_details")}
                       <ChevronRight className="ml-2 h-4 w-4" />
                     </Button>
                   </CardFooter>
@@ -241,7 +250,7 @@ export function ProductListing({ lng }) {
           className="h-20 flex justify-center items-center"
         >
           {loadedProducts < filteredProducts.length && (
-            <p>Loading more products...</p>
+            <p>{t("loading_more_products")}</p>
           )}
         </div>
       </div>

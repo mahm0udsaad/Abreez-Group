@@ -1,4 +1,3 @@
-// middleware.js
 import { NextResponse } from "next/server";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";

@@ -71,7 +71,7 @@ const Footer = async ({ lng }) => {
               </p>
               <p className="flex items-center mb-2">
                 <Phone className="mx-2 h-4 w-4 text-[#8cc63f]" />{" "}
-                {t("footer.contactUs.details.phone")}
+                <span dir="ltr">{t("footer.contactUs.details.phone")}</span>
               </p>
               <p className="flex items-center">
                 <Clock className="mx-2 h-4 w-4 text-[#8cc63f]" />{" "}

@@ -8,7 +8,7 @@ export const AutoScrollingRow = ({ children, lng }) => {
       <motion.div
         className="inline-flex"
         animate={{ x: [0, "-100%"] }}
-        transition={{ repeat: Infinity, duration: 50 }}
+        transition={{ repeat: Infinity, duration: 70, delay: 0.2 }}
       >
         {children}
         {children}
