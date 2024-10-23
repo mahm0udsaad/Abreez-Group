@@ -25,7 +25,7 @@ export default function ProductHeader({
   const headerRef = useRef(null);
   const categoriesRef = useRef(null);
   const { t } = useTranslation(lng, "common");
-  // Process categories to ensure they're in the correct format
+
   const processedCategories = Array.isArray(categories)
     ? categories.map((cat) => (typeof cat === "string" ? cat : cat.name))
     : [];
@@ -42,13 +42,16 @@ export default function ProductHeader({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
   return (
     <>
       <div
         ref={headerRef}
         className="relative mb-8 overflow-hidden rounded-3xl shadow-lg pt-4"
       >
-        {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-cover.png"
@@ -57,11 +60,9 @@ export default function ProductHeader({
             height={400}
             className="w-full h-full object-cover"
           />
-          {/* Overlay gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-blue-500/40 to-green-500/40 backdrop-blur-sm" />
         </div>
 
-        {/* Content */}
         <div className="relative z-10 p-12 bg-white/10 ">
           <motion.div
             className="max-w-3xl mx-auto"
@@ -88,7 +89,7 @@ export default function ProductHeader({
                   type="text"
                   placeholder={t("catalog.searchPlaceholder")}
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={handleSearch}
                   className="pl-10 pr-4 py-2 w-full rounded-lg border-2 border-white/30 bg-white/20 backdrop-blur-lg focus:border-white/50 focus:ring focus:ring-white/20 focus:ring-opacity-50 transition-all duration-300 text-white placeholder-white/70"
                 />
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/70" />
@@ -147,7 +148,7 @@ export default function ProductHeader({
                 type="text"
                 placeholder="Search products..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={handleSearch}
                 className="pl-10 pr-4 py-2 w-full rounded-lg"
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />

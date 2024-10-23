@@ -12,19 +12,29 @@ import Image from "next/image";
 import ProductHeader from "./component/products-header";
 import { useTranslation } from "@/app/i18n/client";
 
-const ITEMS_PER_LOAD = 12; // Number of items to load per batch
+const ITEMS_PER_LOAD = 12;
 
-// Extract unique categories from the data
 const categories = ["All", ...productsData.categories.map((cat) => cat.name)];
 
 export function ProductListing({ lng }) {
-  const [loadedProducts, setLoadedProducts] = useState(ITEMS_PER_LOAD); // Track how many products to load
+  const [loadedProducts, setLoadedProducts] = useState(ITEMS_PER_LOAD);
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedColors, setSelectedColors] = useState({});
-  const loadMoreRef = useRef(null); // Ref for the load more trigger
+  const loadMoreRef = useRef(null);
   const { t } = useTranslation(lng, "common");
-  // Flatten and filter products based on search and category
+
+  // Add debouncing effect for search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm.toLowerCase());
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
+
+  // Enhanced filtered products with search functionality
   const filteredProducts = useMemo(() => {
     let products = [];
 
@@ -39,10 +49,25 @@ export function ProductListing({ lng }) {
       products = categoryData ? categoryData.products : [];
     }
 
-    return products.filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()),
-    );
-  }, [searchTerm, selectedCategory]);
+    return products.filter((product) => {
+      const searchMatches =
+        product.name.toLowerCase().includes(debouncedSearchTerm) ||
+        product.description.toLowerCase().includes(debouncedSearchTerm) ||
+        product.category.some((cat) =>
+          cat.name.toLowerCase().includes(debouncedSearchTerm),
+        ) ||
+        product.colors.some((color) =>
+          color.name.toLowerCase().includes(debouncedSearchTerm),
+        );
+
+      return searchMatches;
+    });
+  }, [debouncedSearchTerm, selectedCategory]);
+
+  // Reset loadedProducts when search term or category changes
+  useEffect(() => {
+    setLoadedProducts(ITEMS_PER_LOAD);
+  }, [debouncedSearchTerm, selectedCategory]);
 
   // Get the current products to display
   const currentProducts = filteredProducts.slice(0, loadedProducts);
@@ -54,7 +79,7 @@ export function ProductListing({ lng }) {
     }
   };
 
-  // Set up IntersectionObserver to trigger load more when scrolling
+  // Set up IntersectionObserver for infinite scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -63,7 +88,7 @@ export function ProductListing({ lng }) {
         }
       },
       {
-        rootMargin: "200px", // Trigger when 200px away from the bottom
+        rootMargin: "200px",
       },
     );
 
@@ -244,7 +269,6 @@ export function ProductListing({ lng }) {
           </motion.div>
         )}
 
-        {/* Observer element to trigger infinite scroll */}
         <div
           ref={loadMoreRef}
           className="h-20 flex justify-center items-center"

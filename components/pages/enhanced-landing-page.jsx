@@ -15,6 +15,7 @@ import ClientSecion from "../clients-secion";
 import ProductSection from "../product-section";
 import FAQSection from "../faq-section";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export function EnhancedLandingPage({ lng }) {
   const { t } = useTranslation(lng, "common");
@@ -115,14 +116,13 @@ export function EnhancedLandingPage({ lng }) {
           >
             {t("hero.subtitle")}
           </motion.p>
-          <motion.button
-            onClick={() => router.push("/products")}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#2495d3] text-white px-8 py-3 rounded-full font-semibold text-lg transition duration-300 hover:bg-[#0d355a] shadow-lg"
-          >
-            {t("hero.cta")}
-          </motion.button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="/products">
+              <Button className="bg-[#2495d3] text-white px-8 py-3 rounded-full font-semibold text-lg transition duration-300 hover:bg-[#0d355a] shadow-lg">
+                {t("hero.cta")}
+              </Button>
+            </Link>
+          </motion.div>
         </div>
       </section>
 
