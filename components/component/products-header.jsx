@@ -108,7 +108,7 @@ export default function ProductHeader({
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[200px] border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold">
+                <DropdownMenuContent className="w-[200px] glass-scrollbar h-[70dvh] overflow-y-auto border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold">
                   {processedCategories.map((category) => (
                     <DropdownMenuItem
                       key={category}
@@ -166,7 +166,7 @@ export default function ProductHeader({
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[200px] border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold">
+              <DropdownMenuContent className="w-[200px] glass-scrollbar h-[70dvh] overflow-y-auto border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold">
                 {processedCategories.map((category) => (
                   <DropdownMenuItem
                     key={category}
