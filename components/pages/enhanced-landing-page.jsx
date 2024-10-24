@@ -14,17 +14,15 @@ import { PortfolioSection } from "../portfolio-section";
 import ClientSecion from "../clients-secion";
 import ProductSection from "../product-section";
 import FAQSection from "../faq-section";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 export function EnhancedLandingPage({ lng }) {
   const { t } = useTranslation(lng, "common");
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-  const router = useRouter();
   const heroImages = [
-    "https://img.freepik.com/premium-photo/ecofriendly-packaging-options-displayed-sustainable-style_1032986-283988.jpg",
-    "https://img.freepik.com/premium-photo/vegan-food-hamper-funeral-gift-baskets-new-home-gift-basket-search-engine-marketing_1058796-42460.jpg",
+    "/hero-cover-0.png",
+    "/hero-cover-1.png",
     "/hero-cover.png",
   ];
 
@@ -117,10 +115,11 @@ export function EnhancedLandingPage({ lng }) {
             {t("hero.subtitle")}
           </motion.p>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/products"
-            className="bg-[#2495d3] text-white px-8 py-3 rounded-full font-semibold text-lg transition duration-300 hover:bg-[#0d355a] shadow-lg"
+            <Link
+              href="/products"
+              className="bg-[#2495d3] text-white px-8 py-3 rounded-full font-semibold text-lg transition duration-300 hover:bg-[#0d355a] shadow-lg"
             >
-                {t("hero.cta")}
+              {t("hero.cta")}
             </Link>
           </motion.div>
         </div>

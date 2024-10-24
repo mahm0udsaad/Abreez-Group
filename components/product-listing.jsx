@@ -112,7 +112,7 @@ export function ProductListing({ lng }) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="">
+      <div className="max-w-7xl mx-auto">
         <ProductHeader
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
@@ -122,7 +122,7 @@ export function ProductListing({ lng }) {
           lng={lng}
         />
 
-        <div className="min-h-screen max-w-7xl mx-auto">
+        <div className="min-h-screen">
           {currentProducts.length === 0 ? (
             <motion.p
               className="text-center text-gray-500 mt-8 text-xl min-h-screen"

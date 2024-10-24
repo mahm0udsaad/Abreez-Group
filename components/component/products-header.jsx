@@ -48,7 +48,7 @@ export default function ProductHeader({
 
   return (
     <>
-      <div ref={headerRef} className="relative mb-8 overflow-hidden pt-8">
+      <div ref={headerRef} className="relative mb-8 overflow-hidden pt-4">
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-cover.png"
