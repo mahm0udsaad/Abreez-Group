@@ -74,7 +74,7 @@ export function ProductListing({ lng }) {
 
   // Function to load more products
   const loadMoreProducts = () => {
-    if (loadedProducts < filteredProducts.length) {
+    if (loadedProducts < filteredProducts?.length) {
       setLoadedProducts((prev) => prev + ITEMS_PER_LOAD);
     }
   };

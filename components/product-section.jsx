@@ -16,7 +16,7 @@ export default function ProductSection({ lng }) {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef);
   const { t } = useTranslation(lng, "common");
-  const products = productsData.allProducts;
+  const products = Object.values(productsData.categories).flat();
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,7 +37,7 @@ export default function ProductSection({ lng }) {
     if (isInView) {
       productInterval = setInterval(() => {
         const itemsPerSlide = isMobile ? 2 : 3;
-        const maxIndex = Math.ceil(products.length / itemsPerSlide) - 1;
+        const maxIndex = Math.ceil(products?.length / itemsPerSlide) - 1;
         setCurrentProductIndex((prevIndex) => (prevIndex + 1) % maxIndex);
       }, 4000);
     }
