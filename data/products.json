@@ -15,26 +15,31 @@
         ],
         "colors": [
           {
+            "id": "NOT46902",
             "name": "green",
             "available": 150,
             "image": "/green.jpg"
           },
           {
+            "id": "NOT46903",
             "name": "red",
             "available": 100,
             "image": "/red.jpg"
           },
           {
+            "id": "NOT46904",
             "name": "blue",
             "available": 125,
             "image": "/blue.jpg"
           },
           {
+            "id": "NOT46905",
             "name": "black",
             "available": 75,
             "image": "/black.jpg"
           },
           {
+            "id": "NOT469026",
             "name": "gray",
             "available": 50,
             "image": "/gray.jpg"

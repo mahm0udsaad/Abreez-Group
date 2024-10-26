@@ -130,7 +130,7 @@ const ColorSwitchingCard = ({ product, lng }) => {
             className="mt-2 mx-2 flex gap-1 bg-gray-200 rounded-md hover:bg-blue-100 "
           >
             <span className="text-lg">#</span>
-            {product.id}
+            {currentColor.id}
           </Badge>
         </div>
         <CardFooter className="p-4">
