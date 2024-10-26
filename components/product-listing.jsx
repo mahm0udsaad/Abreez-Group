@@ -11,6 +11,7 @@ import productsData from "@/data/products.json";
 import Image from "next/image";
 import ProductHeader from "./component/products-header";
 import { useTranslation } from "@/app/i18n/client";
+import ColorSwitchingCard from "./cards/product-card";
 
 const ITEMS_PER_LOAD = 12;
 
@@ -139,6 +140,10 @@ export function ProductListing({ lng }) {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
+              {selectedCategory === "Notebooks" ||
+                (selectedCategory === "All" && (
+                  <ColorSwitchingCard lng={lng} />
+                ))}
               {currentProducts.map((product, index) => (
                 <motion.div
                   key={product.id}
