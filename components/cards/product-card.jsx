@@ -8,45 +8,14 @@ import { ChevronRight, Package, Circle } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "@/app/i18n/client";
 
-const ColorSwitchingCard = ({ lng }) => {
+const ColorSwitchingCard = ({ product, lng }) => {
   const [selectedColor, setSelectedColor] = useState("white");
   const { t } = useTranslation(lng, "common");
-
-  // Product data
-  const product = {
-    id: "pu-notebook-1",
-    name: "White PU Notebook",
-    totalAvailable: 500,
-    description:
-      "Premium PU leather notebook with elegant design and multiple color options. Features high-quality paper and a durable binding system.",
-    category: [{ name: "Notebooks" }],
-    colors: [
-      {
-        name: "green",
-        available: 150,
-        image: "/green.jpg",
-      },
-      {
-        name: "red",
-        available: 100,
-        image: "/red.jpg",
-      },
-      {
-        name: "blue",
-        available: 125,
-        image: "/blue.jpg",
-      },
-      {
-        name: "black",
-        available: 75,
-        image: "/black.jpg",
-      },
-      {
-        name: "gray",
-        available: 50,
-        image: "/gray.jpg",
-      },
-    ],
+  const generateProductId = (product) => {
+    return `${product.category[0].name
+      .split(" ")[0]
+      .slice(0, 3)
+      .toUpperCase()}${product.id}`;
   };
 
   const handleColorClick = (colorName) => {
@@ -154,6 +123,16 @@ const ColorSwitchingCard = ({ lng }) => {
             ))}
           </div>
         </CardContent>
+        <div className="mx-3 flex items-center ">
+          <Badge
+            dir="ltr"
+            variant="outline"
+            className="mt-2 mx-2 flex gap-1 bg-gray-200 rounded-md hover:bg-blue-100 "
+          >
+            <span className="text-lg">#</span>
+            {product.id}
+          </Badge>
+        </div>
         <CardFooter className="p-4">
           <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
             {t("view_details")}

@@ -15,7 +15,8 @@ import ColorSwitchingCard from "./cards/product-card";
 
 const ITEMS_PER_LOAD = 12;
 
-const categories = ["All", ...productsData.categories.map((cat) => cat.name)];
+// Get unique categories from the products.json file
+const categories = ["All", ...Object.keys(productsData.categories)];
 
 export function ProductListing({ lng }) {
   const [loadedProducts, setLoadedProducts] = useState(ITEMS_PER_LOAD);
@@ -35,19 +36,16 @@ export function ProductListing({ lng }) {
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  // Enhanced filtered products with search functionality
+  // Modified to use new data structure
   const filteredProducts = useMemo(() => {
     let products = [];
 
     if (selectedCategory === "All") {
-      products = productsData.categorizedProducts.flatMap(
-        (category) => category.products,
-      );
+      // Flatten all products from all categories
+      products = Object.values(productsData.categories).flat();
     } else {
-      const categoryData = productsData.categorizedProducts.find(
-        (category) => category.name === selectedCategory,
-      );
-      products = categoryData ? categoryData.products : [];
+      // Get products from selected category
+      products = productsData.categories[selectedCategory] || [];
     }
 
     return products.filter((product) => {
@@ -59,7 +57,8 @@ export function ProductListing({ lng }) {
         ) ||
         product.colors.some((color) =>
           color.name.toLowerCase().includes(debouncedSearchTerm),
-        );
+        ) ||
+        product.id.toLowerCase().includes(debouncedSearchTerm);
 
       return searchMatches;
     });
@@ -88,9 +87,7 @@ export function ProductListing({ lng }) {
           loadMoreProducts();
         }
       },
-      {
-        rootMargin: "200px",
-      },
+      { rootMargin: "200px" },
     );
 
     if (loadMoreRef.current) {
@@ -140,142 +137,148 @@ export function ProductListing({ lng }) {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              {selectedCategory === "Notebooks" ||
-                (selectedCategory === "All" && (
-                  <ColorSwitchingCard lng={lng} />
-                ))}
-              {currentProducts.map((product, index) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  <Card className="h-full flex flex-col overflow-hidden group hover:shadow-xl transition-shadow duration-300">
-                    <div className="relative overflow-hidden">
-                      <Image
-                        src={product.images.main}
-                        alt={product.name}
-                        width={480}
-                        height={360}
-                        className="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-110"
-                      />
-                      <AnimatePresence>
-                        {selectedColors[product.id] && (
-                          <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.2 }}
-                            exit={{ opacity: 0 }}
-                            className="absolute inset-0"
-                            style={{
-                              backgroundColor: selectedColors[product.id],
-                            }}
-                          />
-                        )}
-                      </AnimatePresence>
-                      <Badge
-                        variant={
-                          product.totalAvailable > 0
-                            ? "secondary"
-                            : "destructive"
-                        }
-                        className="absolute top-2 right-2"
-                      >
-                        {product.totalAvailable > 0
-                          ? t("available") +
-                            " " +
-                            product.colors.reduce(
-                              (acc, c) => acc + c.available,
-                              0,
-                            )
-                          : t("out_of_stock")}
-                      </Badge>
-                    </div>
-                    <CardContent className="p-4 flex-grow">
-                      <Tabs defaultValue="info" className="w-full">
-                        <TabsList className="grid w-full grid-cols-2">
-                          <TabsTrigger value="info">
-                            {t("tabs.info")}
-                          </TabsTrigger>
-                          <TabsTrigger value="description">
-                            {t("tabs.description")}
-                          </TabsTrigger>
-                        </TabsList>
-                        <TabsContent
-                          dir={lng === "en" ? "ltr" : "rtl"}
-                          value="info"
-                        >
-                          <h2 className="text-xl font-semibold line-clamp-1 mb-2">
-                            {product.name}
-                          </h2>
-                          {product.colors && product.colors.length > 0 && (
-                            <div className="mt-4">
-                              <div className="flex items-center gap-2 mb-2">
-                                <Package className="h-5 w-5 text-blue-500" />
-                                <span className="font-semibold text-gray-700">
-                                  <span>{t("available_colors")}</span>
-                                </span>
-                              </div>
-                              <div className="grid grid-cols-2 gap-2">
-                                {product.colors.map((color) => (
-                                  <Button
-                                    key={color.name}
-                                    variant="outline"
-                                    className={`flex items-center justify-between px-2 py-1 h-auto transition-all duration-300 ${
-                                      selectedColors[product.id] === color.name
-                                        ? "ring-2 ring-blue-500 bg-blue-50"
-                                        : "hover:bg-gray-100"
-                                    }`}
-                                    onClick={() =>
-                                      handleColorClick(product.id, color.name)
-                                    }
-                                  >
-                                    <div className="flex items-center gap-1">
-                                      <Circle
-                                        className="h-4 w-4"
-                                        fill={color.name}
-                                        color={color.name}
-                                      />
-                                      <span className="text-xs capitalize">
-                                        {color.name}
-                                      </span>
-                                    </div>
-                                    <span className="text-xs font-medium">
-                                      {color.available} {t("pcs")}
-                                    </span>
-                                  </Button>
-                                ))}
-                              </div>
-                            </div>
+              {currentProducts.map((product, index) =>
+                product.multiImages ? (
+                  <ColorSwitchingCard product={product} lng={lng} />
+                ) : (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                  >
+                    <Card className="h-full flex flex-col overflow-hidden group hover:shadow-xl transition-shadow duration-300">
+                      <div className="relative overflow-hidden">
+                        <Image
+                          src={product.colors[0].image} // Using first color's image
+                          alt={product.name}
+                          width={480}
+                          height={360}
+                          className="w-full h-64 object-contain transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <AnimatePresence>
+                          {selectedColors[product.id] && (
+                            <motion.div
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 0.2 }}
+                              exit={{ opacity: 0 }}
+                              className="absolute inset-0"
+                              style={{
+                                backgroundColor: selectedColors[product.id],
+                              }}
+                            />
                           )}
-                        </TabsContent>
-                        <TabsContent value="description">
-                          <p className="text-sm text-gray-600">
-                            {product.description}
-                          </p>
-                        </TabsContent>
-                      </Tabs>
-                      <div className="mt-4">
-                        {product.category.map((cat) => (
-                          <Badge
-                            key={cat.name}
-                            variant="outline"
-                            className="mt-2 mr-2 bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300"
-                          >
-                            {cat.name}
-                          </Badge>
-                        ))}
+                        </AnimatePresence>
+                        <Badge
+                          variant={
+                            product.totalAvailable > 0
+                              ? "secondary"
+                              : "destructive"
+                          }
+                          className="absolute top-2 right-2"
+                        >
+                          {product.totalAvailable > 0
+                            ? `${t("available")} ${product.totalAvailable}`
+                            : t("out_of_stock")}
+                        </Badge>
                       </div>
-                    </CardContent>
-                    <CardFooter className="p-4">
-                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
-                        {t("view_details")}
-                        <ChevronRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                </motion.div>
-              ))}
+                      <CardContent className="p-4 flex-grow">
+                        <Tabs defaultValue="info" className="w-full">
+                          <TabsList className="grid w-full grid-cols-2">
+                            <TabsTrigger value="info">
+                              {t("tabs.info")}
+                            </TabsTrigger>
+                            <TabsTrigger value="description">
+                              {t("tabs.description")}
+                            </TabsTrigger>
+                          </TabsList>
+                          <TabsContent
+                            dir={lng === "en" ? "ltr" : "rtl"}
+                            value="info"
+                          >
+                            <h2 className="text-xl font-semibold line-clamp-1 mb-2">
+                              {product.name}
+                            </h2>
+                            {product.colors && product.colors.length > 0 && (
+                              <div className="mt-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Package className="h-5 w-5 text-blue-500" />
+                                  <span className="font-semibold text-gray-700">
+                                    {t("available_colors")}
+                                  </span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2">
+                                  {product.colors.map((color) => (
+                                    <Button
+                                      key={color.name}
+                                      variant="outline"
+                                      className={`flex items-center justify-between px-2 py-1 h-auto transition-all duration-300 ${
+                                        selectedColors[product.id] ===
+                                        color.name
+                                          ? "ring-2 ring-blue-500 bg-blue-50"
+                                          : "hover:bg-gray-100"
+                                      }`}
+                                      onClick={() =>
+                                        handleColorClick(product.id, color.name)
+                                      }
+                                    >
+                                      <div className="flex items-center gap-1">
+                                        <Circle
+                                          className="h-4 w-4"
+                                          fill={color.name}
+                                          color={color.name}
+                                        />
+                                        <span className="text-xs capitalize">
+                                          {color.name}
+                                        </span>
+                                      </div>
+                                      <span className="text-xs font-medium">
+                                        {color.available} {t("pcs")}
+                                      </span>
+                                    </Button>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </TabsContent>
+                          <TabsContent value="description">
+                            <p className="text-sm text-gray-600">
+                              {product.description}
+                            </p>
+                          </TabsContent>
+                        </Tabs>
+                        <div className="mt-4">
+                          {product.category.map((cat) => (
+                            <Badge
+                              key={cat.name}
+                              variant="outline"
+                              className="mt-2 mr-2 bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300"
+                            >
+                              {cat.name}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                      <div className="mx-3 flex items-center">
+                        <Badge
+                          dir="ltr"
+                          variant="outline"
+                          className="mt-2 mx-2 flex gap-1 bg-gray-200 rounded-md hover:bg-blue-100"
+                        >
+                          <span className="text-lg">#</span>
+                          {product.id}
+                        </Badge>
+                      </div>
+                      <CardFooter className="p-4">
+                        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
+                          {t("view_details")}
+                          <ChevronRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </motion.div>
+                ),
+              )}
             </motion.div>
           )}
         </div>
