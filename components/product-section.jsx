@@ -63,7 +63,7 @@ export default function ProductSection({ lng }) {
         <CardContent className="p-0">
           <div className="relative">
             <Image
-              src={product.images.main}
+              src={product.colors[0].image}
               alt={product.name}
               width={300}
               height={300}
