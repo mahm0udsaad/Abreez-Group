@@ -8,30 +8,30 @@ import { ChevronRight, Package, Circle } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "@/app/i18n/client";
 
-const ColorSwitchingCard = ({ product, lng }) => {
+const ColorSwitchingCard = ({ product, lng, searchTerm }) => {
   const [selectedColor, setSelectedColor] = useState("white");
   const { t } = useTranslation(lng, "common");
-  const generateProductId = (product) => {
-    return `${product.category[0].name
-      .split(" ")[0]
-      .slice(0, 3)
-      .toUpperCase()}${product.id}`;
-  };
 
+  // Find the color by ID if searchTerm matches a color's id
+  const colorById = product.colors.find((color) => color.id === searchTerm);
+
+  // Set current color based on selected color or matching searchTerm
+  const currentColor =
+    colorById ||
+    product.colors.find((c) => c.name === selectedColor) ||
+    product.colors[0];
+
+  // Handle color click to toggle selected color
   const handleColorClick = (colorName) => {
     setSelectedColor(colorName === selectedColor ? null : colorName);
   };
-
-  // Get current color data
-  const currentColor =
-    product.colors.find((c) => c.name === selectedColor) || product.colors[0];
 
   return (
     <motion.div
       key={product.id}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: 0 * 0.1 }}
+      transition={{ duration: 0.3 }}
     >
       <Card className="h-full flex flex-col overflow-hidden group hover:shadow-xl transition-shadow duration-300">
         <div className="relative overflow-hidden">
@@ -40,10 +40,10 @@ const ColorSwitchingCard = ({ product, lng }) => {
               key={currentColor.name}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0 * 0.1 }}
+              transition={{ duration: 0.3 }}
             >
               <Image
-                src={currentColor.image} // Dynamically update image based on selected color
+                src={currentColor.image} // Dynamically updates image based on selected color or searchTerm
                 alt={`${product.name} in ${currentColor.name}`}
                 width={400}
                 height={300}
@@ -56,9 +56,10 @@ const ColorSwitchingCard = ({ product, lng }) => {
             className="absolute top-2 right-2"
           >
             {product.totalAvailable > 0
-              ? t("available") +
-                " " +
-                product.colors.reduce((acc, c) => acc + c.available, 0)
+              ? `${t("available")} ${product.colors.reduce(
+                  (acc, c) => acc + c.available,
+                  0,
+                )}`
               : t("out_of_stock")}
           </Badge>
         </div>
@@ -77,7 +78,7 @@ const ColorSwitchingCard = ({ product, lng }) => {
               <div className="flex items-center gap-2 mb-2">
                 <Package className="h-5 w-5 text-blue-500" />
                 <span className="font-semibold text-gray-700">
-                  <span>{t("available_colors")}</span>
+                  {t("available_colors")}
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -123,11 +124,11 @@ const ColorSwitchingCard = ({ product, lng }) => {
             ))}
           </div>
         </CardContent>
-        <div className="mx-3 flex items-center ">
+        <div className="mx-3 flex items-center">
           <Badge
             dir="ltr"
             variant="outline"
-            className="mt-2 mx-2 flex gap-1 bg-gray-200 rounded-md hover:bg-blue-100 "
+            className="mt-2 mx-2 flex gap-1 bg-gray-200 rounded-md hover:bg-blue-100"
           >
             <span className="text-lg">#</span>
             {currentColor.id}

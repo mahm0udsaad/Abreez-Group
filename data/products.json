@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2024-10-26T14:40:16.818Z",
+  "lastUpdated": "2024-10-28T03:41:59.718Z",
   "categories": {
     "Notebooks": [
       {
@@ -15,7 +15,7 @@
         ],
         "colors": [
           {
-            "id": "NOT46902",
+            "id": "NOT46900",
             "name": "green",
             "available": 150,
             "image": "/green.jpg"
@@ -45,40 +45,6 @@
             "image": "/gray.jpg"
           }
         ]
-      },
-      {
-        "id": "NOT78774",
-        "name": "PU Notebooks B5 Size with Pen Loop, Ribbon Bookmark and Elastic Band",
-        "totalAvailable": 360,
-        "description": "PU Notebooks B5 Size with Pen Loop, Ribbon Bookmark and Elastic Band. Premium quality product designed for professional use.",
-        "category": [
-          {
-            "name": "Notebooks"
-          }
-        ],
-        "colors": [
-          {
-            "name": "blue",
-            "available": 56,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
-          },
-          {
-            "name": "gray",
-            "available": 126,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
-          },
-          {
-            "name": "red",
-            "available": 108,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
-          },
-          {
-            "name": "yellow",
-            "available": 70,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
-          }
-        ],
-        "productUrl": "https://abreezgroup.com/product/pu-notebooks-b5-size-with-pen-loop-ribbon-bookmark-and-elastic-band/"
       }
     ],
     "Ceramic Mugs": [
@@ -99,22 +65,26 @@
           {
             "name": "blue",
             "available": 126,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "purple",
             "available": 52,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "black",
             "available": 99,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "brown",
             "available": 159,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/ceramic-coffee-mugs-with-bamboo-handle-and-lid-380ml/"
@@ -133,25 +103,72 @@
           {
             "name": "purple",
             "available": 95,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "yellow",
             "available": 141,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "gray",
             "available": 85,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "white",
             "available": 188,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/ceramic-mugs-with-bottom-clay-in-12-oz-matte-finish/"
+      }
+    ],
+    "Eco-Friendly Mugs": [
+      {
+        "id": "CER94426",
+        "name": "Ceramic Coffee Mugs with Bamboo Handle and Lid 380ml",
+        "totalAvailable": 436,
+        "description": "Ceramic Coffee Mugs with Bamboo Handle and Lid 380ml. Premium quality product designed for professional use.",
+        "category": [
+          {
+            "name": "Ceramic Mugs"
+          },
+          {
+            "name": "Eco-Friendly Mugs"
+          }
+        ],
+        "colors": [
+          {
+            "name": "blue",
+            "available": 126,
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
+          },
+          {
+            "name": "purple",
+            "available": 52,
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
+          },
+          {
+            "name": "black",
+            "available": 99,
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
+          },
+          {
+            "name": "brown",
+            "available": 159,
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
+          }
+        ],
+        "productUrl": "https://abreezgroup.com/product/ceramic-coffee-mugs-with-bamboo-handle-and-lid-380ml/"
       }
     ],
     "Sports Bottles": [
@@ -172,17 +189,20 @@
           {
             "name": "black",
             "available": 195,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "blue",
             "available": 101,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "purple",
             "available": 65,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/rpet-transparent-bottles-800ml-ss-lid-with-carry-handle/"
@@ -204,12 +224,14 @@
           {
             "name": "gray",
             "available": 106,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "green",
             "available": 182,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/sports-glass-bottles-500ml-twist-off-lid-and-carry-handle/"
@@ -231,17 +253,20 @@
           {
             "name": "red",
             "available": 77,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 108,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "black",
             "available": 118,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/temperature-display-black-tumblers-in-ss-510ml/"
@@ -266,22 +291,26 @@
           {
             "name": "blue",
             "available": 148,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "gray",
             "available": 198,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "green",
             "available": 77,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "black",
             "available": 95,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/double-wall-ss-tumblers-with-slide-lock-pp-lid-591ml/"
@@ -303,22 +332,26 @@
           {
             "name": "green",
             "available": 73,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "purple",
             "available": 63,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "red",
             "available": 150,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "black",
             "available": 189,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/double-wall-tumblers-flip-top-pp-lid-in-473ml/"
@@ -326,7 +359,7 @@
     ],
     "Travel Bottles": [
       {
-        "id": "SPO16455",
+        "id": "SPO83534",
         "name": "rPET Transparent Bottles 800ml SS Lid with Carry Handle",
         "totalAvailable": 361,
         "description": "rPET Transparent Bottles 800ml SS Lid with Carry Handle. Premium quality product designed for professional use.",
@@ -342,17 +375,20 @@
           {
             "name": "black",
             "available": 195,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "blue",
             "available": 101,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "purple",
             "available": 65,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/rpet-transparent-bottles-800ml-ss-lid-with-carry-handle/"
@@ -374,23 +410,26 @@
           {
             "name": "purple",
             "available": 199,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "white",
             "available": 199,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "blue",
             "available": 154,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/premium-soft-touch-black-cola-bottles-in-stainless-steel-500ml/"
       },
       {
-        "id": "SPO25199",
+        "id": "SPO97381",
         "name": "Double Wall SS Tumblers with Slide-Lock PP Lid 591ml",
         "totalAvailable": 518,
         "description": "Double Wall SS Tumblers with Slide-Lock PP Lid 591ml. Premium quality product designed for professional use.",
@@ -409,28 +448,32 @@
           {
             "name": "blue",
             "available": 148,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "gray",
             "available": 198,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "green",
             "available": 77,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "black",
             "available": 95,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/double-wall-ss-tumblers-with-slide-lock-pp-lid-591ml/"
       },
       {
-        "id": "SPO39378",
+        "id": "SPO71180",
         "name": "Double Wall Tumblers Flip-top PP Lid in 473ml",
         "totalAvailable": 475,
         "description": "Double Wall Tumblers Flip-top PP Lid in 473ml. Premium quality product designed for professional use.",
@@ -446,22 +489,26 @@
           {
             "name": "green",
             "available": 73,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "purple",
             "available": 63,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "red",
             "available": 150,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "black",
             "available": 189,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/double-wall-tumblers-flip-top-pp-lid-in-473ml/"
@@ -482,17 +529,20 @@
           {
             "name": "red",
             "available": 106,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "green",
             "available": 90,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "yellow",
             "available": 150,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/foldable-wireless-fast-charging-station-for-phone-watch-earbuds/"
@@ -520,22 +570,26 @@
           {
             "name": "gray",
             "available": 154,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "red",
             "available": 84,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 135,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "brown",
             "available": 125,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/wireless-fast-charger-15w-with-bt-speaker-and-rgb-led-logo/"
@@ -556,27 +610,32 @@
           {
             "name": "gray",
             "available": 58,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "blue",
             "available": 98,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "brown",
             "available": 82,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "purple",
             "available": 188,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "green",
             "available": 62,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/office-gift-sets-with-notebook-pen-card-holder-keychain/"
@@ -595,23 +654,25 @@
           {
             "name": "yellow",
             "available": 151,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "blue",
             "available": 114,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "brown",
             "available": 105,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/cork-notebook-and-ball-pen-gift-set/"
       }
     ],
-
     "Packaging Options": [
       {
         "id": "PAC30293",
@@ -627,27 +688,32 @@
           {
             "name": "gray",
             "available": 135,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "brown",
             "available": 72,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "black",
             "available": 118,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "green",
             "available": 128,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "blue",
             "available": 138,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/presentation-gift-box-with-magnetic-closure-size-xl/"
@@ -671,17 +737,20 @@
           {
             "name": "brown",
             "available": 168,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "gray",
             "available": 165,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "yellow",
             "available": 178,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/eco-friendly-drawing-pad-set-with-colored-pencils-sharpener-and-eraser/"
@@ -689,7 +758,7 @@
     ],
     "Eco-Friendly Gifts": [
       {
-        "id": "CHI90408",
+        "id": "CHI37085",
         "name": "Eco-Friendly Drawing Pad Set with Colored Pencils, Sharpener & Eraser",
         "totalAvailable": 511,
         "description": "Eco-Friendly Drawing Pad Set with Colored Pencils, Sharpener & Eraser. Premium quality product designed for professional use.",
@@ -705,17 +774,20 @@
           {
             "name": "brown",
             "available": 168,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "gray",
             "available": 165,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "yellow",
             "available": 178,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/eco-friendly-drawing-pad-set-with-colored-pencils-sharpener-and-eraser/"
@@ -739,22 +811,26 @@
           {
             "name": "gray",
             "available": 158,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "green",
             "available": 105,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "red",
             "available": 196,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 70,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/eco-friendly-a4-folders-with-notepad-sticky-note-pen-card-slots/"
@@ -762,7 +838,7 @@
     ],
     "Folders": [
       {
-        "id": "ECO43289",
+        "id": "ECO63105",
         "name": "Eco-Friendly A4 Folders with Notepad Sticky Note Pen Card Slots",
         "totalAvailable": 529,
         "description": "Eco-Friendly A4 Folders with Notepad Sticky Note Pen Card Slots. Premium quality product designed for professional use.",
@@ -778,22 +854,26 @@
           {
             "name": "gray",
             "available": 158,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "green",
             "available": 105,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "red",
             "available": 196,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 70,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/eco-friendly-a4-folders-with-notepad-sticky-note-pen-card-slots/"
@@ -801,7 +881,7 @@
     ],
     "Glass Bottles": [
       {
-        "id": "GLA11312",
+        "id": "GLA54149",
         "name": "Sports Glass Bottles 500ml Twist off Lid and Carry Handle",
         "totalAvailable": 288,
         "description": "Sports Glass Bottles 500ml Twist off Lid and Carry Handle. Premium quality product designed for professional use.",
@@ -817,12 +897,14 @@
           {
             "name": "gray",
             "available": 106,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "green",
             "available": 182,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/sports-glass-bottles-500ml-twist-off-lid-and-carry-handle/"
@@ -830,7 +912,7 @@
     ],
     "Stainless Steel Bottles": [
       {
-        "id": "STA46745",
+        "id": "STA62227",
         "name": "Premium Soft Touch Black Cola Bottles in Stainless Steel 500ml",
         "totalAvailable": 552,
         "description": "Premium Soft Touch Black Cola Bottles in Stainless Steel 500ml. Premium quality product designed for professional use.",
@@ -846,23 +928,26 @@
           {
             "name": "purple",
             "available": 199,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "white",
             "available": 199,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "blue",
             "available": 154,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/premium-soft-touch-black-cola-bottles-in-stainless-steel-500ml/"
       },
       {
-        "id": "SPO19518",
+        "id": "SPO40916",
         "name": "Temperature Display Black Tumblers in SS 510ml",
         "totalAvailable": 303,
         "description": "Temperature Display Black Tumblers in SS 510ml. Premium quality product designed for professional use.",
@@ -878,23 +963,26 @@
           {
             "name": "red",
             "available": 77,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 108,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "black",
             "available": 118,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/temperature-display-black-tumblers-in-ss-510ml/"
       },
       {
-        "id": "SPO91877",
+        "id": "SPO62369",
         "name": "Double Wall SS Tumblers with Slide-Lock PP Lid 591ml",
         "totalAvailable": 518,
         "description": "Double Wall SS Tumblers with Slide-Lock PP Lid 591ml. Premium quality product designed for professional use.",
@@ -913,22 +1001,26 @@
           {
             "name": "blue",
             "available": 148,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "gray",
             "available": 198,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "green",
             "available": 77,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "black",
             "available": 95,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/double-wall-ss-tumblers-with-slide-lock-pp-lid-591ml/"
@@ -947,12 +1039,14 @@
           {
             "name": "green",
             "available": 61,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "brown",
             "available": 72,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/double-wall-ss-bottles-slide-lock-pp-lid-532ml/"
@@ -976,28 +1070,32 @@
           {
             "name": "yellow",
             "available": 100,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "blue",
             "available": 198,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "purple",
             "available": 137,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "brown",
             "available": 143,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/magnetic-fast-wireless-charging-powerbank-15w-with-iwatch-charger/"
       },
       {
-        "id": "BLU89390",
+        "id": "BLU52789",
         "name": "Wireless Fast Charger 15W with BT Speaker and RGB LED Logo",
         "totalAvailable": 498,
         "description": "Wireless Fast Charger 15W with BT Speaker and RGB LED Logo. Premium quality product designed for professional use.",
@@ -1019,22 +1117,26 @@
           {
             "name": "gray",
             "available": 154,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "red",
             "available": 84,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 135,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "brown",
             "available": 125,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/wireless-fast-charger-15w-with-bt-speaker-and-rgb-led-logo/"
@@ -1042,7 +1144,7 @@
     ],
     "Wireless Powerbank": [
       {
-        "id": "MOB97104",
+        "id": "MOB36766",
         "name": "Magnetic Fast Wireless Charging Powerbank, 15W with iWatch Charger",
         "totalAvailable": 578,
         "description": "Magnetic Fast Wireless Charging Powerbank, 15W with iWatch Charger. Premium quality product designed for professional use.",
@@ -1058,22 +1160,26 @@
           {
             "name": "yellow",
             "available": 100,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "blue",
             "available": 198,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "purple",
             "available": 137,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "brown",
             "available": 143,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/magnetic-fast-wireless-charging-powerbank-15w-with-iwatch-charger/"
@@ -1094,17 +1200,20 @@
           {
             "name": "black",
             "available": 132,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "white",
             "available": 63,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "red",
             "available": 187,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/ceramic-coffee-cups-set-4pcs-in-silver-metal-rack/"
@@ -1123,12 +1232,14 @@
           {
             "name": "blue",
             "available": 98,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "green",
             "available": 102,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/ceramic-cups-10-oz-glossy-finish-white-color/"
@@ -1152,22 +1263,26 @@
           {
             "name": "black",
             "available": 66,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "green",
             "available": 106,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "red",
             "available": 152,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "gray",
             "available": 172,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-badges-2/"
@@ -1189,22 +1304,26 @@
           {
             "name": "gray",
             "available": 92,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "brown",
             "available": 70,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "white",
             "available": 164,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "black",
             "available": 133,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-badges/"
@@ -1223,22 +1342,26 @@
           {
             "name": "brown",
             "available": 142,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "red",
             "available": 178,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "gray",
             "available": 185,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "white",
             "available": 83,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/white-bottles-with-breast-cancer-awareness-logo/"
@@ -1257,12 +1380,14 @@
           {
             "name": "yellow",
             "available": 134,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "white",
             "available": 178,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/ceramic-coffee-mugs-with-breast-cancer-awareness-logo/"
@@ -1281,17 +1406,20 @@
           {
             "name": "gray",
             "available": 152,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "brown",
             "available": 145,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "black",
             "available": 131,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/white-ceramic-mugs-with-breast-cancer-awareness-logo/"
@@ -1310,27 +1438,32 @@
           {
             "name": "red",
             "available": 144,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "brown",
             "available": 58,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "blue",
             "available": 118,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "purple",
             "available": 105,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "black",
             "available": 131,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-logo-button-badges-in-aluminum/"
@@ -1349,27 +1482,32 @@
           {
             "name": "white",
             "available": 166,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "green",
             "available": 196,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "brown",
             "available": 98,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "purple",
             "available": 122,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "blue",
             "available": 141,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/travel-mugs-with-breast-cancer-awareness-logo/"
@@ -1388,22 +1526,26 @@
           {
             "name": "white",
             "available": 116,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "purple",
             "available": 103,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "green",
             "available": 76,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "blue",
             "available": 142,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/travel-mugs-with-breast-cancer-awareness-logo-tm-010/"
@@ -1425,17 +1567,20 @@
           {
             "name": "yellow",
             "available": 190,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "purple",
             "available": 106,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "black",
             "available": 126,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-badges-2/"
@@ -1457,17 +1602,20 @@
           {
             "name": "brown",
             "available": 177,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "blue",
             "available": 153,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "white",
             "available": 66,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-badges/"
@@ -1486,22 +1634,26 @@
           {
             "name": "red",
             "available": 84,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "blue",
             "available": 190,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "purple",
             "available": 67,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "green",
             "available": 68,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/white-bottles-with-breast-cancer-awareness-logo/"
@@ -1520,17 +1672,20 @@
           {
             "name": "black",
             "available": 64,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "yellow",
             "available": 98,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "gray",
             "available": 53,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/ceramic-coffee-mugs-with-breast-cancer-awareness-logo/"
@@ -1549,17 +1704,20 @@
           {
             "name": "gray",
             "available": 183,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "blue",
             "available": 117,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "black",
             "available": 125,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/white-ceramic-mugs-with-breast-cancer-awareness-logo/"
@@ -1578,27 +1736,32 @@
           {
             "name": "red",
             "available": 168,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "green",
             "available": 87,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "gray",
             "available": 93,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "brown",
             "available": 135,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "purple",
             "available": 109,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-logo-button-badges-in-aluminum/"
@@ -1617,17 +1780,20 @@
           {
             "name": "green",
             "available": 130,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "white",
             "available": 96,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "black",
             "available": 60,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/travel-mugs-with-breast-cancer-awareness-logo/"
@@ -1646,22 +1812,26 @@
           {
             "name": "gray",
             "available": 89,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "brown",
             "available": 91,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "white",
             "available": 87,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "red",
             "available": 89,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/travel-mugs-with-breast-cancer-awareness-logo-tm-010/"
@@ -1680,17 +1850,20 @@
           {
             "name": "white",
             "available": 64,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "brown",
             "available": 65,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "yellow",
             "available": 167,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/tumblers-with-breast-cancer-awareness-logo/"
@@ -1709,22 +1882,26 @@
           {
             "name": "black",
             "available": 126,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "red",
             "available": 139,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "purple",
             "available": 63,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "blue",
             "available": 62,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/zipper-pouch-with-breast-cancer-awareness-logo/"
@@ -1743,17 +1920,20 @@
           {
             "name": "blue",
             "available": 81,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "green",
             "available": 116,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "white",
             "available": 124,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/eco-friendly-jute-bags-with-breast-cancer-awareness-logo/"
@@ -1772,17 +1952,20 @@
           {
             "name": "white",
             "available": 72,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "gray",
             "available": 131,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "purple",
             "available": 54,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/jute-bags-with-cotton-pockets-breast-cancer-awareness-logo/"
@@ -1801,17 +1984,20 @@
           {
             "name": "brown",
             "available": 193,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "red",
             "available": 132,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "blue",
             "available": 190,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/recycled-cotton-bags-with-breast-cancer-awareness-logo/"
@@ -1830,17 +2016,20 @@
           {
             "name": "blue",
             "available": 195,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "red",
             "available": 140,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "black",
             "available": 142,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/cotton-bags-with-breast-cancer-awareness-logo/"
@@ -1859,17 +2048,20 @@
           {
             "name": "white",
             "available": 178,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "red",
             "available": 154,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 104,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/glass-bottle-with-straw-and-breast-cancer-awareness-logo/"
@@ -1888,22 +2080,26 @@
           {
             "name": "black",
             "available": 98,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "gray",
             "available": 169,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "yellow",
             "available": 117,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "red",
             "available": 170,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/glass-bottles-with-breast-cancer-awareness-logo/"
@@ -1922,22 +2118,26 @@
           {
             "name": "purple",
             "available": 135,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "red",
             "available": 118,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "gray",
             "available": 57,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "green",
             "available": 121,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/stainless-steel-bottles-with-breast-cancer-awareness-logo/"
@@ -1956,12 +2156,14 @@
           {
             "name": "white",
             "available": 52,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "brown",
             "available": 76,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/pu-notebook-with-breast-cancer-awareness-logo/"
@@ -1980,17 +2182,20 @@
           {
             "name": "purple",
             "available": 136,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "black",
             "available": 191,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "white",
             "available": 170,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/string-bags-with-breast-cancer-awareness-logo/"
@@ -2009,12 +2214,14 @@
           {
             "name": "yellow",
             "available": 132,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "purple",
             "available": 52,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/maxema-pens-with-breast-cancer-awareness-logo/"
@@ -2033,12 +2240,14 @@
           {
             "name": "gray",
             "available": 115,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "blue",
             "available": 66,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/teddy-bear-toys-with-breast-cancer-awareness-logo/"
@@ -2057,22 +2266,26 @@
           {
             "name": "green",
             "available": 198,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "purple",
             "available": 118,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "red",
             "available": 75,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "blue",
             "available": 187,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/jute-and-cotton-zipper-pouch-with-breast-cancer-awareness-logo/"
@@ -2091,22 +2304,26 @@
           {
             "name": "purple",
             "available": 61,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "red",
             "available": 163,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "black",
             "available": 116,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "brown",
             "available": 194,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/jute-zipper-pouch-with-breast-cancer-awareness-logo/"
@@ -2114,7 +2331,7 @@
     ],
     "Ready Stock Badges": [
       {
-        "id": "BRE39895",
+        "id": "BRE85565",
         "name": "Breast Cancer Awareness Badges",
         "totalAvailable": 496,
         "description": "Breast Cancer Awareness Badges. Premium quality product designed for professional use.",
@@ -2130,28 +2347,32 @@
           {
             "name": "black",
             "available": 66,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "green",
             "available": 106,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "red",
             "available": 152,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "gray",
             "available": 172,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-badges-2/"
       },
       {
-        "id": "BRE37093",
+        "id": "BRE53662",
         "name": "Breast Cancer Awareness Badges",
         "totalAvailable": 459,
         "description": "Breast Cancer Awareness Badges. Premium quality product designed for professional use.",
@@ -2167,28 +2388,32 @@
           {
             "name": "gray",
             "available": 92,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "brown",
             "available": 70,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "white",
             "available": 164,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "black",
             "available": 133,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-badges/"
       },
       {
-        "id": "BRE43831",
+        "id": "BRE11529",
         "name": "Breast Cancer Awareness Badges",
         "totalAvailable": 422,
         "description": "Breast Cancer Awareness Badges. Premium quality product designed for professional use.",
@@ -2204,23 +2429,26 @@
           {
             "name": "yellow",
             "available": 190,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "purple",
             "available": 106,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "black",
             "available": 126,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-badges-2/"
       },
       {
-        "id": "BRE17349",
+        "id": "BRE18922",
         "name": "Breast Cancer Awareness Badges",
         "totalAvailable": 396,
         "description": "Breast Cancer Awareness Badges. Premium quality product designed for professional use.",
@@ -2236,17 +2464,20 @@
           {
             "name": "brown",
             "available": 177,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "blue",
             "available": 153,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           },
           {
             "name": "white",
             "available": 66,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/breast-cancer-awareness-badges/"
@@ -2267,17 +2498,20 @@
           {
             "name": "brown",
             "available": 157,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "purple",
             "available": 152,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "green",
             "available": 187,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/jute-drawstring-pouches-in-a4-and-a5-size/"
@@ -2296,12 +2530,14 @@
           {
             "name": "gray",
             "available": 152,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "blue",
             "available": 65,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/eco-friendly-jute-bags-with-front-cotton-pocket-and-button-closure/"
@@ -2320,17 +2556,20 @@
           {
             "name": "purple",
             "available": 77,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           },
           {
             "name": "gray",
             "available": 165,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "blue",
             "available": 66,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR52242"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/promotional-laminated-cotton-bags-with-natural-jute-gusset-10-oz/"
@@ -2352,22 +2591,26 @@
           {
             "name": "black",
             "available": 67,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "green",
             "available": 133,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "white",
             "available": 171,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "brown",
             "available": 50,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/recycled-cotton-shopping-bags/"
@@ -2388,22 +2631,26 @@
           {
             "name": "green",
             "available": 119,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "yellow",
             "available": 170,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "brown",
             "available": 122,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "gray",
             "available": 132,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/triangular-sling-crossbody-bags-with-headphone-hole/"
@@ -2422,12 +2669,14 @@
           {
             "name": "white",
             "available": 155,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "black",
             "available": 157,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/sling-crossbody-bags-in-grey-and-black-polyester-material/"
@@ -2446,22 +2695,26 @@
           {
             "name": "green",
             "available": 54,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "brown",
             "available": 94,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           },
           {
             "name": "red",
             "available": 101,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "black",
             "available": 197,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/travel-backpacks-in-black-polyester-material/"
@@ -2480,17 +2733,20 @@
           {
             "name": "white",
             "available": 123,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "green",
             "available": 163,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "black",
             "available": 113,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/sling-crossbody-bags-in-black-nylon-material/"
@@ -2498,7 +2754,7 @@
     ],
     "Bluetooth Speakers": [
       {
-        "id": "BLU15219",
+        "id": "BLU40581",
         "name": "Wireless Fast Charger 15W with BT Speaker and RGB LED Logo",
         "totalAvailable": 498,
         "description": "Wireless Fast Charger 15W with BT Speaker and RGB LED Logo. Premium quality product designed for professional use.",
@@ -2520,22 +2776,26 @@
           {
             "name": "gray",
             "available": 154,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "red",
             "available": 84,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 135,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "brown",
             "available": 125,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/wireless-fast-charger-15w-with-bt-speaker-and-rgb-led-logo/"
@@ -2543,7 +2803,7 @@
     ],
     "Desk Items & Sets": [
       {
-        "id": "BLU15040",
+        "id": "BLU23403",
         "name": "Wireless Fast Charger 15W with BT Speaker and RGB LED Logo",
         "totalAvailable": 498,
         "description": "Wireless Fast Charger 15W with BT Speaker and RGB LED Logo. Premium quality product designed for professional use.",
@@ -2565,22 +2825,26 @@
           {
             "name": "gray",
             "available": 154,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR41395"
           },
           {
             "name": "red",
             "available": 84,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Temperature-Display-Black-Tumbler-TM-039-Blank-300x300.webp",
+            "id": "CLR23756"
           },
           {
             "name": "yellow",
             "available": 135,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR13285"
           },
           {
             "name": "brown",
             "available": 125,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/wireless-fast-charger-15w-with-bt-speaker-and-rgb-led-logo/"
@@ -2601,12 +2865,14 @@
           {
             "name": "green",
             "available": 86,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "purple",
             "available": 181,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR41611"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/nextt-level-recycled-polo-t-shirts/"
@@ -2614,7 +2880,7 @@
     ],
     "ECO-JUCO": [
       {
-        "id": "ECO54893",
+        "id": "ECO82836",
         "name": "Cotton Shopping Bags with Long Handles",
         "totalAvailable": 421,
         "description": "Cotton Shopping Bags with Long Handles. Premium quality product designed for professional use.",
@@ -2630,22 +2896,26 @@
           {
             "name": "black",
             "available": 67,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR63444"
           },
           {
             "name": "green",
             "available": 133,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Sports-Glass-Bottles-TM-048-Blank-300x300.webp",
+            "id": "CLR58510"
           },
           {
             "name": "white",
             "available": 171,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/09/Mugs-with-Bottom-Clay-MU-CE171-Blanks-2-300x300.jpg",
+            "id": "CLR52175"
           },
           {
             "name": "brown",
             "available": 50,
-            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp"
+            "image": "https://abreezgroup.com/wp-content/uploads/2024/10/Ceramic-Coffee-Mugs-TM-024-Blank-300x300.webp",
+            "id": "CLR84851"
           }
         ],
         "productUrl": "https://abreezgroup.com/product/recycled-cotton-shopping-bags/"

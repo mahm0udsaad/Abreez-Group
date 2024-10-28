@@ -13,7 +13,7 @@ import ProductHeader from "./component/products-header";
 import { useTranslation } from "@/app/i18n/client";
 import ColorSwitchingCard from "./cards/product-card";
 
-const ITEMS_PER_LOAD = 12;
+const ITEMS_PER_LOAD = 14;
 
 // Get unique categories from the products.json file
 const categories = ["All", ...Object.keys(productsData.categories)];
@@ -41,13 +41,12 @@ export function ProductListing({ lng }) {
     let products = [];
 
     if (selectedCategory === "All") {
-      // Flatten all products from all categories
       products = Object.values(productsData.categories).flat();
     } else {
-      // Get products from selected category
       products = productsData.categories[selectedCategory] || [];
     }
 
+    // Filter products based on search term or color ID
     return products.filter((product) => {
       const searchMatches =
         product.name.toLowerCase().includes(debouncedSearchTerm) ||
@@ -55,10 +54,12 @@ export function ProductListing({ lng }) {
         product.category.some((cat) =>
           cat.name.toLowerCase().includes(debouncedSearchTerm),
         ) ||
-        product.colors.some((color) =>
-          color.name.toLowerCase().includes(debouncedSearchTerm),
+        product.colors.some(
+          (color) =>
+            color.name.toLowerCase().includes(debouncedSearchTerm) ||
+            color.id.toLowerCase() === debouncedSearchTerm, // Match specific color ID
         ) ||
-        product.id.toLowerCase().includes(debouncedSearchTerm);
+        product.id.toLowerCase() === debouncedSearchTerm;
 
       return searchMatches;
     });
@@ -139,7 +140,11 @@ export function ProductListing({ lng }) {
             >
               {currentProducts.map((product, index) =>
                 product.multiImages ? (
-                  <ColorSwitchingCard product={product} lng={lng} />
+                  <ColorSwitchingCard
+                    product={product}
+                    lng={lng}
+                    searchTerm={searchTerm}
+                  />
                 ) : (
                   <motion.div
                     key={product.id}
@@ -150,7 +155,11 @@ export function ProductListing({ lng }) {
                     <Card className="h-full flex flex-col overflow-hidden group hover:shadow-xl transition-shadow duration-300">
                       <div className="relative overflow-hidden">
                         <Image
-                          src={product.colors[0].image} // Using first color's image
+                          src={
+                            product.colors.find(
+                              (color) => color.id === debouncedSearchTerm,
+                            )?.image || product.colors[0].image
+                          }
                           alt={product.name}
                           width={480}
                           height={360}
