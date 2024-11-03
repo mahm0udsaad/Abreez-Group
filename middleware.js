@@ -1,10 +1,18 @@
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { languages, fallbackLng } from "./app/i18n/settings";
 
+// Public routes for Clerk (sign-in, sign-up pages)
+const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)"]);
+const isDashboardRoute = createRouteMatcher([
+  "/en/dashboard(.*)",
+  "/ar/dashboard(.*)",
+]);
+
+// Locale detection function
 function getLocale(request) {
-  // Check for the NEXT_LOCALE cookie first
   const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
   if (cookieLocale && languages.includes(cookieLocale)) {
     return cookieLocale;
@@ -12,25 +20,14 @@ function getLocale(request) {
 
   const negotiatorHeaders = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
-
-  const availableLanguages = languages;
-
   const browserLanguages = new Negotiator({
     headers: negotiatorHeaders,
   }).languages();
-  const locale = matchLocale(browserLanguages, availableLanguages, fallbackLng);
-
-  return locale;
+  return matchLocale(browserLanguages, languages, fallbackLng);
 }
 
-export function middleware(request) {
-  if (
-    request.nextUrl.pathname.startsWith("/api") ||
-    request.nextUrl.pathname.startsWith("/fonts")
-  ) {
-    return NextResponse.next();
-  }
-
+// Handle locale redirect
+function handleLocaleRedirect(request) {
   const pathname = request.nextUrl.pathname;
   const pathnameIsMissingLocale = languages.every(
     (locale) =>
@@ -41,10 +38,36 @@ export function middleware(request) {
     const locale = getLocale(request);
     return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
   }
+
+  return null;
 }
+
+export default clerkMiddleware(async (auth, request) => {
+  // Skip locale handling for public routes
+  if (isPublicRoute(request)) {
+    return NextResponse.next();
+  }
+
+  if (isDashboardRoute(request)) {
+    console.log("dashboard route");
+
+    await auth.protect();
+  }
+
+  // Handle locale redirect if needed
+  const localeResponse = handleLocaleRedirect(request);
+  if (localeResponse) {
+    return localeResponse;
+  }
+
+  return NextResponse.next();
+});
 
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:svg|jpg|png|css|js)$).*)",
+    // Skip Next.js internals and all static files, unless found in search params
+    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    // Always run for API routes
+    "/(api|trpc)(.*)",
   ],
 };

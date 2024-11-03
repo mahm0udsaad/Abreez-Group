@@ -1,0 +1,36 @@
+{
+  "categories": [
+    {
+      "name": "Powerbank and Chargers",
+      "subCategories": [
+        "Wireless Powerbank",
+        "Basic Powerbank",
+        "Charging Pad",
+        "Digital Powerbank",
+        "Powerbank Folders"
+      ]
+    },
+    {
+      "name": "Mugs",
+      "subCategories": [
+        "Magic Mugs",
+        "Ceramic Mugs",
+        "Glass Mugs",
+        "Stainless Steel Mugs",
+        "Beer Mugs",
+        "Double Wall Mugs",
+        "Eco-Friendly Mugs"
+      ]
+    },
+    {
+      "name": "Writing",
+      "subCategories": [
+        "Plastic Pens",
+        "Metal Pens",
+        "USB Pens",
+        "Pencils",
+        "Crayons"
+      ]
+    }
+  ]
+}

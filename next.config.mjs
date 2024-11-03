@@ -19,6 +19,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "cloud.sooqsquare.com",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
         hostname: "img.freepik.com",
         pathname: "**",
       },
