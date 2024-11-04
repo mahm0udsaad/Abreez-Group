@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Loader, Package, Upload, X, RefreshCcw, Check } from "lucide-react";
+import {
+  Loader,
+  Package,
+  Upload,
+  X,
+  RefreshCcw,
+  Check,
+  Plus,
+} from "lucide-react";
 import { CategorySelector } from "../component/dash-categories-selection";
 import { createProduct, uploadProductImage } from "@/actions/product";
 import { useToast } from "@/hooks/use-toast";
@@ -18,6 +26,10 @@ export const ManualProductForm = () => {
     category: "",
     totalAvailable: 0,
     colors: [],
+    materials: "",
+    itemSize: "",
+    itemWeight: "",
+    printingOptions: [],
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const fileInputRef = useRef(null);
@@ -182,6 +194,14 @@ export const ManualProductForm = () => {
           }),
         ),
       );
+      formData.append("materials", newProduct.materials);
+      formData.append("itemSize", newProduct.itemSize);
+      formData.append("itemWeight", newProduct.itemWeight);
+      formData.append(
+        "printingOptions",
+        JSON.stringify(newProduct.printingOptions),
+      );
+
       try {
         const result = await createProduct(formData);
         if (result.success) {
@@ -196,6 +216,10 @@ export const ManualProductForm = () => {
             category: "",
             totalAvailable: 0,
             colors: [],
+            materials: "",
+            itemSize: "",
+            itemWeight: "",
+            printingOptions: [],
           });
         } else {
           toast({
@@ -224,45 +248,144 @@ export const ManualProductForm = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {/* Basic product information */}
-      <div>
-        <Label htmlFor="productName" className="text-gray-200">
-          Product Name
-        </Label>
-        <Input
-          id="productName"
-          value={newProduct.name}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, name: e.target.value })
-          }
-          className="mt-1 bg-gray-700 text-white border-gray-600"
-        />
-      </div>
-      <div>
-        <Label htmlFor="productCategory" className="text-gray-200">
-          Category
-        </Label>
-        <div className="mt-1">
-          <CategorySelector
-            selectedCategory={newProduct.category}
-            onSelect={(category) => setNewProduct({ ...newProduct, category })}
+    <div className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Basic product information */}
+        <div>
+          <Label htmlFor="productName" className="text-gray-200">
+            Product Name
+          </Label>
+          <Input
+            id="productName"
+            value={newProduct.name}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, name: e.target.value })
+            }
+            className="mt-1 bg-gray-700 text-white border-gray-600"
+          />
+        </div>
+        <div>
+          <Label htmlFor="productCategory" className="text-gray-200">
+            Category
+          </Label>
+          <div className="mt-1">
+            <CategorySelector
+              selectedCategory={newProduct.category}
+              onSelect={(category) =>
+                setNewProduct({ ...newProduct, category })
+              }
+            />
+          </div>
+        </div>
+        <div className="md:col-span-2">
+          <Label htmlFor="productDescription" className="text-gray-200">
+            Description
+          </Label>
+          <Textarea
+            id="productDescription"
+            value={newProduct.description}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, description: e.target.value })
+            }
+            className="mt-1 bg-gray-700 text-white border-gray-600"
+            rows={4}
           />
         </div>
       </div>
+
+      {/* Additional product information */}
+      <div className="flex w-full gap-2">
+        <div className="flex-1">
+          <Label htmlFor="productMaterials" className="text-gray-200">
+            Materials
+          </Label>
+          <Input
+            id="productMaterials"
+            value={newProduct.materials}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, materials: e.target.value })
+            }
+            className="mt-1 w-full bg-gray-700 text-white border-gray-600"
+          />
+        </div>
+        <div className="flex-1">
+          <Label htmlFor="productSize" className="text-gray-200">
+            Item Size
+          </Label>
+          <Input
+            id="productSize"
+            value={newProduct.itemSize}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, itemSize: e.target.value })
+            }
+            className="mt-1 w-full bg-gray-700 text-white border-gray-600"
+          />
+        </div>
+        <div className="flex-1">
+          <Label htmlFor="productWeight" className="text-gray-200">
+            Item Weight
+          </Label>
+          <Input
+            id="productWeight"
+            value={newProduct.itemWeight}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, itemWeight: e.target.value })
+            }
+            className="mt-1 w-full bg-gray-700 text-white border-gray-600"
+          />
+        </div>
+      </div>
+
       <div className="md:col-span-2">
-        <Label htmlFor="productDescription" className="text-gray-200">
-          Description
+        <Label htmlFor="printingOptions" className="text-gray-200">
+          Printing Options
         </Label>
-        <Textarea
-          id="productDescription"
-          value={newProduct.description}
-          onChange={(e) =>
-            setNewProduct({ ...newProduct, description: e.target.value })
-          }
-          className="mt-1 bg-gray-700 text-white border-gray-600"
-          rows={4}
-        />
+        <div className="flex flex-col space-y-2 mt-1">
+          {newProduct.printingOptions.map((option, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <Input
+                value={option}
+                onChange={(e) => {
+                  const updatedOptions = [...newProduct.printingOptions];
+                  updatedOptions[index] = e.target.value;
+                  setNewProduct({
+                    ...newProduct,
+                    printingOptions: updatedOptions,
+                  });
+                }}
+                className="bg-gray-700 text-white border-gray-600 flex-grow"
+              />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  const updatedOptions = [...newProduct.printingOptions];
+                  updatedOptions.splice(index, 1);
+                  setNewProduct({
+                    ...newProduct,
+                    printingOptions: updatedOptions,
+                  });
+                }}
+                className="text-blue-400 hover:text-blue-300"
+              >
+                <X className="w-4 h-4" />
+              </Button>
+            </div>
+          ))}
+          <Button
+            variant="outline"
+            onClick={() =>
+              setNewProduct({
+                ...newProduct,
+                printingOptions: [...newProduct.printingOptions, ""],
+              })
+            }
+            className="w-full bg-blue-500 text-white hover:bg-blue-600"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            Add Printing Option
+          </Button>
+        </div>
       </div>
 
       {/* Color variant section */}

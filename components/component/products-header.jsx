@@ -2,16 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Sparkles, Check, ChevronsUpDown } from "lucide-react";
+import { Search, Sparkles } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { useTranslation } from "@/app/i18n/client";
+import { CategorySelector } from "@/components/component/client-cat-selector"; // Update the import path as needed
 
 export default function ProductHeader({
   searchTerm,
@@ -25,10 +19,6 @@ export default function ProductHeader({
   const headerRef = useRef(null);
   const categoriesRef = useRef(null);
   const { t } = useTranslation(lng, "common");
-
-  const processedCategories = Array.isArray(categories)
-    ? categories.map((cat) => (typeof cat === "string" ? cat : cat.name))
-    : [];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +35,19 @@ export default function ProductHeader({
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category.name); // Assuming you want to store just the name
+  };
+
+  // Transform your categories data to match the CategorySelector format
+  const transformedCategories = Array.isArray(categories)
+    ? categories.map((cat) => ({
+        id: typeof cat === "string" ? cat : cat.id,
+        name: typeof cat === "string" ? cat : cat.name,
+        // Add other necessary properties like subcategories if needed
+      }))
+    : [];
 
   return (
     <>
@@ -92,39 +95,13 @@ export default function ProductHeader({
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/70" />
               </div>
 
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    role="combobox"
-                    aria-expanded={false}
-                    className="w-[200px] justify-between border-2 border-white/30 bg-white/20 backdrop-blur-lg hover:bg-white/30"
-                  >
-                    {t(`categories.${selectedCategory}`) ||
-                      "Select category..."}
-                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[200px] glass-scrollbar h-[70dvh] overflow-y-auto border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold">
-                  {processedCategories.map((category) => (
-                    <DropdownMenuItem
-                      key={category}
-                      onClick={() => setSelectedCategory(category)}
-                      className="flex items-center"
-                    >
-                      <Check
-                        className={cn(
-                          "mr-2 h-4 w-4",
-                          selectedCategory === category
-                            ? "opacity-100"
-                            : "opacity-0",
-                        )}
-                      />
-                      {t(`categories.${category}`)}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <CategorySelector
+                onSelect={handleCategorySelect}
+                selectedCategory={{ name: selectedCategory }}
+                categories={transformedCategories}
+                t={t}
+                placeholder="Select category..."
+              />
             </div>
           </motion.div>
         </div>
@@ -140,7 +117,7 @@ export default function ProductHeader({
       >
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex gap-4 max-w-2xl mx-auto">
-            <div className="relative flex-1 ">
+            <div className="relative flex-1">
               <Input
                 type="text"
                 placeholder="Search products..."
@@ -151,38 +128,13 @@ export default function ProductHeader({
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </div>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  role="combobox"
-                  aria-expanded={false}
-                  className="w-[200px] justify-between bg-white/20 backdrop-blur-lg"
-                >
-                  {t(`categories.${selectedCategory}`) || "Select category..."}
-                  <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-[200px] glass-scrollbar h-[70dvh] overflow-y-auto border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold">
-                {processedCategories.map((category) => (
-                  <DropdownMenuItem
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    className="flex items-center"
-                  >
-                    <Check
-                      className={cn(
-                        "mr-2 h-4 w-4",
-                        selectedCategory === category
-                          ? "opacity-100"
-                          : "opacity-0",
-                      )}
-                    />
-                    {t(`categories.${category}`)}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <CategorySelector
+              onSelect={handleCategorySelect}
+              selectedCategory={{ name: selectedCategory }}
+              categories={transformedCategories}
+              t={t}
+              placeholder="Select category..."
+            />
           </div>
         </div>
       </div>

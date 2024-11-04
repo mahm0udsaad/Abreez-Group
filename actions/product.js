@@ -2,6 +2,7 @@
 
 import { PrismaClient } from "@prisma/client";
 import { uploadToCloud } from "@/lib/cloud";
+import { revalidatePath } from "next/cache";
 
 const prisma = new PrismaClient();
 
@@ -49,6 +50,11 @@ export async function createProduct(formData) {
     const description = formData.get("description");
     const categoryId = formData.get("category");
     const colorsData = JSON.parse(formData.get("colors"));
+    const materials = formData.get("materials") || "";
+    const itemSize = formData.get("itemSize") || "";
+    const itemWeight = formData.get("itemWeight") || "";
+    const printingOptionsData =
+      JSON.parse(formData.get("printingOptions")) || [];
 
     if (!categoryId) throw new Error("Category is required");
 
@@ -68,6 +74,16 @@ export async function createProduct(formData) {
           ),
           categoryId,
           multiImages: colorsData.length > 1,
+          materials,
+          itemSize,
+          itemWeight,
+          printingOptions: {
+            createMany: {
+              data: printingOptionsData.map((option) => ({
+                name: option,
+              })),
+            },
+          },
         },
       });
 
@@ -94,6 +110,8 @@ export async function createProduct(formData) {
   } catch (error) {
     console.error("Error creating product:", error);
     return { success: false, error: error.message };
+  } finally {
+    revalidatePath("/dashboard");
   }
 }
 
@@ -120,6 +138,7 @@ export async function getAllProducts() {
   try {
     const products = await prisma.product.findMany({
       include: {
+        printingOptions: true,
         category: true,
         colors: true,
       },
@@ -145,6 +164,46 @@ export async function getProductsByCategory(categoryId) {
     return { success: true, products };
   } catch (error) {
     console.error("Error getting products by category:", error);
+    return { success: false, error: error.message };
+  }
+}
+export async function deleteAllProducts() {
+  try {
+    // Delete all color variants first
+    await prisma.colorVariant.deleteMany();
+
+    // Then delete all products
+    await prisma.product.deleteMany();
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting products:", error);
+    return { success: false, error: error.message };
+  }
+}
+
+export async function getProductById(productId) {
+  try {
+    const product = await prisma.product.findUnique({
+      where: { id: productId },
+      include: {
+        printingOptions: true,
+        colors: true,
+        category: {
+          include: {
+            parent: true,
+          },
+        },
+      },
+    });
+
+    if (!product) {
+      return { success: false, error: "Product not found" };
+    }
+
+    return { success: true, product };
+  } catch (error) {
+    console.error("Error getting product by id:", error);
     return { success: false, error: error.message };
   }
 }

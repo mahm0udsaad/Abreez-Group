@@ -103,7 +103,7 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
   };
 
   return (
-    <Card className="h-full flex flex-col overflow-hidden group hover:shadow-lg transition-shadow duration-300 bg-gray-800 border-gray-700">
+    <Card className="h-fit flex flex-col overflow-hidden group hover:shadow-lg transition-shadow duration-300 bg-gray-800 border-gray-700">
       <div className="relative overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div

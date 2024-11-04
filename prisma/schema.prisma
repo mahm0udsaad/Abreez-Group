@@ -35,17 +35,21 @@ model Category {
 }
 
 model Product {
-  id             String         @id
-  name           String
-  description    String
-  totalAvailable Int
-  multiImages    Boolean        @default(false)
+  id              String           @id
+  name            String
+  description     String
+  totalAvailable  Int
+  multiImages     Boolean          @default(false)
+  materials       String?
+  itemSize        String?
+  itemWeight      String?
+  printingOptions PrintingOption[]
   // Relations
-  category       Category       @relation(fields: [categoryId], references: [id])
-  categoryId     String
-  colors         ColorVariant[]
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
+  category        Category         @relation(fields: [categoryId], references: [id])
+  categoryId      String
+  colors          ColorVariant[]
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
 
   @@index([categoryId])
 }
@@ -61,4 +65,13 @@ model ColorVariant {
   updatedAt DateTime @updatedAt
 
   @@index([productId])
+}
+
+model PrintingOption {
+  id        String   @id @default(cuid())
+  name      String
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

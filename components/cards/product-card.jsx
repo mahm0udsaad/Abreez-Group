@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChevronRight, Package, Circle } from "lucide-react";
 import Image from "next/image";
 import { useTranslation } from "@/app/i18n/client";
+import Link from "next/link";
 
 const ColorSwitchingCard = ({ product, lng, searchTerm }) => {
   const [selectedColor, setSelectedColor] = useState("white");
@@ -113,15 +114,13 @@ const ColorSwitchingCard = ({ product, lng, searchTerm }) => {
             </TabsContent>
           </Tabs>
           <div className="mt-4">
-            {product.category.map((cat) => (
-              <Badge
-                key={cat.name}
-                variant="outline"
-                className="mt-2 mr-2 bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300"
-              >
-                {cat.name}
-              </Badge>
-            ))}
+            <Badge
+              key={product.category.id}
+              variant="outline"
+              className="mt-2 mr-2 bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-300"
+            >
+              {product.category.name}
+            </Badge>
           </div>
         </CardContent>
         <div className="mx-3 flex items-center">
@@ -135,10 +134,13 @@ const ColorSwitchingCard = ({ product, lng, searchTerm }) => {
           </Badge>
         </div>
         <CardFooter className="p-4">
-          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300">
+          <Link
+            href={`/products/${product.id}`}
+            className="rounded flex items-center justify-center py-2 w-full bg-blue-600 hover:bg-blue-700 text-white transition-colors duration-300"
+          >
             {t("view_details")}
             <ChevronRight className="ml-2 h-4 w-4" />
-          </Button>
+          </Link>
         </CardFooter>
       </Card>
     </motion.div>
