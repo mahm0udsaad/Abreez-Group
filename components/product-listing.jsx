@@ -1,10 +1,14 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import ProductHeader from "./component/products-header";
 import { useTranslation } from "@/app/i18n/client";
 import ColorSwitchingCard from "./cards/product-card";
-import { getAllProducts, getProductsByCategory } from "@/actions/get-products";
+import {
+  getAllProducts,
+  getProductsByCategory,
+  searchProducts,
+} from "@/actions/get-products";
 
 const ITEMS_PER_LOAD = 14;
 
@@ -12,86 +16,135 @@ export function ProductListing({ lng, initialProducts }) {
   const [loadedProducts, setLoadedProducts] = useState(initialProducts);
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   const loadMoreRef = useRef(null);
   const { t } = useTranslation(lng, "common");
-  const [currentProducts, setCurrentProducts] = useState([]);
-  let filteredProducts = [];
+
   // Add debouncing effect for search
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm.toLowerCase());
-    }, 300);
-
+    let timer;
+    if (searchTerm) {
+      timer = setTimeout(async () => {
+        setIsSearching(true);
+        try {
+          const result = await searchProducts(
+            searchTerm.toLowerCase(),
+            0,
+            ITEMS_PER_LOAD,
+          );
+          if (result.success) {
+            setLoadedProducts(result.products);
+            setHasMore(result.hasMore);
+          }
+        } finally {
+          setIsSearching(false);
+        }
+      }, 300);
+    }
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
+  // Handle search and category changes
   useEffect(() => {
-    const getFilteredProducts = async () => {
-      let products = loadedProducts;
+    if (!selectedCategory || searchTerm) return; // Skip if there's a search term
 
-      if (selectedCategory !== "All") {
-        const { products: categoryProducts } = await getProductsByCategory(
-          selectedCategory,
-          0,
-          loadedProducts.length,
-        );
-        products = categoryProducts || [];
+    const fetchProducts = async () => {
+      setIsSearching(true);
+      try {
+        let result;
+
+        if (debouncedSearchTerm) {
+          // If there's a search term, use search endpoint
+          result = await searchProducts(debouncedSearchTerm, 0, ITEMS_PER_LOAD);
+        } else if (selectedCategory && selectedCategory.id) {
+          // If category is selected but no search term
+          result = await getProductsByCategory(
+            selectedCategory.id,
+            0,
+            ITEMS_PER_LOAD,
+          );
+        } else {
+          // No search term and no category
+          result = await getAllProducts(0, ITEMS_PER_LOAD);
+        }
+
+        if (result.success) {
+          setLoadedProducts(result.products);
+          setHasMore(result.hasMore);
+        } else {
+          setLoadedProducts([]);
+          setHasMore(false);
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoadedProducts([]);
+        setHasMore(false);
+      } finally {
+        setIsSearching(false);
       }
-
-      // Filter products based on search term or color ID
-      const filtered = products.filter((product) => {
-        const searchMatches =
-          product.name.toLowerCase().includes(debouncedSearchTerm) ||
-          product.description.toLowerCase().includes(debouncedSearchTerm) ||
-          product.category.some((cat) =>
-            cat.name.toLowerCase().includes(debouncedSearchTerm),
-          ) ||
-          product.colors.some(
-            (color) =>
-              color.name.toLowerCase().includes(debouncedSearchTerm) ||
-              color.id.toLowerCase() === debouncedSearchTerm,
-          ) ||
-          product.id.toLowerCase() === debouncedSearchTerm;
-
-        return searchMatches;
-      });
-
-      setCurrentProducts(filtered);
     };
 
-    getFilteredProducts();
-  }, [debouncedSearchTerm, selectedCategory, loadedProducts]);
+    fetchProducts();
+  }, [debouncedSearchTerm, selectedCategory]);
 
-  // Reset loadedProducts when search term or category changes
-  useEffect(() => {
-    setLoadedProducts(initialProducts);
-  }, [debouncedSearchTerm, selectedCategory, initialProducts]);
-
-  const loadMoreProducts = async () => {
-    if (isLoadingMore || loadedProducts.length >= filteredProducts.length)
-      return;
+  const loadMoreProducts = useCallback(async () => {
+    if (isLoadingMore || !hasMore) return;
 
     setIsLoadingMore(true);
+    try {
+      let result;
 
-    const { success, products } = await getAllProducts(
-      loadedProducts.length,
-      ITEMS_PER_LOAD,
-    );
+      if (debouncedSearchTerm) {
+        result = await searchProducts(
+          debouncedSearchTerm,
+          loadedProducts.length,
+          ITEMS_PER_LOAD,
+        );
+      } else if (selectedCategory && selectedCategory.id) {
+        result = await getProductsByCategory(
+          selectedCategory.id,
+          loadedProducts.length,
+          ITEMS_PER_LOAD,
+        );
+      } else {
+        result = await getAllProducts(loadedProducts.length, ITEMS_PER_LOAD);
+      }
 
-    if (success) {
-      setLoadedProducts((prev) => [...prev, ...products]);
+      if (result.success && result.products.length > 0) {
+        setLoadedProducts((prev) => [...prev, ...result.products]);
+        setHasMore(result.hasMore);
+      } else {
+        setHasMore(false);
+      }
+    } finally {
+      setIsLoadingMore(false);
     }
-
-    setIsLoadingMore(false);
-  };
+  }, [
+    debouncedSearchTerm,
+    isLoadingMore,
+    hasMore,
+    loadedProducts,
+    selectedCategory,
+    setIsLoadingMore,
+    setHasMore,
+    setLoadedProducts,
+  ]);
 
   // Set up IntersectionObserver for infinite scroll
   useEffect(() => {
+    if (!hasMore) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        if (
+          entries[0].isIntersecting &&
+          hasMore &&
+          !isLoadingMore &&
+          !isSearching
+        ) {
           loadMoreProducts();
         }
       },
@@ -107,7 +160,7 @@ export function ProductListing({ lng, initialProducts }) {
         observer.unobserve(loadMoreRef.current);
       }
     };
-  }, [loadMoreProducts, filteredProducts]);
+  }, [loadMoreProducts, hasMore, isLoadingMore, isSearching]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
@@ -121,7 +174,15 @@ export function ProductListing({ lng, initialProducts }) {
         />
 
         <div className="min-h-screen">
-          {currentProducts.length === 0 ? (
+          {isSearching ? (
+            <motion.div
+              className="text-center py-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <p className="text-gray-500">{t("searching")}</p>
+            </motion.div>
+          ) : loadedProducts.length === 0 ? (
             <motion.p
               className="text-center text-gray-500 mt-8 text-xl min-h-screen"
               initial={{ opacity: 0, y: 20 }}
@@ -137,7 +198,7 @@ export function ProductListing({ lng, initialProducts }) {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              {currentProducts.map((product) => (
+              {loadedProducts.map((product) => (
                 <ColorSwitchingCard
                   key={product.id}
                   product={product}
@@ -153,8 +214,9 @@ export function ProductListing({ lng, initialProducts }) {
           ref={loadMoreRef}
           className="h-20 flex justify-center items-center"
         >
-          {loadedProducts < filteredProducts.length && (
-            <p>{t("loading_more_products")}</p>
+          {isLoadingMore && <p>{t("loading_more_products")}</p>}
+          {!hasMore && loadedProducts.length > 0 && (
+            <p className="text-gray-500">{t("no_more_products")}</p>
           )}
         </div>
       </div>

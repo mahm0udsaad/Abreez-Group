@@ -36,15 +36,8 @@ export default function ProductDetailsPage({ product }) {
               className="text-gray-600 dark:text-gray-300"
               onClick={() => window.history.back()}
             >
-              <ChevronLeft className="mr-2 h-4 w-4" />
+              <ChevronLeft className="mx-2 h-4 w-4" />
               Back to Products
-            </Button>
-            <Button
-              variant="ghost"
-              className="text-gray-600 dark:text-gray-300"
-              onClick={() => window.history.back()}
-            >
-              <X className="h-6 w-6" />
             </Button>
           </div>
 
@@ -92,7 +85,7 @@ export default function ProductDetailsPage({ product }) {
                     <Badge
                       key={color.id}
                       variant="outline"
-                      className={`px-3 py-1 cursor-pointer transition-all flex items-center space-x-2 ${
+                      className={`px-3 py-1 cursor-pointer transition-all flex items-center gap-2 ${
                         selectedColor === color.id
                           ? "bg-blue-100 text-blue-800 border-blue-300"
                           : "hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -119,7 +112,7 @@ export default function ProductDetailsPage({ product }) {
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Badge variant="secondary" className="p-2">
                       <Package className="h-4 w-4" />
                     </Badge>
@@ -133,7 +126,7 @@ export default function ProductDetailsPage({ product }) {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Badge variant="secondary" className="p-2">
                       <Package className="h-4 w-4" />
                     </Badge>
@@ -146,7 +139,7 @@ export default function ProductDetailsPage({ product }) {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Badge variant="secondary" className="p-2">
                       <Ruler className="h-4 w-4" />
                     </Badge>
@@ -159,7 +152,7 @@ export default function ProductDetailsPage({ product }) {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center gap-2">
                     <Badge variant="secondary" className="p-2">
                       <Scale className="h-4 w-4" />
                     </Badge>
@@ -182,10 +175,7 @@ export default function ProductDetailsPage({ product }) {
                   </h3>
                   <ul className="space-y-2">
                     {product.printingOptions.map((option) => (
-                      <li
-                        key={option.id}
-                        className="flex items-center space-x-2"
-                      >
+                      <li key={option.id} className="flex items-center gap-2">
                         <Badge variant="outline" className="p-1">
                           {option.name.toLowerCase().includes("printing") ? (
                             <Printer className="h-4 w-4" />

@@ -37,7 +37,7 @@ export default function ProductHeader({
   };
 
   const handleCategorySelect = (category) => {
-    setSelectedCategory(category.name); // Assuming you want to store just the name
+    setSelectedCategory(category); // Assuming you want to store just the name
   };
 
   // Transform your categories data to match the CategorySelector format
@@ -97,7 +97,7 @@ export default function ProductHeader({
 
               <CategorySelector
                 onSelect={handleCategorySelect}
-                selectedCategory={{ name: selectedCategory }}
+                selectedCategory={selectedCategory}
                 categories={transformedCategories}
                 t={t}
                 placeholder="Select category..."
@@ -130,7 +130,7 @@ export default function ProductHeader({
 
             <CategorySelector
               onSelect={handleCategorySelect}
-              selectedCategory={{ name: selectedCategory }}
+              selectedCategory={selectedCategory}
               categories={transformedCategories}
               t={t}
               placeholder="Select category..."

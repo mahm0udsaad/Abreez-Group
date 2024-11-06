@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { AutoScrollingRow } from "./wrappers/autoScroll";
 import { useTranslation } from "@/app/i18n/client";
 
 export default function ClientSecion({ lng }) {
@@ -47,9 +45,9 @@ export default function ClientSecion({ lng }) {
         <h2 className="text-5xl font-bold mb-12 text-center text-[#114270]">
           {t("clients")}
         </h2>
-        <AutoScrollingRow lng={lng}>
+        <marquee behavior="scroll" direction="left" scrollamount="20">
           {duplicatedClients.map((src, index) => (
-            <div key={index} className="flex-shrink-0 mx-8 flex items-center">
+            <div key={index} className="inline-block mx-8">
               <Image
                 src={src}
                 alt={`Client ${index + 1}`}
@@ -59,7 +57,7 @@ export default function ClientSecion({ lng }) {
               />
             </div>
           ))}
-        </AutoScrollingRow>
+        </marquee>
       </div>
     </section>
   );
