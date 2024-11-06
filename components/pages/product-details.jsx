@@ -12,14 +12,16 @@ import {
   Stamp,
   Scale,
   Ruler,
-  X,
 } from "lucide-react";
+import { useTranslation } from "@/app/i18n/client";
+import { useRouter } from "next/navigation";
 
-export default function ProductDetailsPage({ product }) {
+export default function ProductDetailsPage({ lng, product }) {
+  const { t } = useTranslation(lng, "common");
+  const router = useRouter();
   const [selectedColor, setSelectedColor] = useState(
     product?.colors[0].id || null,
   );
-
   return (
     <motion.div
       initial={{ x: "100%" }}
@@ -34,10 +36,10 @@ export default function ProductDetailsPage({ product }) {
             <Button
               variant="ghost"
               className="text-gray-600 dark:text-gray-300"
-              onClick={() => window.history.back()}
+              onClick={() => router.back()}
             >
               <ChevronLeft className="mx-2 h-4 w-4" />
-              Back to Products
+              {t("navigation.home")}
             </Button>
           </div>
 
@@ -78,7 +80,7 @@ export default function ProductDetailsPage({ product }) {
 
               <div>
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                  Available Colors:
+                  {t("available_colors")}
                 </h2>
                 <div className="flex flex-wrap gap-2">
                   {product.colors.map((color) => (
@@ -108,7 +110,7 @@ export default function ProductDetailsPage({ product }) {
 
               <div className="space-y-4">
                 <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                  Product Details
+                  {t("Product Details")}
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -118,7 +120,7 @@ export default function ProductDetailsPage({ product }) {
                     </Badge>
                     <div>
                       <p className="font-semibold text-gray-900 dark:text-gray-100">
-                        Category
+                        {t("Category")}
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         {product.category.parent.name} &gt;{" "}
@@ -132,7 +134,7 @@ export default function ProductDetailsPage({ product }) {
                     </Badge>
                     <div>
                       <p className="font-semibold text-gray-900 dark:text-gray-100">
-                        Materials
+                        {t("Materials")}
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         {product.materials}
@@ -145,7 +147,7 @@ export default function ProductDetailsPage({ product }) {
                     </Badge>
                     <div>
                       <p className="font-semibold text-gray-900 dark:text-gray-100">
-                        Item Size
+                        {t("Item Size")}
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         {product.itemSize}
@@ -158,7 +160,7 @@ export default function ProductDetailsPage({ product }) {
                     </Badge>
                     <div>
                       <p className="font-semibold text-gray-900 dark:text-gray-100">
-                        Item Weight
+                        {t("item Weight")}
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         {product.itemWeight}
@@ -171,7 +173,7 @@ export default function ProductDetailsPage({ product }) {
 
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
-                    Printing Options:
+                    {t("Printing Options")} :
                   </h3>
                   <ul className="space-y-2">
                     {product.printingOptions.map((option) => (
@@ -198,7 +200,7 @@ export default function ProductDetailsPage({ product }) {
 
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-              Product Description
+              {t("Product Description")}
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
               {product.description}
@@ -207,21 +209,21 @@ export default function ProductDetailsPage({ product }) {
 
           <section>
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-              Similar Products
+              {t("Similar Products")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {/* Placeholder for similar products */}
               <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400">
-                Similar Product 1
+                {t("similar_product_1")}
               </div>
               <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400">
-                Similar Product 2
+                {t("similar_product_2")}
               </div>
               <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400">
-                Similar Product 3
+                {t("similar_product_3")}
               </div>
               <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400">
-                Similar Product 4
+                {t("similar_product_4")}
               </div>
             </div>
           </section>

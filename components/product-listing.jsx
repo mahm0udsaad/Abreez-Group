@@ -26,10 +26,10 @@ export function ProductListing({ lng, initialProducts }) {
   useEffect(() => {
     let timer;
     const fetchProducts = async () => {
-      setIsSearching(true);
       try {
         let result;
-        if (searchTerm) {
+        if (searchTerm.trim("") !== "") {
+          setIsSearching(true);
           console.log("Searching for:", searchTerm);
 
           // If there's a search term
