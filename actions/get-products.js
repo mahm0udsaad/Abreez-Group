@@ -58,30 +58,31 @@ export async function getAllProductIds() {
 
 export async function searchProducts(searchTerm, skip = 0, take = 14) {
   try {
-    if (!searchTerm) {
+    // Trim whitespace and convert to lowercase
+    const originalSearchTerm = searchTerm;
+    const searchQuery = searchTerm.trim().toLowerCase();
+
+    // If the search query is empty after trimming
+    if (!searchQuery) {
       return await getAllProducts(skip, take);
     }
 
-    const searchQuery = searchTerm.toLowerCase();
-
-    // Define the where clause for searching
     const whereClause = {
       OR: [
         // Search in product fields
         {
           name: {
             contains: searchQuery,
-            mode: "insensitive", // Only use mode with Postgres
           },
         },
         {
           description: {
             contains: searchQuery,
-            mode: "insensitive",
           },
         },
+        // Exact match for product ID
         {
-          id: searchQuery, // Simplified equals comparison
+          id: searchQuery,
         },
         // Search in categories
         {
@@ -90,14 +91,12 @@ export async function searchProducts(searchTerm, skip = 0, take = 14) {
               {
                 name: {
                   contains: searchQuery,
-                  mode: "insensitive",
                 },
               },
               {
                 parent: {
                   name: {
                     contains: searchQuery,
-                    mode: "insensitive",
                   },
                 },
               },
@@ -109,14 +108,9 @@ export async function searchProducts(searchTerm, skip = 0, take = 14) {
           colors: {
             some: {
               OR: [
+                // Exact match for color ID
                 {
-                  id: searchQuery, // Simplified equals comparison
-                },
-                {
-                  name: {
-                    contains: searchQuery,
-                    mode: "insensitive",
-                  },
+                  id: originalSearchTerm,
                 },
               ],
             },
@@ -124,21 +118,6 @@ export async function searchProducts(searchTerm, skip = 0, take = 14) {
         },
       ],
     };
-
-    // If not using PostgreSQL, remove the mode parameter
-    if (process.env.DATABASE_PROVIDER !== "postgresql") {
-      const removeMode = (obj) => {
-        for (const key in obj) {
-          if (typeof obj[key] === "object" && obj[key] !== null) {
-            if ("mode" in obj[key]) {
-              delete obj[key].mode;
-            }
-            removeMode(obj[key]);
-          }
-        }
-      };
-      removeMode(whereClause);
-    }
 
     const [products, total] = await prisma.$transaction([
       prisma.product.findMany({

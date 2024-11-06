@@ -15,7 +15,6 @@ const ITEMS_PER_LOAD = 14;
 export function ProductListing({ lng, initialProducts }) {
   const [loadedProducts, setLoadedProducts] = useState(initialProducts);
   const [searchTerm, setSearchTerm] = useState("");
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -23,44 +22,21 @@ export function ProductListing({ lng, initialProducts }) {
   const loadMoreRef = useRef(null);
   const { t } = useTranslation(lng, "common");
 
-  // Add debouncing effect for search
+  // Handle search with debouncing
   useEffect(() => {
     let timer;
-    if (searchTerm) {
-      timer = setTimeout(async () => {
-        setIsSearching(true);
-        try {
-          const result = await searchProducts(
-            searchTerm.toLowerCase(),
-            0,
-            ITEMS_PER_LOAD,
-          );
-          if (result.success) {
-            setLoadedProducts(result.products);
-            setHasMore(result.hasMore);
-          }
-        } finally {
-          setIsSearching(false);
-        }
-      }, 300);
-    }
-    return () => clearTimeout(timer);
-  }, [searchTerm]);
-
-  // Handle search and category changes
-  useEffect(() => {
-    if (!selectedCategory || searchTerm) return; // Skip if there's a search term
-
     const fetchProducts = async () => {
       setIsSearching(true);
       try {
         let result;
+        if (searchTerm) {
+          console.log("Searching for:", searchTerm);
 
-        if (debouncedSearchTerm) {
-          // If there's a search term, use search endpoint
-          result = await searchProducts(debouncedSearchTerm, 0, ITEMS_PER_LOAD);
-        } else if (selectedCategory && selectedCategory.id) {
-          // If category is selected but no search term
+          // If there's a search term
+          const cleanSearchTerm = searchTerm.trim();
+          result = await searchProducts(cleanSearchTerm, 0, ITEMS_PER_LOAD);
+        } else if (selectedCategory?.id) {
+          // If no search term but category selected
           result = await getProductsByCategory(
             selectedCategory.id,
             0,
@@ -74,9 +50,6 @@ export function ProductListing({ lng, initialProducts }) {
         if (result.success) {
           setLoadedProducts(result.products);
           setHasMore(result.hasMore);
-        } else {
-          setLoadedProducts([]);
-          setHasMore(false);
         }
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -87,8 +60,11 @@ export function ProductListing({ lng, initialProducts }) {
       }
     };
 
-    fetchProducts();
-  }, [debouncedSearchTerm, selectedCategory]);
+    // Set timer for debouncing
+    timer = setTimeout(fetchProducts, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm, selectedCategory]);
 
   const loadMoreProducts = useCallback(async () => {
     if (isLoadingMore || !hasMore) return;
@@ -97,13 +73,14 @@ export function ProductListing({ lng, initialProducts }) {
     try {
       let result;
 
-      if (debouncedSearchTerm) {
+      if (searchTerm) {
+        const cleanSearchTerm = searchTerm.trim();
         result = await searchProducts(
-          debouncedSearchTerm,
+          cleanSearchTerm,
           loadedProducts.length,
           ITEMS_PER_LOAD,
         );
-      } else if (selectedCategory && selectedCategory.id) {
+      } else if (selectedCategory?.id) {
         result = await getProductsByCategory(
           selectedCategory.id,
           loadedProducts.length,
@@ -122,16 +99,7 @@ export function ProductListing({ lng, initialProducts }) {
     } finally {
       setIsLoadingMore(false);
     }
-  }, [
-    debouncedSearchTerm,
-    isLoadingMore,
-    hasMore,
-    loadedProducts,
-    selectedCategory,
-    setIsLoadingMore,
-    setHasMore,
-    setLoadedProducts,
-  ]);
+  }, [searchTerm, isLoadingMore, hasMore, loadedProducts, selectedCategory]);
 
   // Set up IntersectionObserver for infinite scroll
   useEffect(() => {
