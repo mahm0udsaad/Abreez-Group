@@ -4,19 +4,11 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Search, Grid, List } from "lucide-react";
 import ProductCard from "../cards/dashboard-product-card";
 import SellDialog from "../btns/list-sell";
 import { CategorySelector } from "../component/dash-categories-selection";
 
-const categories = ["All", "Clothing", "Electronics", "Home & Garden"];
 
 export default function ProductsView({ initialProducts }) {
   const [products, setProducts] = useState(initialProducts);

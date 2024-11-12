@@ -32,6 +32,11 @@ const nextConfig = {
         hostname: "www.mtcpromo.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "cloud.abreezstock.com",
+        pathname: "**",
+      },
     ],
   },
 };
