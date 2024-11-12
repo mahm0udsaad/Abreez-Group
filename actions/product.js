@@ -1,10 +1,8 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
 import { uploadToCloud } from "@/lib/cloud";
+import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-
-const prisma = new PrismaClient();
 
 async function generateProductId(categoryId) {
   console.log(categoryId);

@@ -1,11 +1,9 @@
 "use server";
 
-import { PrismaClient } from "@/prisma/generated/client";
+import prisma from "@/lib/prisma";
 import { slugify } from "@/lib/utils";
 
 // Initialize Prisma Client
-const prisma = new PrismaClient();
-
 export async function seedCategories() {
   try {
     console.log("Starting category seeding...");

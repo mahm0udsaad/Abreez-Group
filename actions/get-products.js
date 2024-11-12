@@ -1,8 +1,6 @@
 "use server";
 
-import { PrismaClient } from "@/prisma/generated/client";
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 export async function getAllProducts(skip = 0, take = 14) {
   try {

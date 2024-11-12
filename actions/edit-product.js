@@ -1,10 +1,8 @@
 // app/actions/product.ts
 "use server";
 
+import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { PrismaClient } from "@/prisma/generated/client";
-
-const prisma = new PrismaClient();
 
 export async function updateProduct(productId, data) {
   try {
