@@ -3,7 +3,7 @@ import { useState } from "react";
 import { EditProductCard } from "./EditProductCard";
 import { ViewProductCard } from "./ViewProductCard";
 
-export default function ProductCard({ product: initialProduct }) {
+export default function ProductCard({ product: initialProduct, lng }) {
   const [product, setProduct] = useState(initialProduct);
   const [isEditMode, setIsEditMode] = useState(false);
 
@@ -16,12 +16,14 @@ export default function ProductCard({ product: initialProduct }) {
 
   return isEditMode ? (
     <EditProductCard
+      lng={lng}
       product={product}
       onCancel={handleCancel}
       onSave={handleSave}
     />
   ) : (
     <ViewProductCard
+      lng={lng}
       setProduct={setProduct}
       product={product}
       onEditClick={handleEdit}

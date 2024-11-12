@@ -165,20 +165,6 @@ export async function getProductsByCategory(categoryId) {
     return { success: false, error: error.message };
   }
 }
-export async function deleteAllProducts() {
-  try {
-    // Delete all color variants first
-    await prisma.colorVariant.deleteMany();
-
-    // Then delete all products
-    await prisma.product.deleteMany();
-
-    return { success: true };
-  } catch (error) {
-    console.error("Error deleting products:", error);
-    return { success: false, error: error.message };
-  }
-}
 
 export async function getProductById(productId) {
   try {
@@ -203,5 +189,41 @@ export async function getProductById(productId) {
   } catch (error) {
     console.error("Error getting product by id:", error);
     return { success: false, error: error.message };
+  }
+}
+export async function deleteProductById(formData) {
+  const productId = formData.get("id");
+
+  try {
+    // Use a transaction to ensure all operations succeed or fail together
+    await prisma.$transaction(async (prisma) => {
+      // 1. Delete all PrintingOptions associated with the Product
+      await prisma.printingOption.deleteMany({
+        where: {
+          productId: productId,
+        },
+      });
+
+      // 2. Delete all ColorVariants associated with the Product
+      await prisma.colorVariant.deleteMany({
+        where: {
+          productId: productId,
+        },
+      });
+
+      // 3. Delete the Product
+      await prisma.product.delete({
+        where: {
+          id: productId,
+        },
+      });
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting product by id:", error);
+    return { success: false, error: error.message };
+  } finally {
+    revalidatePath("/dashboard");
   }
 }

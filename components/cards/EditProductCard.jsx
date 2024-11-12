@@ -13,6 +13,7 @@ import {
   Loader,
   RefreshCcw,
   Trash2,
+  DeleteIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,8 +34,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { useTranslation } from "@/app/i18n/client";
+import { deleteProductById } from "@/actions/product";
 
-export function EditProductCard({ product, onCancel, onSave }) {
+export function EditProductCard({ product, onCancel, onSave, lng }) {
+  const { t } = useTranslation(lng, "dashboard");
   const [editedProduct, setEditedProduct] = useState(product);
   const [currentColor, setCurrentColor] = useState(product.colors[0]);
   const [pendingColors, setPendingColors] = useState([]);
@@ -54,7 +58,7 @@ export function EditProductCard({ product, onCancel, onSave }) {
             className="w-full bg-blue-500 text-white hover:bg-blue-600"
           >
             <Upload className="h-4 w-4 mr-2" />
-            Upload Images
+            {t("upload_images")}
           </Button>
           <input
             ref={fileInputRef}
@@ -151,7 +155,7 @@ export function EditProductCard({ product, onCancel, onSave }) {
                 isPending || !pendingColors.some((c) => c.status === "success")
               }
             >
-              Save New Colors
+              {t("save_new_colors")}
             </Button>
           </div>
         )}
@@ -194,7 +198,7 @@ export function EditProductCard({ product, onCancel, onSave }) {
               );
 
               toast({
-                title: "Success",
+                title: t("success"),
                 description: `${file.name} has been uploaded`,
                 variant: "Success",
               });
@@ -206,7 +210,7 @@ export function EditProductCard({ product, onCancel, onSave }) {
               );
 
               toast({
-                title: "Error",
+                title: t("error"),
                 description: `Failed to upload ${file.name}`,
                 variant: "destructive",
               });
@@ -220,7 +224,7 @@ export function EditProductCard({ product, onCancel, onSave }) {
             );
 
             toast({
-              title: "Error",
+              title: t("error"),
               description: "Failed to upload image",
               variant: "destructive",
             });
@@ -238,9 +242,8 @@ export function EditProductCard({ product, onCancel, onSave }) {
 
     if (validColors.length === 0) {
       toast({
-        title: "Error",
-        description:
-          "No valid colors to save. Ensure colors have names and quantities greater than 0.",
+        title: t("error"),
+        description: t("no_valid_colors"),
         variant: "destructive",
       });
       return;
@@ -270,21 +273,21 @@ export function EditProductCard({ product, onCancel, onSave }) {
           setPendingColors([]);
 
           toast({
-            title: "Success",
-            description: "New colors added successfully",
+            title: t("success"),
+            description: t("colors_added_successfully"),
             variant: "Success",
           });
         } else {
           toast({
-            title: "Error",
-            description: "Failed to save some colors",
+            title: t("error"),
+            description: t("save_colors_failed"),
             variant: "destructive",
           });
         }
       } catch (error) {
         toast({
-          title: "Error",
-          description: "Failed to save colors",
+          title: t("error"),
+          description: t("save_colors_error"),
           variant: "destructive",
         });
       }
@@ -310,19 +313,22 @@ export function EditProductCard({ product, onCancel, onSave }) {
           if (currentColor.id === colorToDelete.id) {
             setCurrentColor(updatedColors[0] || null);
           }
-
           toast({
-            title: "Success",
-            description: "Color variant deleted successfully",
+            title: t("success"),
+            description: t("color_deleted_successfully"),
             variant: "Success",
           });
         } else {
-          throw new Error(result.error);
+          toast({
+            title: t("error"),
+            description: t("delete_color_failed"),
+            variant: "destructive",
+          });
         }
       } catch (error) {
         toast({
-          title: "Error",
-          description: "Failed to delete color variant",
+          title: t("error"),
+          description: t("delete_color_error"),
           variant: "destructive",
         });
       } finally {
@@ -356,14 +362,14 @@ export function EditProductCard({ product, onCancel, onSave }) {
       if (result.success) {
         onSave(editedProduct);
         toast({
-          title: "Success",
-          description: "Product updated successfully",
+          title: t("success"),
+          description: t("upload_success"),
           variant: "Success",
         });
       } else {
         toast({
-          title: "Error",
-          description: result.error,
+          title: t("error"),
+          description: t("error"),
           variant: "destructive",
         });
       }
@@ -396,11 +402,11 @@ export function EditProductCard({ product, onCancel, onSave }) {
           className="absolute top-2 right-2 bg-green-600 text-white"
         >
           {editedProduct.totalAvailable > 0
-            ? `Available ${editedProduct.colors.reduce(
+            ? `${t("available")} ${editedProduct.colors.reduce(
                 (acc, c) => acc + c.available,
                 0,
               )}`
-            : "Out of stock"}
+            : t("out_of_stock")}
         </Badge>
         <Button
           variant="secondary"
@@ -411,15 +417,28 @@ export function EditProductCard({ product, onCancel, onSave }) {
         >
           <X className="h-4 w-4" />
         </Button>
-        <Button
-          variant="secondary"
-          size="icon"
-          className="absolute bottom-2 right-2 bg-blue-500 text-white hover:bg-blue-600"
-          onClick={() => fileInputRef.current.click()}
-          disabled={isPending}
-        >
-          <Upload className="h-4 w-4" />
-        </Button>
+        <div className="flex absolute gap-2 bottom-2 right-2 ">
+          <Button
+            variant="secondary"
+            size="icon"
+            className="bg-blue-500 text-white hover:bg-blue-600"
+            onClick={() => fileInputRef.current.click()}
+            disabled={isPending}
+          >
+            <Upload className="h-4 w-4" />
+          </Button>
+          <form action={deleteProductById}>
+            <input type="hidden" name="id" value={product.id} />
+            <Button
+              type="submit"
+              variant="secondary"
+              size="icon"
+              className=" bg-red-500 text-white hover:bg-red-600"
+            >
+              <DeleteIcon className="h-4 w-4" />
+            </Button>
+          </form>
+        </div>
         <input
           ref={fileInputRef}
           type="file"
@@ -451,7 +470,9 @@ export function EditProductCard({ product, onCancel, onSave }) {
         />
 
         <div className="flex items-center gap-2 mb-2">
-          <h3 className="font-semibold text-gray-200">Existing Colors:</h3>
+          <h3 className="font-semibold text-gray-200">
+            {t("existing_colors")}:
+          </h3>
         </div>
         <div className="grid grid-cols-2 gap-2">
           {editedProduct.colors.map((color) => (
@@ -498,20 +519,19 @@ export function EditProductCard({ product, onCancel, onSave }) {
                 >
                   <AlertDialogContent>
                     <AlertDialogHeader>
-                      <AlertDialogTitle>Confirm Deletion</AlertDialogTitle>
+                      <AlertDialogTitle>{t("delete_color")}</AlertDialogTitle>
                       <AlertDialogDescription>
-                        Are you sure you want to delete this color variant? This
-                        action cannot be undone.
+                        {t("confirm_delete_color")}
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
                       <AlertDialogCancel
                         onClick={() => setDeleteDialogOpen(false)}
                       >
-                        Cancel
+                        {t("cancel")}
                       </AlertDialogCancel>
                       <AlertDialogAction onClick={handleDeleteColor}>
-                        Delete
+                        {t("delete")}
                       </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>
@@ -554,7 +574,7 @@ export function EditProductCard({ product, onCancel, onSave }) {
           onClick={handleSave}
           disabled={isPending}
         >
-          Save Changes
+          {t("save_changes")}
         </Button>
       </CardFooter>
     </Card>

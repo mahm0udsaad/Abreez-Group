@@ -12,10 +12,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "@/app/i18n/client";
 
-export default function SideBar() {
+export default function SideBar({ lng }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
+  const { t } = useTranslation(lng, "dashboard");
   return (
     <aside
       className={`bg-gray-800 shadow-lg transition-all duration-300 ${
@@ -32,7 +33,7 @@ export default function SideBar() {
               height={24}
               alt="logo"
             />
-            Admin Panel
+            {t("adminPanel")}
           </h1>
         )}
         <Button
@@ -52,7 +53,7 @@ export default function SideBar() {
         >
           <Link href="/dashboard">
             <Package className="mr-2 h-4 w-4" />
-            {isSidebarOpen && "Products"}
+            {isSidebarOpen && t("products")}
           </Link>
         </Button>
         <Button
@@ -62,7 +63,7 @@ export default function SideBar() {
         >
           <Link href="/dashboard/add-product">
             <Plus className="mr-2 h-4 w-4" />
-            {isSidebarOpen && "Add New Product"}
+            {isSidebarOpen && t("addNewProduct")}
           </Link>
         </Button>
         <Button
@@ -72,7 +73,7 @@ export default function SideBar() {
         >
           <Link href="/dashboard/categories">
             <Tag className="mr-2 h-4 w-4" />
-            {isSidebarOpen && "Categories"}
+            {isSidebarOpen && t("categories")}
           </Link>
         </Button>
         <Button
@@ -82,7 +83,7 @@ export default function SideBar() {
         >
           <Link href="/dashboard/settings">
             <Settings className="mr-2 h-4 w-4" />
-            {isSidebarOpen && "Settings"}
+            {isSidebarOpen && t("settings")}
           </Link>
         </Button>
       </nav>

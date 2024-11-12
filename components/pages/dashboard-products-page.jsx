@@ -8,14 +8,14 @@ import { Search, Grid, List } from "lucide-react";
 import ProductCard from "../cards/dashboard-product-card";
 import SellDialog from "../btns/list-sell";
 import { CategorySelector } from "../component/dash-categories-selection";
+import { useTranslation } from "@/app/i18n/client";
 
-
-export default function ProductsView({ initialProducts }) {
+export default function ProductsView({ initialProducts, lng }) {
   const [products, setProducts] = useState(initialProducts);
   const [viewMode, setViewMode] = useState("grid");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-
+  const { t } = useTranslation(lng, "dashboard");
   const filteredProducts = products?.filter(
     (product) =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -25,18 +25,18 @@ export default function ProductsView({ initialProducts }) {
 
   return (
     <>
-      <div className="mb-6 flex space-x-4">
+      <div className="mb-6 flex gap-4">
         <div className="flex-1">
           <Label htmlFor="search" className="sr-only">
-            Search
+            {t("search")}
           </Label>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <Input
               id="search"
               type="text"
-              placeholder="Search products..."
-              className="pl-10 bg-gray-800 text-white border-gray-700"
+              placeholder={t("searchPlaceholder")}
+              className="px-10 bg-gray-800 text-white border-gray-700"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -48,7 +48,7 @@ export default function ProductsView({ initialProducts }) {
             onSelect={setSelectedCategory}
           />
         </div>
-        <div className="flex space-x-2">
+        <div className="flex gap-2">
           <Button
             variant="outline"
             size="icon"
@@ -76,6 +76,7 @@ export default function ProductsView({ initialProducts }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {filteredProducts?.map((product) => (
             <ProductCard
+              lng={lng}
               key={product.id}
               product={product}
               onUpdate={(updatedProduct) => {
@@ -93,22 +94,22 @@ export default function ProductsView({ initialProducts }) {
           <thead className="bg-gray-800">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                ID
+                {t("id")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                Name
+                {t("name")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                Category
+                {t("category")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                Total Available
+                {t("totalAvailable")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                Colors
+                {t("colors")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                Actions
+                {t("actions")}
               </th>
             </tr>
           </thead>
@@ -132,7 +133,7 @@ export default function ProductsView({ initialProducts }) {
                     {product.colors.map((color) => (
                       <div key={color.id} className="flex items-center">
                         <div
-                          className="w-4 h-4 rounded-full mr-1"
+                          className="w-4 h-4 rounded-full mx-1"
                           style={{ backgroundColor: color.name }}
                         />
                         <span className="text-gray-200">

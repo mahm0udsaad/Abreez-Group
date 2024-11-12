@@ -17,9 +17,12 @@ import {
 import { CategorySelector } from "../component/dash-categories-selection";
 import { createProduct, uploadProductImage } from "@/actions/product";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "@/app/i18n/client";
 
-export const ManualProductForm = () => {
+export function ManualProductForm({ lng }) {
+  const { t } = useTranslation(lng, "dashboard");
   const { toast } = useToast();
+
   const [newProduct, setNewProduct] = useState({
     name: "",
     description: "",
@@ -33,7 +36,6 @@ export const ManualProductForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const fileInputRef = useRef(null);
-
   const handleImageUpload = async (event) => {
     const files = Array.from(event.target.files);
 
@@ -77,8 +79,8 @@ export const ManualProductForm = () => {
                   ),
                 }));
                 toast({
-                  title: "Image uploaded successfully",
-                  description: `${file.name} has been uploaded to the cloud`,
+                  title: t("imageUploadSuccess"),
+                  description: `${file.name} ${t("uploadedToCloud")}`,
                   variant: "Success",
                 });
               }, 10000);
@@ -90,8 +92,10 @@ export const ManualProductForm = () => {
                 ),
               }));
               toast({
-                title: "Upload failed",
-                description: `Failed to upload ${file.name}. Please try again.`,
+                title: t("uploadFailed"),
+                description: `${t("failedUploadMessage")} ${file.name}. ${t(
+                  "pleaseTryAgain",
+                )}`,
                 variant: "destructive",
               });
             }
@@ -104,8 +108,10 @@ export const ManualProductForm = () => {
               ),
             }));
             toast({
-              title: "Upload error",
-              description: `Error uploading ${file.name}. Please try again.`,
+              title: t("uploadError"),
+              description: `${t("errorUploadingMessage")} ${file.name}. ${t(
+                "pleaseTryAgain",
+              )}`,
               variant: "destructive",
             });
           });
@@ -139,8 +145,8 @@ export const ManualProductForm = () => {
             ),
           }));
           toast({
-            title: "Retry successful",
-            description: `${color.name} has been uploaded successfully`,
+            title: t("retrySuccessful"),
+            description: `${color.name} ${t("uploadedSuccessfully")}`,
             variant: "Success",
           });
         }, 30000);
@@ -152,8 +158,8 @@ export const ManualProductForm = () => {
           ),
         }));
         toast({
-          title: "Retry failed",
-          description: "Failed to upload image. Please try again.",
+          title: t("retryFailed"),
+          description: t("retryErrorMessage"),
           variant: "destructive",
         });
       }
@@ -165,8 +171,8 @@ export const ManualProductForm = () => {
         ),
       }));
       toast({
-        title: "Retry error",
-        description: "An error occurred while retrying the upload",
+        title: t("retryError"),
+        description: t("retryUploadError"),
         variant: "destructive",
       });
     }
@@ -206,8 +212,8 @@ export const ManualProductForm = () => {
         const result = await createProduct(formData);
         if (result.success) {
           toast({
-            title: "Product added successfully",
-            description: "Your new product has been created",
+            title: t("productAddedSuccessfully"),
+            description: t("newProductCreated"),
             variant: "Success",
           });
           setNewProduct({
@@ -223,7 +229,7 @@ export const ManualProductForm = () => {
           });
         } else {
           toast({
-            title: "Failed to add product",
+            title: t("failedToAddProduct"),
             description: result.error,
             variant: "destructive",
           });
@@ -231,17 +237,16 @@ export const ManualProductForm = () => {
       } catch (error) {
         console.error("Error adding product:", error);
         toast({
-          title: "Error",
-          description: "An error occurred while adding the product",
+          title: t("error"),
+          description: t("errorAddingProduct"),
           variant: "destructive",
         });
       }
       setIsSubmitting(false);
     } else {
       toast({
-        title: "Validation error",
-        description:
-          "Please ensure all fields are filled and all images are uploaded successfully.",
+        title: t("validationError"),
+        description: t("validationErrorMessage"),
         variant: "destructive",
       });
     }
@@ -253,7 +258,7 @@ export const ManualProductForm = () => {
         {/* Basic product information */}
         <div>
           <Label htmlFor="productName" className="text-gray-200">
-            Product Name
+            {t("productName")}
           </Label>
           <Input
             id="productName"
@@ -266,7 +271,7 @@ export const ManualProductForm = () => {
         </div>
         <div>
           <Label htmlFor="productCategory" className="text-gray-200">
-            Category
+            {t("category")}
           </Label>
           <div className="mt-1">
             <CategorySelector
@@ -279,7 +284,7 @@ export const ManualProductForm = () => {
         </div>
         <div className="md:col-span-2">
           <Label htmlFor="productDescription" className="text-gray-200">
-            Description
+            {t("description")}
           </Label>
           <Textarea
             id="productDescription"
@@ -297,7 +302,7 @@ export const ManualProductForm = () => {
       <div className="flex w-full gap-2">
         <div className="flex-1">
           <Label htmlFor="productMaterials" className="text-gray-200">
-            Materials
+            {t("materials")}
           </Label>
           <Input
             id="productMaterials"
@@ -310,7 +315,7 @@ export const ManualProductForm = () => {
         </div>
         <div className="flex-1">
           <Label htmlFor="productSize" className="text-gray-200">
-            Item Size
+            {t("itemSize")}
           </Label>
           <Input
             id="productSize"
@@ -323,7 +328,7 @@ export const ManualProductForm = () => {
         </div>
         <div className="flex-1">
           <Label htmlFor="productWeight" className="text-gray-200">
-            Item Weight
+            {t("itemWeight")}
           </Label>
           <Input
             id="productWeight"
@@ -338,7 +343,7 @@ export const ManualProductForm = () => {
 
       <div className="md:col-span-2">
         <Label htmlFor="printingOptions" className="text-gray-200">
-          Printing Options
+          {t("printingOptions")}
         </Label>
         <div className="flex flex-col space-y-2 mt-1">
           {newProduct.printingOptions.map((option, index) => (
@@ -383,14 +388,14 @@ export const ManualProductForm = () => {
             className="w-full bg-blue-500 text-white hover:bg-blue-600"
           >
             <Plus className="h-4 w-4 mr-2" />
-            Add Printing Option
+            {t("addPrintingOption")}
           </Button>
         </div>
       </div>
 
       {/* Color variant section */}
       <div className="md:col-span-2">
-        <Label className="text-gray-200">Add Colors</Label>
+        <Label className="text-gray-200">{t("add_color")}</Label>
         <div className="flex items-center space-x-2 mt-1">
           <Button
             variant="outline"
@@ -398,7 +403,7 @@ export const ManualProductForm = () => {
             className="w-full bg-blue-500 text-white hover:bg-blue-600"
           >
             <Upload className="h-4 w-4 mr-2" />
-            Upload Images
+            {t("uploadProductImage")}
           </Button>
         </div>
         <input
@@ -414,7 +419,7 @@ export const ManualProductForm = () => {
       {/* Color variants list */}
       {newProduct.colors.length > 0 && (
         <div className="md:col-span-2">
-          <Label className="text-gray-200 block mb-2">Color Variants</Label>
+          <Label className="text-gray-200 block mb-2">{t("colors")}</Label>
           {newProduct.colors.map((color, index) => (
             <div
               key={color.id}
@@ -504,9 +509,9 @@ export const ManualProductForm = () => {
           ) : (
             <Package className="w-4 h-4 mr-2" />
           )}
-          Add Product
+          {t("addProduct")}
         </Button>
       </div>
     </div>
   );
-};
+}

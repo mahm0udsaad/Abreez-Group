@@ -1,4 +1,3 @@
-// ViewProductCard.js
 "use client";
 
 import React, { useState, useTransition } from "react";
@@ -27,13 +26,15 @@ import { sellProduct } from "@/actions/edit-product";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "@/app/i18n/client";
 
-export function ViewProductCard({ product, setProduct, onEditClick }) {
+export function ViewProductCard({ product, setProduct, onEditClick, lng }) {
   const [currentColor, setCurrentColor] = useState(product.colors[0]);
   const [sellQuantity, setSellQuantity] = useState(1);
   const [isSellDialogOpen, setIsSellDialogOpen] = useState(false);
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
+  const { t } = useTranslation(lng, "dashboard");
 
   const handleColorClick = (colorName) => {
     setCurrentColor(
@@ -44,18 +45,16 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
   const handleSell = async () => {
     if (sellQuantity > currentColor.available) {
       toast({
-        title: "Error",
-        description: "Cannot sell more than available quantity",
+        title: t("error"),
+        description: t("cannot_sell_more_than_available_quantity"),
         variant: "destructive",
       });
       return;
     }
 
-    // Save original values for potential reversion
     const originalColors = [...product.colors];
     const originalTotalAvailable = product.totalAvailable;
 
-    // Optimistically update product state
     setProduct((prevProduct) => {
       const updatedColors = prevProduct.colors.map((color) =>
         color.id === currentColor.id
@@ -79,14 +78,13 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
 
       if (result.success) {
         toast({
-          title: "Success",
-          description: "Sale processed successfully",
-          variant: "Success",
+          title: t("success"),
+          description: t("sale_processed_successfully"),
+          variant: "success",
         });
         setSellQuantity(1);
         setIsSellDialogOpen(false);
       } else {
-        // Revert to original values on error
         setProduct((prevProduct) => ({
           ...prevProduct,
           colors: originalColors,
@@ -94,8 +92,8 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
         }));
 
         toast({
-          title: "Error",
-          description: result.error,
+          title: t("error"),
+          description: result.error || t("sale_failed"),
           variant: "destructive",
         });
       }
@@ -126,11 +124,11 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
           className="absolute top-2 right-2 bg-green-600 text-white"
         >
           {product.totalAvailable > 0
-            ? `Available ${product.colors.reduce(
+            ? `${t("available")} ${product.colors.reduce(
                 (acc, c) => acc + c.available,
                 0,
               )}`
-            : "Out of stock"}
+            : t("out_of_stock")}
         </Badge>
         <Button
           variant="secondary"
@@ -149,7 +147,9 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
         <p className="text-sm text-gray-300 mb-2">{product.description}</p>
         <div className="flex items-center gap-2 mb-2">
           <Package className="h-5 w-5 text-blue-400" />
-          <span className="font-semibold text-gray-200">Available Colors:</span>
+          <span className="font-semibold text-gray-200">
+            {t("available_colors")}
+          </span>
         </div>
         <div className="grid grid-cols-2 gap-2">
           {product.colors.map((color) => (
@@ -172,7 +172,9 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
                 />
                 <span className="text-xs capitalize">{color.name}</span>
               </div>
-              <span className="text-xs font-medium">{color.available} pcs</span>
+              <span className="text-xs font-medium">
+                {color.available} {t("available")}
+              </span>
             </Button>
           ))}
         </div>
@@ -203,21 +205,20 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
               className="w-full bg-blue-500 hover:bg-blue-600 text-white transition-colors duration-300"
               disabled={isPending}
             >
-              Sell
+              {t("sell")}
               <ShoppingCart className="ml-2 h-4 w-4" />
             </Button>
           </DialogTrigger>
           <DialogContent className="bg-gray-800 text-white border-gray-700">
             <DialogHeader>
-              <DialogTitle className="text-blue-400">Sell Product</DialogTitle>
+              <DialogTitle className="text-blue-400">{t("sell")}</DialogTitle>
               <DialogDescription className="text-gray-300">
-                Select the color and quantity you want to sell for{" "}
-                {product.name}.
+                {t("select_color_quantity_to_sell")} {product.name}.
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
               <Label htmlFor="colorSelect" className="text-gray-200">
-                Color
+                {t("color")}
               </Label>
               <select
                 id="colorSelect"
@@ -238,7 +239,7 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
             </div>
             <div className="py-4">
               <Label htmlFor="sellQuantity" className="text-gray-200">
-                Quantity
+                {t("quantity")}
               </Label>
               <Input
                 id="sellQuantity"
@@ -250,25 +251,26 @@ export function ViewProductCard({ product, setProduct, onEditClick }) {
                 className="mt-1 bg-gray-700 text-white border-gray-600"
               />
             </div>
-            <DialogFooter>
+            <DialogFooter className={"gap-4"}>
               <Button
                 onClick={() => setIsSellDialogOpen(false)}
                 variant="outline"
                 className="bg-gray-700 text-white border-gray-600"
               >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back
+                <ArrowLeft className="mx-2 h-4 w-4" />
+                {t("back")}
               </Button>
               <Button
                 onClick={handleSell}
-                className="bg-green-600 hover:bg-green-700 text-white"
+                className="mx-2 bg-blue-500 text-white hover:bg-blue-600"
               >
-                Confirm Sale
-              </Button>
-            </DialogFooter>
-          </DialogContent>
-        </Dialog>
-      </CardFooter>
+                {" "}
+                {t("confirm_sale")}{" "}
+              </Button>{" "}
+            </DialogFooter>{" "}
+          </DialogContent>{" "}
+        </Dialog>{" "}
+      </CardFooter>{" "}
     </Card>
   );
 }

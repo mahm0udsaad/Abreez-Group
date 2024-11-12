@@ -17,35 +17,35 @@ import { getCategories } from "@/actions/category";
 export function CategorySelector({ onSelect, selectedCategory }) {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const toast = useToast();
+  const { toast } = useToast();
 
-  const fetchCategories = async () => {
-    setIsLoading(true);
-    try {
-      const result = await getCategories();
-      if (result.success) {
-        const parentCategories = result.categories.filter(
-          (category) => !category.parentId,
-        );
-        setCategories(parentCategories);
-      } else {
+  useEffect(() => {
+    const fetchCategories = async () => {
+      setIsLoading(true);
+      try {
+        const result = await getCategories();
+        if (result.success) {
+          const parentCategories = result.categories.filter(
+            (category) => !category.parentId,
+          );
+          setCategories(parentCategories);
+        } else {
+          toast({
+            title: "Error",
+            description: "Failed to fetch categories",
+            variant: "destructive",
+          });
+        }
+      } catch (error) {
         toast({
           title: "Error",
-          description: "Failed to fetch categories",
+          description: "An unexpected error occurred",
           variant: "destructive",
         });
       }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "An unexpected error occurred",
-        variant: "destructive",
-      });
-    }
-    setIsLoading(false);
-  };
+      setIsLoading(false);
+    };
 
-  useEffect(() => {
     fetchCategories();
   }, []);
 
