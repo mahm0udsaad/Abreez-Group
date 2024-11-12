@@ -37,7 +37,7 @@ export default function AddProduct({ params: { lng } }) {
             {t("excel_upload")}
           </Button>
         </div>
-        <ManualProductForm lng={lng} />
+        {isExcelUpload ? <ExcelUploadForm /> : <ManualProductForm lng={lng} />}
       </CardContent>
     </Card>
   );

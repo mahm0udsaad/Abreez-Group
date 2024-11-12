@@ -417,28 +417,15 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
         >
           <X className="h-4 w-4" />
         </Button>
-        <div className="flex absolute gap-2 bottom-2 right-2 ">
-          <Button
-            variant="secondary"
-            size="icon"
-            className="bg-blue-500 text-white hover:bg-blue-600"
-            onClick={() => fileInputRef.current.click()}
-            disabled={isPending}
-          >
-            <Upload className="h-4 w-4" />
-          </Button>
-          <form action={deleteProductById}>
-            <input type="hidden" name="id" value={product.id} />
-            <Button
-              type="submit"
-              variant="secondary"
-              size="icon"
-              className=" bg-red-500 text-white hover:bg-red-600"
-            >
-              <DeleteIcon className="h-4 w-4" />
-            </Button>
-          </form>
-        </div>
+        <Button
+          variant="secondary"
+          size="icon"
+          className="absolute gap-2 bottom-2 right-2 bg-blue-500 text-white hover:bg-blue-600"
+          onClick={() => fileInputRef.current.click()}
+          disabled={isPending}
+        >
+          <Upload className="h-4 w-4" />
+        </Button>
         <input
           ref={fileInputRef}
           type="file"
