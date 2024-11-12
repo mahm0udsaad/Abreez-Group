@@ -1,6 +1,6 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@/prisma/generated/client";
 import { slugify } from "@/lib/utils";
 
 // Initialize Prisma Client

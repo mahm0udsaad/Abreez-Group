@@ -143,7 +143,7 @@ export async function getAllProducts() {
         colors: true,
       },
     });
-
+    console.log(products);
     return { success: true, products: products || [] };
   } catch (error) {
     console.error("Error getting all products:", error);
