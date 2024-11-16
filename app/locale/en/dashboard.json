@@ -1,6 +1,7 @@
 {
   "printingOptions": "Printing Options",
   "addPrintingOption": "Add Printing Option",
+  "color_id_already_exists": "Color ID already exists.",
   "add_new_product": "Add New Product",
   "manual_entry": "Manual Entry",
   "excel_upload": "Excel Upload",

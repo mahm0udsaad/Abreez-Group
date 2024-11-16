@@ -21,26 +21,44 @@ export async function updateProduct(productId, data) {
 
     // Update color variants
     for (const color of data.colors) {
-      await prisma.colorVariant.upsert({
-        where: { id: color.id },
-        update: {
+      // Check if a color with the same name already exists for this product
+      const existingColor = await prisma.colorVariant.findFirst({
+        where: {
           name: color.name,
-          available: color.available,
-          image: color.image,
-        },
-        create: {
-          id: color.id,
-          name: color.name,
-          available: color.available,
-          image: color.image,
           productId: productId,
         },
       });
+
+      if (existingColor) {
+        // Update the existing color's id if necessary
+        await prisma.colorVariant.update({
+          where: { id: existingColor.id },
+          data: {
+            id: color.id, // Update the id
+            name: color.name,
+            available: color.available,
+            image: color.image,
+          },
+        });
+      } else {
+        // Create a new color variant
+        await prisma.colorVariant.create({
+          data: {
+            id: color.id,
+            name: color.name,
+            available: color.available,
+            image: color.image,
+            productId: productId,
+          },
+        });
+      }
     }
 
+    // Revalidate paths to refresh cached data
     revalidatePath("/products");
     return { success: true, product };
   } catch (error) {
+    console.error(error);
     return { success: false, error: "Failed to update product" };
   } finally {
     revalidatePath("/dashboard");

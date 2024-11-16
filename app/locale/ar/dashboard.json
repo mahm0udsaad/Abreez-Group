@@ -1,6 +1,7 @@
 {
   "printingOptions": "خيارات الطباعة",
   "addPrintingOption": "إضافة خيار طباعة",
+  "color_id_already_exists": "SKU اللون يوجد بالفعل.",
   "productName": "اسم المنتج",
   "description": "الوصف",
   "materials": "المواد",

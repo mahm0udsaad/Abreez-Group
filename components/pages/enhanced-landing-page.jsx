@@ -22,8 +22,8 @@ export function EnhancedLandingPage({ lng }) {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const heroImages = [
     "/hero-cover-0.png",
-    "/hero-cover-1.png",
-    "/hero-cover.png",
+    // "/hero-cover-1.png",
+    // "/hero-cover.png",
   ];
 
   const { scrollYProgress } = useScroll();
@@ -78,22 +78,32 @@ export function EnhancedLandingPage({ lng }) {
       />
       <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 z-0 ">
-          {heroImages.map((src, index) => (
-            <motion.div
-              key={src}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: index === currentHeroIndex ? 1 : 0 }}
-              transition={{ duration: 1 }}
-              className="absolute inset-0"
-            >
-              <Image
-                src={src}
-                alt={t("hero.imageAlt", { number: index + 1 })}
-                layout="fill"
-                objectFit="cover "
-              />
-            </motion.div>
-          ))}
+          {heroImages.length === 1 ? (
+            <Image
+              key={heroImages[0]}
+              src={heroImages[0]}
+              alt={t("hero.imageAlt", { number: 1 })}
+              layout="fill"
+              objectFit="cover"
+            />
+          ) : (
+            heroImages.map((src, index) => (
+              <motion.div
+                key={src}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: index === currentHeroIndex ? 1 : 0 }}
+                transition={{ duration: 1 }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={src}
+                  alt={t("hero.imageAlt", { number: index + 1 })}
+                  layout="fill"
+                  objectFit="cover "
+                />
+              </motion.div>
+            ))
+          )}
         </div>
         <div className="absolute inset-0 bg-black opacity-50 z-5" />
 

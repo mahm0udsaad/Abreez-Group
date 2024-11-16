@@ -44,6 +44,7 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
   const [pendingColors, setPendingColors] = useState([]);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [colorToDelete, setColorToDelete] = useState(null);
+  const [editingColorId, setEditingColorId] = useState(null);
   const fileInputRef = useRef(null);
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
@@ -376,6 +377,50 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
     });
   };
 
+  const handleIdChange = (colorId, newId) => {
+    // If this is the first character being typed, store the color being edited
+    if (!editingColorId) {
+      setEditingColorId(colorId);
+    }
+
+    // Check if the new ID already exists, but only for completed IDs
+    if (newId.length > 1) {
+      const idExists = editedProduct.colors.some(
+        (c) => c.id === newId && c.id !== editingColorId,
+      );
+
+      if (idExists) {
+        toast({
+          title: t("error"),
+          description: t("color_id_already_exists"),
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+
+    // Update the colors array with the new ID
+    const updatedColors = editedProduct.colors.map((c) =>
+      c.id === editingColorId ? { ...c, id: newId } : c,
+    );
+
+    // Batch the state updates together
+    setEditedProduct((prev) => ({
+      ...prev,
+      colors: updatedColors,
+    }));
+
+    // Update currentColor if it's the one being edited
+    if (currentColor.id === editingColorId) {
+      setCurrentColor((prev) => ({ ...prev, id: newId }));
+    }
+  };
+
+  // Add a handler for when the input loses focus
+  const handleIdBlur = () => {
+    setEditingColorId(null);
+  };
+
   return (
     <Card className="h-full flex flex-col overflow-hidden group hover:shadow-lg transition-shadow duration-300 bg-gray-800 border-gray-700">
       <div className="relative overflow-hidden">
@@ -539,6 +584,16 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
                 className="w-full h-8 text-sm bg-gray-600 border-gray-500"
                 placeholder="Available quantity"
               />
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-400">ID:</span>
+                <Input
+                  defaultValue={color.id}
+                  onChange={(e) => handleIdChange(color.id, e.target.value)}
+                  onBlur={handleIdBlur}
+                  className="flex-1 h-8 text-sm bg-gray-600 border-gray-500"
+                  placeholder="Color ID"
+                />
+              </div>
             </div>
           ))}
         </div>
