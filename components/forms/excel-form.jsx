@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { FileSpreadsheet } from "lucide-react";
 import * as XLSX from "xlsx";
+import ExcelDataTable from "../component/extracted-excel-table";
 
 // Excel Upload Component
 export const ExcelUploadForm = () => {
@@ -18,6 +19,11 @@ export const ExcelUploadForm = () => {
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
       const json = XLSX.utils.sheet_to_json(worksheet);
+
+      // Save the data to sessionStorage
+      sessionStorage.setItem("excelData", JSON.stringify(json));
+
+      // Log the extracted data
       console.log("Uploaded products:", json);
     };
     reader.readAsArrayBuffer(file);
@@ -52,25 +58,28 @@ export const ExcelUploadForm = () => {
   };
 
   return (
-    <div
-      ref={dragDropRef}
-      className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center cursor-pointer transition-colors duration-300 hover:border-blue-400"
-      onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
-      onDrop={handleDrop}
-      onClick={() => fileInputRef.current.click()}
-    >
-      <FileSpreadsheet className="mx-auto h-12 w-12 text-blue-400" />
-      <p className="mt-2 text-sm text-gray-300">
-        Drag and drop your Excel file here, or click to select
-      </p>
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept=".xlsx, .xls"
-        onChange={handleExcelUpload}
-        className="hidden"
-      />
+    <div className="space-y-4">
+      <div
+        ref={dragDropRef}
+        className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center cursor-pointer transition-colors duration-300 hover:border-blue-400"
+        onDragOver={handleDragOver}
+        onDragLeave={handleDragLeave}
+        onDrop={handleDrop}
+        onClick={() => fileInputRef.current.click()}
+      >
+        <FileSpreadsheet className="mx-auto h-12 w-12 text-blue-400" />
+        <p className="mt-2 text-sm text-gray-300">
+          Drag and drop your Excel file here, or click to select
+        </p>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".xlsx, .xls"
+          onChange={handleExcelUpload}
+          className="hidden"
+        />
+      </div>
+      <ExcelDataTable />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
+  LayoutDashboard,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -84,6 +85,16 @@ export default function SideBar({ lng }) {
           <Link href="/dashboard/settings">
             <Settings className="mr-2 h-4 w-4" />
             {isSidebarOpen && t("settings")}
+          </Link>
+        </Button>
+        <Button
+          variant="ghost"
+          className="w-full justify-start text-gray-200 hover:bg-gray-700"
+          asChild
+        >
+          <Link href="/dashboard/landing-page-manager">
+            <LayoutDashboard className="mr-2 h-4 w-4" />
+            {isSidebarOpen && t("landingPageManager")}
           </Link>
         </Button>
       </nav>
