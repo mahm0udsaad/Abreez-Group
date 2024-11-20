@@ -16,15 +16,10 @@ import ProductSection from "../product-section";
 import FAQSection from "../faq-section";
 import Link from "next/link";
 
-export function EnhancedLandingPage({ lng }) {
+export function EnhancedLandingPage({ lng, heroImages }) {
   const { t } = useTranslation(lng, "common");
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
-  const heroImages = [
-    "/hero-cover-0.png",
-    // "/hero-cover-1.png",
-    // "/hero-cover.png",
-  ];
 
   const { scrollYProgress } = useScroll();
 

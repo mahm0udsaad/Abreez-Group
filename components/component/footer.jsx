@@ -1,3 +1,4 @@
+import { getSocialLinks } from "@/actions/landing";
 import { useTranslation } from "@/app/i18n";
 import {
   Facebook,
@@ -10,7 +11,13 @@ import {
   MapPin,
   Clock,
 } from "lucide-react";
-
+const socialIcons = {
+  Facebook: Facebook,
+  Twitter: Twitter,
+  Youtube: Youtube,
+  Instagram: Instagram,
+  LinkedIn: Linkedin,
+};
 const Footer = async ({ lng }) => {
   const { t } = await useTranslation(lng, "common"); // Get the t function from useTranslation
   const navItems = [
@@ -22,6 +29,9 @@ const Footer = async ({ lng }) => {
     { name: t("navigation.faq"), href: "#faq" },
     { name: t("navigation.contact"), href: "#contact" },
   ];
+  const { data: links } = await getSocialLinks();
+  console.log(links);
+
   return (
     <footer id="contact" className="bg-[#114270] p-12">
       <div className="container mx-auto">
@@ -86,17 +96,22 @@ const Footer = async ({ lng }) => {
               {t("footer.socialMedia.title")}
             </h3>
             <div className="flex gap-4">
-              {[Facebook, Twitter, Youtube, Instagram, Linkedin].map(
-                (Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="text-gray-400 hover:text-[#8cc63f] transition-colors"
-                  >
-                    <Icon className="h-6 w-6" />
-                  </a>
-                ),
-              )}
+              {links.map((link) => {
+                const Icon = socialIcons[link.platform];
+                return (
+                  Icon && (
+                    <a
+                      key={link.platform}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-[#8cc63f] transition-colors"
+                    >
+                      <Icon className="h-6 w-6" />
+                    </a>
+                  )
+                );
+              })}
             </div>
           </div>
         </div>

@@ -10,7 +10,10 @@ import {
   getHeroImages,
   uploadHeroImage,
   updateHeroImageOrder,
+  deleteHeroImage,
 } from "@/actions/landing";
+import ServiceManager from "@/components/dashboard/service-manager";
+import SocialLinksEditor from "@/components/dashboard/footer-links-manager";
 
 const HeroSectionManager = () => {
   const [heroImages, setHeroImages] = useState([]);
@@ -176,7 +179,12 @@ const HeroSectionManager = () => {
       loadImages();
     }
   };
-
+  const handleRemoveImage = async (id) => {
+    const result = await deleteHeroImage(id);
+    if (result.success) {
+      loadImages();
+    }
+  };
   return (
     <div className="container mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6 text-blue-400">
@@ -284,6 +292,10 @@ const HeroSectionManager = () => {
           </div>
         </CardContent>
       </Card>
+      <div className="space-y-4">
+        <ServiceManager />
+        <SocialLinksEditor />
+      </div>
     </div>
   );
 };
