@@ -11,7 +11,6 @@ import { useTranslation } from "@/app/i18n/client";
 export default function AddProduct({ params: { lng } }) {
   const [isExcelUpload, setIsExcelUpload] = useState(false);
   const { t } = useTranslation(lng, "dashboard");
-  console.log(lng);
 
   return (
     <Card className="bg-gray-800 border-gray-700">

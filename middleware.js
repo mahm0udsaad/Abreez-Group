@@ -49,8 +49,6 @@ export default clerkMiddleware(async (auth, request) => {
   }
 
   if (isDashboardRoute(request)) {
-    console.log("dashboard route");
-
     await auth.protect();
   }
 

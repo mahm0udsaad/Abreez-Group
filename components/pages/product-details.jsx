@@ -12,6 +12,7 @@ import {
   Stamp,
   Scale,
   Ruler,
+  LocateIcon,
 } from "lucide-react";
 import { useTranslation } from "@/app/i18n/client";
 import { useRouter } from "next/navigation";
@@ -137,7 +138,7 @@ export default function ProductDetailsPage({ lng, product }) {
                         {t("Materials")}
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {product.materials}
+                        {product?.materials}
                       </p>
                     </div>
                   </div>
@@ -150,7 +151,7 @@ export default function ProductDetailsPage({ lng, product }) {
                         {t("Item Size")}
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {product.itemSize}
+                        {product?.itemSize}
                       </p>
                     </div>
                   </div>
@@ -160,10 +161,23 @@ export default function ProductDetailsPage({ lng, product }) {
                     </Badge>
                     <div>
                       <p className="font-semibold text-gray-900 dark:text-gray-100">
-                        {t("item Weight")}
+                        {t("Item Weight")}
                       </p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {product.itemWeight}
+                        {product?.itemWeight}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary" className="p-2">
+                      <LocateIcon className="h-4 w-4" />
+                    </Badge>
+                    <div>
+                      <p className="font-semibold text-gray-900 dark:text-gray-100">
+                        {t("Item Location")}
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {product?.itemLocation}
                       </p>
                     </div>
                   </div>

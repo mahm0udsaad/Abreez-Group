@@ -30,7 +30,6 @@ const Footer = async ({ lng }) => {
     { name: t("navigation.contact"), href: "#contact" },
   ];
   const { data: links } = await getSocialLinks();
-  console.log(links);
 
   return (
     <footer id="contact" className="bg-[#114270] p-12">

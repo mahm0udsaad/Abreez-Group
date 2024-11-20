@@ -32,6 +32,7 @@ export function ManualProductForm({ lng }) {
     materials: "",
     itemSize: "",
     itemWeight: "",
+    itemLocation: "",
     printingOptions: [],
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -203,6 +204,7 @@ export function ManualProductForm({ lng }) {
       formData.append("materials", newProduct.materials);
       formData.append("itemSize", newProduct.itemSize);
       formData.append("itemWeight", newProduct.itemWeight);
+      formData.append("itemLocation", newProduct.itemLocation);
       formData.append(
         "printingOptions",
         JSON.stringify(newProduct.printingOptions),
@@ -335,6 +337,19 @@ export function ManualProductForm({ lng }) {
             value={newProduct.itemWeight}
             onChange={(e) =>
               setNewProduct({ ...newProduct, itemWeight: e.target.value })
+            }
+            className="mt-1 w-full bg-gray-700 text-white border-gray-600"
+          />
+        </div>
+        <div className="flex-1">
+          <Label htmlFor="productLocation" className="text-gray-200">
+            {t("itemLocation")}
+          </Label>
+          <Input
+            id="productLocation"
+            value={newProduct.itemLocation}
+            onChange={(e) =>
+              setNewProduct({ ...newProduct, itemLocation: e.target.value })
             }
             className="mt-1 w-full bg-gray-700 text-white border-gray-600"
           />

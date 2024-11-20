@@ -51,6 +51,8 @@ export async function getService(id) {
   } catch (error) {
     console.error("Failed to fetch service:", error);
     return { success: false, error: "Failed to fetch service" };
+  } finally {
+    revalidatePath("/dashboard/landing-page-manager");
   }
 }
 
@@ -72,6 +74,8 @@ export async function updateService(id, data) {
   } catch (error) {
     console.error("Failed to update service:", error);
     return { success: false, error: "Failed to update service" };
+  } finally {
+    revalidatePath("/dashboard/landing-page-manager");
   }
 }
 

@@ -49,6 +49,7 @@
   "materials": "Materials",
   "itemSize": "Item Size",
   "itemWeight": "Item Weight",
+  "itemLocation": "Item Location",
   "uploadProductImage": "Upload Product Image",
   "addProduct": "Add Product",
   "imageUploadSuccess": "Image Upload Successful",

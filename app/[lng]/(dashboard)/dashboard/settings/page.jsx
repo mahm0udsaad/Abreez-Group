@@ -1,26 +1,56 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { X } from "lucide-react";
+import { addUserByEmail, fetchUsers, deleteUserByEmail } from "@/actions/admin";
 
 export default function Settings() {
   const [emails, setEmails] = useState([]);
   const [newEmail, setNewEmail] = useState("");
+  const [error, setError] = useState(null);
 
-  const addEmail = () => {
-    if (newEmail && !emails.includes(newEmail)) {
+  // Fetch users when the component loads
+  useEffect(() => {
+    async function loadUsers() {
+      try {
+        const users = await fetchUsers();
+        setEmails(users.map((user) => user.email));
+      } catch (err) {
+        setError(err.message);
+      }
+    }
+
+    loadUsers();
+  }, []);
+
+  const addEmail = async () => {
+    if (!newEmail || emails.includes(newEmail)) {
+      return;
+    }
+
+    try {
+      await addUserByEmail(newEmail); // Call the server action
       setEmails([...emails, newEmail]);
       setNewEmail("");
+      setError(null);
+    } catch (err) {
+      setError(err.message);
     }
   };
 
-  const removeEmail = (email) => {
-    setEmails(emails.filter((e) => e !== email));
+  const removeEmail = async (email) => {
+    try {
+      await deleteUserByEmail(email); // Call the delete action
+      setEmails(emails.filter((e) => e !== email));
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -50,6 +80,7 @@ export default function Settings() {
               Add Email
             </Button>
           </div>
+          {error && <p className="text-red-400 mb-4">{error}</p>}
           <ScrollArea className="h-[300px] border border-gray-700 rounded-md p-2">
             {emails.length > 0 ? (
               <ul className="space-y-2">
@@ -71,16 +102,12 @@ export default function Settings() {
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-400 text-center py-4">
-                No emails added yet.
-              </p>
+              <p className="text-gray-400 text-center py-4">No emails found.</p>
             )}
           </ScrollArea>
         </div>
         <p className="text-gray-300 mt-4">
-          Add email addresses above to grant access to the admin dashboard.
-          Users with these email addresses will be able to log in and manage the
-          system.
+          Manage email addresses that have access to the admin dashboard.
         </p>
       </CardContent>
     </Card>

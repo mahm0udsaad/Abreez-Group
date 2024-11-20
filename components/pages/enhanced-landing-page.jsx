@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import { useTranslation } from "@/app/i18n/client";
@@ -15,6 +15,7 @@ import ClientSecion from "../clients-secion";
 import ProductSection from "../product-section";
 import FAQSection from "../faq-section";
 import Link from "next/link";
+import ContactForm from "../forms/contact-form";
 
 export function EnhancedLandingPage({ lng, heroImages }) {
   const { t } = useTranslation(lng, "common");
@@ -185,14 +186,18 @@ export function EnhancedLandingPage({ lng, heroImages }) {
       </AnimatedSection>
 
       {/* Services Section */}
-      <AnimatedSection>
-        <ServicesSection lng={lng} />
-      </AnimatedSection>
+      <Suspense fallback={<div>Loading...</div>}>
+        <AnimatedSection>
+          <ServicesSection lng={lng} />
+        </AnimatedSection>
+      </Suspense>
 
       {/* Featured Products Section */}
-      <AnimatedSection>
-        <ProductSection lng={lng} />
-      </AnimatedSection>
+      <Suspense fallback={<div>Loading...</div>}>
+        <AnimatedSection>
+          <ProductSection lng={lng} />
+        </AnimatedSection>
+      </Suspense>
 
       {/* Portfolio Section */}
       <AnimatedSection>
@@ -261,50 +266,7 @@ export function EnhancedLandingPage({ lng, heroImages }) {
 
       {/* Call to Action */}
       <AnimatedSection>
-        <section id="contact" className="py-20 bg-[#8cc63f] text-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-5xl leading-[4rem] font-bold mb-8 text-center">
-                {t("contact.title")}
-              </h2>
-              <p className="text-xl mb-8 text-center">
-                {t("contact.subtitle")}
-              </p>
-              <form className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input
-                    type="text"
-                    placeholder={t("contact.form.name")}
-                    className="bg-white bg-opacity-20 border-white placeholder-white text-white"
-                  />
-                  <Input
-                    type="email"
-                    placeholder={t("contact.form.email")}
-                    className="bg-white bg-opacity-20 border-white placeholder-white text-white"
-                  />
-                </div>
-                <Input
-                  type="text"
-                  placeholder={t("contact.form.subject")}
-                  className="bg-white bg-opacity-20 border-white placeholder-white text-white"
-                />
-                <Textarea
-                  placeholder={t("contact.form.message")}
-                  className="bg-white bg-opacity-20 border-white placeholder-white text-white"
-                  rows={4}
-                />
-                <div className="text-center">
-                  <Button
-                    type="submit"
-                    className="bg-white text-[#114270] hover:bg-gray-100"
-                  >
-                    {t("contact.form.submit")}
-                  </Button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
+        <ContactForm t={t} />
       </AnimatedSection>
     </div>
   );

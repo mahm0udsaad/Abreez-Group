@@ -8,6 +8,7 @@
   "materials": "المواد",
   "itemSize": "حجم المنتج",
   "itemWeight": "وزن المنتج",
+  "itemLocation": "مكان المنتج",
   "uploadProductImage": "تحميل صورة المنتج",
   "addProduct": "إضافة المنتج",
   "imageUploadSuccess": "تم تحميل الصورة بنجاح",

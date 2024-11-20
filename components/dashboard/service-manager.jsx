@@ -69,12 +69,12 @@ const ServiceManager = () => {
       const tempImage = {
         id: `temp-${Date.now()}`,
         url: tempUrl,
-        status: "uploading",
+        state: "uploading",
         createdAt: new Date(),
       };
 
       // Set the temporary image for immediate display with loading indicator
-      setImageUrl(tempUrl);
+      setImageUrl(tempImage);
       setIsUploading(true);
 
       try {
@@ -82,15 +82,17 @@ const ServiceManager = () => {
         const result = await uploadToCloud(formData);
 
         setTimeout(() => {
-          setImageUrl(result.adImage);
-        }, 30000);
+          setImageUrl({ state: "success", url: result.adImage });
+        }, 3000);
 
         // Show success toast
-        toast({
-          title: "Upload Successful",
-          description: "Image uploaded and processed",
-          variant: "default",
-        });
+        if (imageUrl.state === "success") {
+          toast({
+            title: "Upload Successful",
+            description: "Image uploaded and processed",
+            variant: "default",
+          });
+        }
       } catch (error) {
         // Handle upload failure
         setImageUrl(null);
@@ -122,7 +124,7 @@ const ServiceManager = () => {
     const serviceData = {
       title,
       category,
-      image: imageUrl,
+      image: imageUrl.url,
     };
 
     try {
@@ -263,15 +265,15 @@ const ServiceManager = () => {
                     {imageUrl ? (
                       <div className="relative">
                         <Image
-                          src={imageUrl}
+                          src={imageUrl.url}
                           alt="Service preview"
                           width={200}
                           height={200}
                           className={`mx-auto rounded ${
-                            isUploading ? "opacity-50" : ""
+                            imageUrl.state === "uploading" ? "opacity-50" : ""
                           }`}
                         />
-                        {isUploading && (
+                        {imageUrl.state === "uploading" && (
                           <div className="absolute inset-0 flex items-center justify-center">
                             <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-blue-500"></div>
                           </div>
@@ -321,7 +323,7 @@ const ServiceManager = () => {
                     className="bg-blue-500 hover:bg-blue-600"
                     disabled={isUploading}
                   >
-                    {isUploading ? "Uploading..." : "Save"}
+                    {imageUrl.state === "uploading" ? "Uploading..." : "Save"}
                   </Button>
                 </DialogFooter>
               </form>
