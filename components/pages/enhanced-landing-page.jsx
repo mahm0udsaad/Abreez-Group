@@ -50,7 +50,7 @@ export function EnhancedLandingPage({ lng, heroImages }) {
 
   useEffect(() => {
     const heroInterval = setInterval(() => {
-      setCurrentHeroIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+      setCurrentHeroIndex((prevIndex) => (prevIndex + 1) % heroImages?.length);
     }, 5000);
 
     const testimonialInterval = setInterval(() => {
@@ -74,7 +74,7 @@ export function EnhancedLandingPage({ lng, heroImages }) {
       />
       <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
         <div className="absolute inset-0 z-0 ">
-          {heroImages.length === 1 ? (
+          {heroImages?.length === 1 ? (
             <Image
               key={heroImages[0]}
               src={heroImages[0]}
