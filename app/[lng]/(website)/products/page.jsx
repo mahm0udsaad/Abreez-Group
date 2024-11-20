@@ -2,6 +2,7 @@ import { getAllProducts } from "@/actions/get-products";
 import { ProductListing } from "@/components/product-listing";
 import { motion } from "framer-motion";
 
+export const dynamic = "force-dynamic";
 export default async function ProductsPage({ params: { lng } }) {
   const ITEMS_PER_LOAD = 14;
 
