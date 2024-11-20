@@ -1,29 +1,7 @@
 import { getProductById } from "@/actions/product";
-import { getAllProductIds } from "@/actions/get-products";
 import ProductDetailsPage from "@/components/pages/product-details";
 
 // Assuming you have i18n configured with supported languages
-const languages = ["en", "ar"]; // Add all your supported languages
-
-export async function generateStaticParams() {
-  const { success, products } = await getAllProductIds();
-
-  if (!success) {
-    console.error("Failed to generate static params for products");
-    return [];
-  }
-
-  // Generate combinations of language and product ID
-  const params = products.flatMap((product) =>
-    languages.map((lng) => ({
-      lng,
-      id: product.id,
-    })),
-  );
-
-  return params;
-}
-
 export default async function ProductPage({ params: { id, lng } }) {
   const { success, product } = await getProductById(id);
 
