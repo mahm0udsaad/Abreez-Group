@@ -117,7 +117,7 @@ const ServicesSection = ({ lng }) => {
                 <div className="text-center text-xl text-gray-500">
                   Loading services...
                 </div>
-              ) : categoryServices.length === 0 ? (
+              ) : categoryServices?.length === 0 ? (
                 <div className="text-center text-xl text-gray-500">
                   No services found in this category
                 </div>
