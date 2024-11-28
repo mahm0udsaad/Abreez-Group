@@ -1,5 +1,6 @@
 {
   "landingPageManager": "Landing Page Manager",
+  "delete_product": "Delete Product",
   "printingOptions": "Printing Options",
   "addPrintingOption": "Add Printing Option",
   "color_id_already_exists": "Color ID already exists.",

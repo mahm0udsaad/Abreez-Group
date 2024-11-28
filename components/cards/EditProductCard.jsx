@@ -36,6 +36,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useTranslation } from "@/app/i18n/client";
 import { deleteProductById } from "@/actions/product";
+import { useRouter } from "next/navigation";
 
 export function EditProductCard({ product, onCancel, onSave, lng }) {
   const { t } = useTranslation(lng, "dashboard");
@@ -43,9 +44,12 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
   const [currentColor, setCurrentColor] = useState(product.colors[0]);
   const [pendingColors, setPendingColors] = useState([]);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [deleteProductDialogOpen, setDeleteProductDialogOpen] = useState(false);
   const [colorToDelete, setColorToDelete] = useState(null);
   const [editingColorId, setEditingColorId] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
   const fileInputRef = useRef(null);
+  const router = useRouter();
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
   // Modify the existing CardContent JSX to include the new color upload UI
@@ -415,7 +419,35 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
       setCurrentColor((prev) => ({ ...prev, id: newId }));
     }
   };
+  const handleProductDelete = async () => {
+    setIsDeleting(true);
+    try {
+      const result = await deleteProductById(product.id);
 
+      if (result.success) {
+        toast({
+          title: t("success"),
+          description: t("product_deleted_successfully"),
+          variant: "Success",
+        });
+      } else {
+        toast({
+          title: t("error"),
+          description: t("delete_product_failed"),
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: t("error"),
+        description: t("delete_product_error"),
+        variant: "destructive",
+      });
+    } finally {
+      setIsDeleting(false);
+      router.refresh();
+    }
+  };
   // Add a handler for when the input loses focus
   const handleIdBlur = () => {
     setEditingColorId(null);
@@ -610,7 +642,7 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
           </Badge>
         </div>
       </CardContent>
-      <CardFooter className="p-4">
+      <CardFooter className="p-4 gap-4">
         <Button
           className="w-full bg-green-600 hover:bg-green-700 text-white transition-colors duration-300"
           onClick={handleSave}
@@ -618,6 +650,48 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
         >
           {t("save_changes")}
         </Button>
+        <Button
+          variant="destructive"
+          className="w-full bg-red-600 hover:bg-red-700 text-white transition-colors duration-300"
+          onClick={() => setDeleteProductDialogOpen(true)}
+          disabled={isPending || isDeleting}
+        >
+          {isDeleting ? (
+            <Loader className="h-4 w-4 animate-spin mr-2" />
+          ) : (
+            <Trash2 className="h-4 w-4 mr-2" />
+          )}
+          {t("delete_product")}
+        </Button>
+
+        <AlertDialog
+          open={deleteProductDialogOpen}
+          onOpenChange={setDeleteProductDialogOpen}
+        >
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>{t("delete_product")}</AlertDialogTitle>
+              <AlertDialogDescription>
+                {t("confirm_delete_product")}
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel onClick={() => setDeleteDialogOpen(false)}>
+                {t("cancel")}
+              </AlertDialogCancel>
+              <AlertDialogAction
+                onClick={handleProductDelete}
+                disabled={isDeleting}
+              >
+                {isDeleting ? (
+                  <Loader className="h-4 w-4 animate-spin mr-2" />
+                ) : (
+                  t("delete")
+                )}
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </CardFooter>
     </Card>
   );

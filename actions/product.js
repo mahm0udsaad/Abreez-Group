@@ -190,9 +190,7 @@ export async function getProductById(productId) {
     return { success: false, error: error.message };
   }
 }
-export async function deleteProductById(formData) {
-  const productId = formData.get("id");
-
+export async function deleteProductById(productId) {
   try {
     // Use a transaction to ensure all operations succeed or fail together
     await prisma.$transaction(async (prisma) => {
@@ -202,6 +200,7 @@ export async function deleteProductById(formData) {
           productId: productId,
         },
       });
+      console.log("PrintingOptions deleted");
 
       // 2. Delete all ColorVariants associated with the Product
       await prisma.colorVariant.deleteMany({
@@ -209,6 +208,7 @@ export async function deleteProductById(formData) {
           productId: productId,
         },
       });
+      console.log("Colors deleted");
 
       // 3. Delete the Product
       await prisma.product.delete({
@@ -217,6 +217,7 @@ export async function deleteProductById(formData) {
         },
       });
     });
+    console.log("Product deleted");
 
     return { success: true };
   } catch (error) {

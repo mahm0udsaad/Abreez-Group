@@ -1,5 +1,7 @@
 {
   "landingPageManager": "مدير صفحة الموقع",
+  "delete_product": "حذف المنتج",
+  "confirm_delete_product": "هل أنت متأكد من حذف هذا المنتج؟",
   "printingOptions": "خيارات الطباعة",
   "addPrintingOption": "إضافة خيار طباعة",
   "color_id_already_exists": "SKU اللون يوجد بالفعل.",

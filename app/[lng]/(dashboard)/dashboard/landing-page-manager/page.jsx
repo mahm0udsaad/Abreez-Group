@@ -252,7 +252,7 @@ const HeroSectionManager = () => {
                 <div className="w-8 h-8 flex items-center justify-center bg-blue-500 text-white rounded-full mr-2">
                   {index + 1}
                 </div>
-                <div className="flex-grow flex items-center">
+                <div className="flex-grow flex items-center gap-4">
                   <Image
                     src={image.url}
                     alt={`Hero image ${index + 1}`}
@@ -260,14 +260,9 @@ const HeroSectionManager = () => {
                     height={50}
                     className="object-cover rounded mr-2"
                   />
-                  <div className="flex flex-col">
-                    <span className="text-gray-200 truncate">
-                      {image.status === "uploading" ? "Uploading..." : image.id}
-                    </span>
-                    <span className="text-gray-400 text-sm">
-                      Created: {new Date(image.createdAt).toLocaleDateString()}
-                    </span>
-                  </div>
+                  <span className="text-gray-400 text-sm">
+                    Created: {new Date(image.createdAt).toLocaleDateString()}
+                  </span>
                 </div>
                 {image.status === "error" && (
                   <span className="text-red-400 mr-2">Upload failed</span>
