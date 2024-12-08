@@ -24,12 +24,13 @@ export async function updateProduct(productId, data) {
       // Check if a color with the same name already exists for this product
       const existingColor = await prisma.colorVariant.findFirst({
         where: {
-          name: color.name,
+          id: color.id,
           productId: productId,
         },
       });
 
       if (existingColor) {
+        console.log("Existing color:", existingColor);
         // Update the existing color's id if necessary
         await prisma.colorVariant.update({
           where: { id: existingColor.id },
@@ -41,6 +42,7 @@ export async function updateProduct(productId, data) {
           },
         });
       } else {
+        console.log("New color:", color);
         // Create a new color variant
         await prisma.colorVariant.create({
           data: {
@@ -102,7 +104,6 @@ export async function sellProduct(productId, colorId, quantity) {
     revalidatePath("/dashboard");
   }
 }
-
 export async function addColorVariant(productId, data) {
   console.log("Adding color variant:", data);
 
