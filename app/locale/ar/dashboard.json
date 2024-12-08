@@ -1,4 +1,7 @@
 {
+  "missingColorDetailsMessage": "يرجى اختيار لون لكل من الاختلافات اللونية",
+  "duplicateError": "خطأ مكرر",
+  "duplicateColorIdMessage": "يوجد لون مكرر بهذا الرقم بالفعل. يرجى تعديل ال ID وحاول مرة أخرى.",
   "landingPageManager": "مدير صفحة الموقع",
   "delete_product": "حذف المنتج",
   "confirm_delete_product": "هل أنت متأكد من حذف هذا المنتج؟",

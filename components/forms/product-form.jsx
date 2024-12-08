@@ -18,6 +18,7 @@ import { CategorySelector } from "../component/dash-categories-selection";
 import { createProduct, uploadProductImage } from "@/actions/product";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "@/app/i18n/client";
+import { ColorSelector } from "./color-selection";
 
 export function ManualProductForm({ lng }) {
   const { t } = useTranslation(lng, "dashboard");
@@ -49,19 +50,19 @@ export function ManualProductForm({ lng }) {
           .substr(2, 9)}`;
         const tempColor = {
           id: newId,
-          name: file.name.split(".")[0], // Use filename as initial color name
+          name: "",
           image: reader.result,
           tempImage: reader.result,
           status: "uploading",
           available: 0,
           originalFile: file,
+          colorDetail: null, // Add this line
         };
 
         setNewProduct((prev) => ({
           ...prev,
           colors: [...prev.colors, tempColor],
         }));
-
         // Upload to cloud with delay
         const formData = new FormData();
         formData.append("file", file);
@@ -187,6 +188,20 @@ export function ManualProductForm({ lng }) {
       newProduct.colors.length > 0 &&
       !newProduct.colors.some((color) => color.status === "error")
     ) {
+      // Validate that all colors have been assigned a color
+      const missingColorDetails = newProduct.colors.some(
+        (color) => !color.colorDetail,
+      );
+
+      if (missingColorDetails) {
+        toast({
+          title: t("validationError"),
+          description: t("missingColorDetailsMessage"),
+          variant: "destructive",
+        });
+        return;
+      }
+
       setIsSubmitting(true);
       const formData = new FormData();
       formData.append("name", newProduct.name);
@@ -197,7 +212,11 @@ export function ManualProductForm({ lng }) {
         JSON.stringify(
           newProduct.colors.map((color) => {
             const { tempImage, ...colorWithoutTempImage } = color;
-            return colorWithoutTempImage;
+            return {
+              ...colorWithoutTempImage,
+              colorName: color.colorDetail?.name || color.name,
+              colorHex: color.colorDetail?.hex,
+            };
           }),
         ),
       );
@@ -230,21 +249,44 @@ export function ManualProductForm({ lng }) {
             printingOptions: [],
           });
         } else {
-          toast({
-            title: t("failedToAddProduct"),
-            description: result.error,
-            variant: "destructive",
-          });
+          // Handle specific error cases
+          if (result.error.includes("Unique constraint")) {
+            toast({
+              title: t("duplicateError"),
+              description: t("duplicateColorIdMessage"),
+              variant: "destructive",
+            });
+          } else {
+            toast({
+              title: t("failedToAddProduct"),
+              description: result.error,
+              variant: "destructive",
+            });
+          }
         }
       } catch (error) {
         console.error("Error adding product:", error);
-        toast({
-          title: t("error"),
-          description: t("errorAddingProduct"),
-          variant: "destructive",
-        });
+
+        // Handle Prisma unique constraint error
+        if (
+          error instanceof Error &&
+          error.message.includes("Unique constraint failed")
+        ) {
+          toast({
+            title: t("duplicateError"),
+            description: t("duplicateColorIdMessage"),
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: t("error"),
+            description: t("errorAddingProduct"),
+            variant: "destructive",
+          });
+        }
+      } finally {
+        setIsSubmitting(false);
       }
-      setIsSubmitting(false);
     } else {
       toast({
         title: t("validationError"),
@@ -469,16 +511,17 @@ export function ManualProductForm({ lng }) {
                   )}
                 </div>
               </div>
-              <Input
-                placeholder="Color name"
-                value={color.name}
-                onChange={(e) => {
-                  const updatedColors = [...newProduct.colors];
-                  updatedColors[index].name = e.target.value;
-                  setNewProduct({ ...newProduct, colors: updatedColors });
-                }}
-                className="flex-grow bg-gray-700 text-white border-gray-600"
-              />
+              <div className="flex-grow">
+                <ColorSelector
+                  selectedColor={color.colorDetail}
+                  onSelectColor={(selectedColor) => {
+                    const updatedColors = [...newProduct.colors];
+                    updatedColors[index].name = selectedColor.name;
+                    updatedColors[index].colorDetail = selectedColor;
+                    setNewProduct({ ...newProduct, colors: updatedColors });
+                  }}
+                />
+              </div>
               <Input
                 type="number"
                 placeholder="Available"

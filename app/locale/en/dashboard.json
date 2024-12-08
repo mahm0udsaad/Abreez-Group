@@ -1,4 +1,7 @@
 {
+  "missingColorDetailsMessage": "Please select a color for all color variants",
+  "duplicateError": "Duplicate Entry Error",
+  "duplicateColorIdMessage": "A color variant with this ID already exists. Please modify the color variant and try again.",
   "landingPageManager": "Landing Page Manager",
   "delete_product": "Delete Product",
   "printingOptions": "Printing Options",

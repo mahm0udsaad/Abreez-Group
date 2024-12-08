@@ -437,6 +437,8 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
           variant: "destructive",
         });
       }
+
+      router.refresh();
     } catch (error) {
       toast({
         title: t("error"),
@@ -445,7 +447,6 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
       });
     } finally {
       setIsDeleting(false);
-      router.refresh();
     }
   };
   // Add a handler for when the input loses focus
