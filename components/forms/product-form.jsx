@@ -18,7 +18,7 @@ import { CategorySelector } from "../component/dash-categories-selection";
 import { createProduct, uploadProductImage } from "@/actions/product";
 import { useToast } from "@/hooks/use-toast";
 import { useTranslation } from "@/app/i18n/client";
-import { ColorSelector } from "./color-selection";
+import { ColorSelector, COLOR_OPTIONS } from "./color-selection";
 
 export function ManualProductForm({ lng }) {
   const { t } = useTranslation(lng, "dashboard");
@@ -513,7 +513,7 @@ export function ManualProductForm({ lng }) {
               </div>
               <div className="flex-grow">
                 <ColorSelector
-                  selectedColor={color.colorDetail}
+                  selectedColor={color.colorDetail || COLOR_OPTIONS[0]}
                   onSelectColor={(selectedColor) => {
                     const updatedColors = [...newProduct.colors];
                     updatedColors[index].name = selectedColor.name;

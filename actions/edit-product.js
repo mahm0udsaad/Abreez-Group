@@ -21,6 +21,8 @@ export async function updateProduct(productId, data) {
 
     // Update color variants
     for (const color of data.colors) {
+      const colorId = color.newId || color.id;
+
       // Check if a color with the same name already exists for this product
       const existingColor = await prisma.colorVariant.findFirst({
         where: {
@@ -30,12 +32,12 @@ export async function updateProduct(productId, data) {
       });
 
       if (existingColor) {
-        console.log("Existing color:", existingColor);
+        console.log("Existing color:", color);
         // Update the existing color's id if necessary
         await prisma.colorVariant.update({
           where: { id: existingColor.id },
           data: {
-            id: color.id, // Update the id
+            id: colorId,
             name: color.name,
             available: color.available,
             image: color.image,

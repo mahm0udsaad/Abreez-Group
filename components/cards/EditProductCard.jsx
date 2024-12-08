@@ -13,7 +13,6 @@ import {
   Loader,
   RefreshCcw,
   Trash2,
-  DeleteIcon,
 } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -37,7 +36,7 @@ import {
 import { useTranslation } from "@/app/i18n/client";
 import { deleteProductById } from "@/actions/product";
 import { useRouter } from "next/navigation";
-import { ColorSelector } from "../forms/color-selection";
+import { ColorSelector, COLOR_OPTIONS } from "../forms/color-selection";
 
 export function EditProductCard({ product, onCancel, onSave, lng }) {
   const { t } = useTranslation(lng, "dashboard");
@@ -113,10 +112,9 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
                   </div>
                 </div>
 
-                {/* Replace color name input with ColorSelector */}
                 <div className="flex-grow">
                   <ColorSelector
-                    selectedColor={color.colorDetail || null}
+                    selectedColor={color.colorDetail || COLOR_OPTIONS[0]}
                     onSelectColor={(selectedColor) => {
                       setPendingColors((prev) =>
                         prev.map((c) =>
@@ -414,7 +412,7 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
 
     // Update the colors array with the new ID
     const updatedColors = editedProduct.colors.map((c) =>
-      c.id === editingColorId ? { ...c, id: newId } : c,
+      c.id === editingColorId ? { ...c, newId: newId } : c,
     );
 
     // Batch the state updates together
@@ -425,7 +423,7 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
 
     // Update currentColor if it's the one being edited
     if (currentColor.id === editingColorId) {
-      setCurrentColor((prev) => ({ ...prev, id: newId }));
+      setCurrentColor((prev) => ({ ...prev, newId: newId }));
     }
   };
   const handleProductDelete = async () => {

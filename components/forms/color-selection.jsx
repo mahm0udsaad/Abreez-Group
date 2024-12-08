@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Predefined color palette
-const COLOR_OPTIONS = [
+export const COLOR_OPTIONS = [
   { name: "Black", hex: "#1A1A1D" },
   { name: "White", hex: "#FFFFFF" },
   { name: "Red", hex: "#FF4C4C" },
@@ -19,7 +19,7 @@ export const ColorSelector = ({ selectedColor, onSelectColor }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative">
+    <div className="relative z-10">
       <div
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center cursor-pointer border border-gray-600 rounded p-2 bg-gray-700"
