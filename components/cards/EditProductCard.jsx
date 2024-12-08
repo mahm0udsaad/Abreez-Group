@@ -37,6 +37,7 @@ import {
 import { useTranslation } from "@/app/i18n/client";
 import { deleteProductById } from "@/actions/product";
 import { useRouter } from "next/navigation";
+import { ColorSelector } from "../forms/color-selection";
 
 export function EditProductCard({ product, onCancel, onSave, lng }) {
   const { t } = useTranslation(lng, "dashboard");
@@ -111,18 +112,27 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
                     )}
                   </div>
                 </div>
-                <Input
-                  placeholder="Color name"
-                  value={color.name}
-                  onChange={(e) => {
-                    setPendingColors((prev) =>
-                      prev.map((c) =>
-                        c.id === color.id ? { ...c, name: e.target.value } : c,
-                      ),
-                    );
-                  }}
-                  className="flex-grow bg-gray-700 text-white border-gray-600"
-                />
+
+                {/* Replace color name input with ColorSelector */}
+                <div className="flex-grow">
+                  <ColorSelector
+                    selectedColor={color.colorDetail || null}
+                    onSelectColor={(selectedColor) => {
+                      setPendingColors((prev) =>
+                        prev.map((c) =>
+                          c.id === color.id
+                            ? {
+                                ...c,
+                                name: selectedColor.name,
+                                colorDetail: selectedColor,
+                              }
+                            : c,
+                        ),
+                      );
+                    }}
+                  />
+                </div>
+
                 <Input
                   type="number"
                   placeholder="Available"
@@ -178,7 +188,7 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
           .substr(2, 9)}`;
         const tempColor = {
           id: newId,
-          name: file.name.split(".")[0],
+          name: "",
           image: reader.result,
           tempImage: reader.result,
           status: "uploading",
@@ -380,7 +390,6 @@ export function EditProductCard({ product, onCancel, onSave, lng }) {
       }
     });
   };
-
   const handleIdChange = (colorId, newId) => {
     // If this is the first character being typed, store the color being edited
     if (!editingColorId) {
