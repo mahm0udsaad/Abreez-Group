@@ -89,7 +89,7 @@ export function CategorySelector({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="w-[200px] glass-scrollbar h-auto overflow-y-auto border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold"
+        className="w-[200px] glass-scrollbar h-auto overflow-y-auto border-2 border-white/30 bg-white/20 backdrop-blur-lg font-semibold max-h-[28rem]"
         align="start"
       >
         <DropdownMenuGroup>
