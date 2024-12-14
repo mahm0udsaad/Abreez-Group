@@ -93,6 +93,14 @@ export function CategorySelector({
         align="start"
       >
         <DropdownMenuGroup>
+          {/* Add "All" category option */}
+          <DropdownMenuItem
+            onClick={() => handleSelect(null)}
+            className="flex items-center hover:bg-white/30"
+          >
+            <span className="truncate">All Categories</span>
+          </DropdownMenuItem>
+
           {categories.length === 0 && !isLoading && (
             <DropdownMenuItem disabled className="opacity-50">
               No categories available
