@@ -56,13 +56,6 @@ export default function ProductHeader({
         className="relative mb-8 overflow-hidden pt-4 rounded-b-lg"
       >
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/hero-cover.png"
-            alt="Header background"
-            width={1920}
-            height={400}
-            className="w-full h-full object-cover"
-          />
           <div className="absolute inset-0 bg-gradient-to-b from-blue-500/40 to-green-500/40 backdrop-blur-sm" />
         </div>
 

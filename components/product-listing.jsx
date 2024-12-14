@@ -10,7 +10,7 @@ import {
   searchProducts,
 } from "@/actions/get-products";
 
-const ITEMS_PER_LOAD = 14;
+const ITEMS_PER_LOAD = 15;
 
 export function ProductListing({ lng, initialProducts }) {
   const [loadedProducts, setLoadedProducts] = useState(initialProducts);
@@ -22,28 +22,33 @@ export function ProductListing({ lng, initialProducts }) {
   const loadMoreRef = useRef(null);
   const { t } = useTranslation(lng, "common");
 
+  // Debugging log
+  useEffect(() => {
+    console.log("Current state:", {
+      loadedProducts: loadedProducts.length,
+      searchTerm,
+      selectedCategory,
+      hasMore,
+    });
+  }, [loadedProducts, searchTerm, selectedCategory, hasMore]);
+
   // Handle search with debouncing
   useEffect(() => {
     let timer;
     const fetchProducts = async () => {
       try {
         let result;
-        if (searchTerm.trim("") !== "") {
+        if (searchTerm.trim() !== "") {
           setIsSearching(true);
-          console.log("Searching for:", searchTerm);
-
-          // If there's a search term
           const cleanSearchTerm = searchTerm.trim();
           result = await searchProducts(cleanSearchTerm, 0, ITEMS_PER_LOAD);
         } else if (selectedCategory?.id) {
-          // If no search term but category selected
           result = await getProductsByCategory(
             selectedCategory.id,
             0,
             ITEMS_PER_LOAD,
           );
         } else {
-          // No search term and no category
           result = await getAllProducts(0, ITEMS_PER_LOAD);
         }
 
@@ -60,7 +65,6 @@ export function ProductListing({ lng, initialProducts }) {
       }
     };
 
-    // Set timer for debouncing
     timer = setTimeout(fetchProducts, 300);
 
     return () => clearTimeout(timer);
@@ -90,12 +94,18 @@ export function ProductListing({ lng, initialProducts }) {
         result = await getAllProducts(loadedProducts.length, ITEMS_PER_LOAD);
       }
 
+      // Debugging log
+      console.log("Load More Result:", result);
+
       if (result.success && result.products.length > 0) {
         setLoadedProducts((prev) => [...prev, ...result.products]);
         setHasMore(result.hasMore);
       } else {
         setHasMore(false);
       }
+    } catch (error) {
+      console.error("Error loading more products:", error);
+      setHasMore(false);
     } finally {
       setIsLoadingMore(false);
     }
@@ -107,6 +117,9 @@ export function ProductListing({ lng, initialProducts }) {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        // Debugging log
+        console.log("Intersection entries:", entries[0].isIntersecting);
+
         if (
           entries[0].isIntersecting &&
           hasMore &&

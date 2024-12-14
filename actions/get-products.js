@@ -4,39 +4,65 @@ import prisma from "@/lib/prisma";
 
 export async function getAllProducts(skip = 0, take = 14) {
   try {
-    const products = await prisma.product.findMany({
-      skip,
-      take,
-      include: {
-        printingOptions: true,
-        category: true,
-        colors: true,
-      },
-    });
+    const [products, total] = await prisma.$transaction([
+      prisma.product.findMany({
+        skip,
+        take,
+        include: {
+          printingOptions: true,
+          category: true,
+          colors: true,
+        },
+      }),
+      prisma.product.count(),
+    ]);
 
-    return { success: true, products: products || [] };
+    return {
+      success: true,
+      products: products || [],
+      hasMore: skip + take < total,
+    };
   } catch (error) {
     console.error("Error getting all products:", error);
-    return { success: false, error: error.message };
+    return {
+      success: false,
+      error: error.message,
+      products: [],
+      hasMore: false,
+    };
   }
 }
 
 export async function getProductsByCategory(categoryId, skip = 0, take = 14) {
   try {
-    const products = await prisma.product.findMany({
-      where: { categoryId },
-      skip,
-      take,
-      include: {
-        colors: true,
-        category: true,
-      },
-    });
+    const [products, total] = await prisma.$transaction([
+      prisma.product.findMany({
+        where: { categoryId },
+        skip,
+        take,
+        include: {
+          colors: true,
+          category: true,
+        },
+      }),
+      prisma.product.count({
+        where: { categoryId },
+      }),
+    ]);
 
-    return { success: true, products };
+    return {
+      success: true,
+      products,
+      hasMore: skip + take < total,
+    };
   } catch (error) {
     console.error("Error getting products by category:", error);
-    return { success: false, error: error.message };
+    return {
+      success: false,
+      error: error.message,
+      products: [],
+      hasMore: false,
+    };
   }
 }
 

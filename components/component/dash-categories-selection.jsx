@@ -59,7 +59,7 @@ export function CategorySelector({ onSelect, selectedCategory }) {
           {selectedCategory.name || "Select a category"}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-gray-700 border-gray-600">
+      <DropdownMenuContent className="w-56 bg-gray-700 border-gray-600 max-h-[28rem] overflow-y-auto">
         <DropdownMenuGroup>
           {categories.map((category) => (
             <DropdownMenuSub key={category.id}>
