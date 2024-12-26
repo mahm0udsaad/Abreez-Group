@@ -35,9 +35,28 @@ export async function getAllProducts(skip = 0, take = 14) {
 
 export async function getProductsByCategory(categoryId, skip = 0, take = 14) {
   try {
+    let whereClause = {};
+
+    // Check if we need to include all subcategories
+    const category = await prisma.category.findUnique({
+      where: { id: categoryId },
+      include: { subcategories: true },
+    });
+
+    if (category && !category.parentId) {
+      // It's a parent category - include all subcategories
+      const subcategoryIds = category.subcategories.map((sub) => sub.id);
+      whereClause = {
+        OR: [{ categoryId }, { categoryId: { in: subcategoryIds } }],
+      };
+    } else {
+      // It's a subcategory - just use the specific categoryId
+      whereClause = { categoryId };
+    }
+
     const [products, total] = await prisma.$transaction([
       prisma.product.findMany({
-        where: { categoryId },
+        where: whereClause,
         skip,
         take,
         include: {
@@ -46,7 +65,7 @@ export async function getProductsByCategory(categoryId, skip = 0, take = 14) {
         },
       }),
       prisma.product.count({
-        where: { categoryId },
+        where: whereClause,
       }),
     ]);
 

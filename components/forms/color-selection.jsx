@@ -12,6 +12,9 @@ export const COLOR_OPTIONS = [
   { name: "Gray", hex: "#A6A6A6" },
   { name: "Pink", hex: "#FFB6C1" },
   { name: "Orange", hex: "#FFA64C" },
+  { name: "Gold", hex: "#FFD700" },
+  { name: "Copper", hex: "#B87333" },
+  { name: "Silver", hex: "#C0C0C0" },
 ];
 
 // Color selection dropdown component

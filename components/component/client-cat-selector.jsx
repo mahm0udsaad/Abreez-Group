@@ -60,9 +60,14 @@ export function CategorySelector({
     fetchCategories();
   }, []);
 
-  const handleSelect = (category) => {
+  const handleSelect = (category, isAllSubcategories = false) => {
     if (onSelect && !disabled) {
-      onSelect(category);
+      if (isAllSubcategories) {
+        // Pass the parent category with a flag indicating "all subcategories"
+        onSelect({ ...category, includeAllSubcategories: true });
+      } else {
+        onSelect(category);
+      }
     }
   };
 
@@ -80,6 +85,7 @@ export function CategorySelector({
         >
           <span className="truncate">
             {selectedCategory?.name || placeholder}
+            {selectedCategory?.includeAllSubcategories && " > All"}
           </span>
           {isLoading ? (
             <Loader2 className="ml-2 h-4 w-4 shrink-0 animate-spin" />
@@ -93,7 +99,6 @@ export function CategorySelector({
         align="start"
       >
         <DropdownMenuGroup>
-          {/* Add "All" category option */}
           <DropdownMenuItem
             onClick={() => handleSelect(null)}
             className="flex items-center hover:bg-white/30"
@@ -101,11 +106,6 @@ export function CategorySelector({
             <span className="truncate">All Categories</span>
           </DropdownMenuItem>
 
-          {categories.length === 0 && !isLoading && (
-            <DropdownMenuItem disabled className="opacity-50">
-              No categories available
-            </DropdownMenuItem>
-          )}
           {categories.map((category) => (
             <DropdownMenuSub key={category.id}>
               <DropdownMenuSubTrigger className="flex items-center hover:bg-white/30">
@@ -125,12 +125,21 @@ export function CategorySelector({
                   sideOffset={2}
                   alignOffset={-5}
                 >
-                  {(!category.subcategories ||
-                    category.subcategories.length === 0) && (
-                    <DropdownMenuItem disabled className="opacity-50">
-                      No subcategories available
-                    </DropdownMenuItem>
-                  )}
+                  <DropdownMenuItem
+                    onClick={() => handleSelect(category, true)}
+                    className="flex items-center hover:bg-white/30"
+                  >
+                    <Check
+                      className={cn(
+                        "mr-2 h-4 w-4",
+                        selectedCategory?.id === category.id &&
+                          selectedCategory?.includeAllSubcategories
+                          ? "opacity-100"
+                          : "opacity-0",
+                      )}
+                    />
+                    <span className="truncate">All</span>
+                  </DropdownMenuItem>
                   {category.subcategories?.map((subCategory) => (
                     <DropdownMenuItem
                       key={subCategory.id}
