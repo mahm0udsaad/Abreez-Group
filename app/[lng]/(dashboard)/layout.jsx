@@ -1,4 +1,3 @@
-import "@/app/[lng]/globals.css";
 import SideBar from "@/components/component/sidebar";
 import { enUS } from "@clerk/localizations";
 import { ClerkProvider } from "@clerk/nextjs";
