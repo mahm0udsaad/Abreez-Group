@@ -51,6 +51,7 @@ export async function createProduct(formData) {
     const materials = formData.get("materials") || "";
     const itemSize = formData.get("itemSize") || "";
     const itemWeight = formData.get("itemWeight") || "";
+    const stockcoming = formData.get("stockcoming") || "";
     const printingOptionsData =
       JSON.parse(formData.get("printingOptions")) || [];
 
@@ -72,6 +73,7 @@ export async function createProduct(formData) {
           ),
           categoryId,
           multiImages: colorsData.length > 1,
+          stockcoming: parseInt(stockcoming),
           materials,
           itemSize,
           itemWeight,

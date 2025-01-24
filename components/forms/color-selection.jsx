@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // Predefined color palette
 export const COLOR_OPTIONS = [
+  { name: "Custom Color", hex: "transparent" }, // First option for custom color
   { name: "Black", hex: "#1A1A1D" },
   { name: "White", hex: "#FFFFFF" },
   { name: "Red", hex: "#FF4C4C" },
@@ -20,6 +21,25 @@ export const COLOR_OPTIONS = [
 // Color selection dropdown component
 export const ColorSelector = ({ selectedColor, onSelectColor }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [customColorName, setCustomColorName] = useState("");
+
+  const handleCustomColorSelect = () => {
+    if (customColorName.trim()) {
+      // Generate a random transparent hex
+      const randomTransparentHex = `#${Math.floor(Math.random() * 16777215)
+        .toString(16)
+        .padStart(6, "0")}00`;
+
+      const customColor = {
+        name: customColorName.trim(),
+        hex: randomTransparentHex,
+      };
+
+      onSelectColor(customColor);
+      setIsOpen(false);
+      setCustomColorName(""); // Reset input
+    }
+  };
 
   return (
     <div className="relative z-10">
@@ -42,6 +62,23 @@ export const ColorSelector = ({ selectedColor, onSelectColor }) => {
 
       {isOpen && (
         <div className="absolute z-10 mt-1 w-full border border-gray-600 rounded bg-gray-800 shadow-lg">
+          {/* Custom color input as first option */}
+          <div className="p-2 flex items-center gap-2">
+            <input
+              type="text"
+              value={customColorName}
+              onChange={(e) => setCustomColorName(e.target.value)}
+              placeholder="Enter custom color name"
+              className="flex-grow p-1 bg-gray-700 text-white border border-gray-600 rounded"
+            />
+            <button
+              onClick={handleCustomColorSelect}
+              className="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600"
+            >
+              Add
+            </button>
+          </div>
+
           {COLOR_OPTIONS.map((color) => (
             <div
               key={color.name}

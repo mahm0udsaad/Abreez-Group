@@ -1,11 +1,10 @@
-// This is your Prisma schema file
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
-}
-
-generator client {
-  provider = "prisma-client-js"
 }
 
 model User {
@@ -48,14 +47,12 @@ model Category {
   id            String     @id @default(cuid())
   name          String
   slug          String     @unique
-  // Self-relation for subcategories
-  parent        Category?  @relation("SubCategories", fields: [parentId], references: [id])
   parentId      String?
-  subcategories Category[] @relation("SubCategories")
-  // Products in this category
-  products      Product[]
   createdAt     DateTime   @default(now())
   updatedAt     DateTime   @updatedAt
+  parent        Category?  @relation("SubCategories", fields: [parentId], references: [id])
+  subcategories Category[] @relation("SubCategories")
+  products      Product[]
 
   @@unique([name, parentId])
   @@index([parentId])
@@ -66,18 +63,18 @@ model Product {
   name            String
   description     String
   totalAvailable  Int
+  stockcoming     Int
   multiImages     Boolean          @default(false)
-  materials       String?
-  itemSize        String?
-  itemWeight      String?
-  itemLocation    String?
-  printingOptions PrintingOption[]
-  // Relations
-  category        Category         @relation(fields: [categoryId], references: [id])
   categoryId      String
-  colors          ColorVariant[]
   createdAt       DateTime         @default(now())
   updatedAt       DateTime         @updatedAt
+  itemSize        String?
+  itemWeight      String?
+  materials       String?
+  itemLocation    String?
+  colors          ColorVariant[]
+  printingOptions PrintingOption[]
+  category        Category         @relation(fields: [categoryId], references: [id])
 
   @@index([categoryId])
 }
@@ -87,10 +84,10 @@ model ColorVariant {
   name      String
   available Int
   image     String
-  product   Product  @relation(fields: [productId], references: [id])
   productId String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  product   Product  @relation(fields: [productId], references: [id])
 
   @@index([productId])
 }
@@ -99,7 +96,7 @@ model PrintingOption {
   id        String   @id @default(cuid())
   name      String
   productId String
-  product   Product  @relation(fields: [productId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  product   Product  @relation(fields: [productId], references: [id])
 }

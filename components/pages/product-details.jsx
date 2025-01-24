@@ -220,27 +220,6 @@ export default function ProductDetailsPage({ lng, product }) {
               {product.description}
             </p>
           </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
-              {t("Similar Products")}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {/* Placeholder for similar products */}
-              <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400">
-                {t("similar_product_1")}
-              </div>
-              <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400">
-                {t("similar_product_2")}
-              </div>
-              <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400">
-                {t("similar_product_3")}
-              </div>
-              <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400">
-                {t("similar_product_4")}
-              </div>
-            </div>
-          </section>
         </div>
       </div>
     </motion.div>

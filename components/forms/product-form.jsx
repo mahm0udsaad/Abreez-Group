@@ -29,6 +29,7 @@ export function ManualProductForm({ lng }) {
     description: "",
     category: "",
     totalAvailable: 0,
+    stockcoming: 0, // New field
     colors: [],
     materials: "",
     itemSize: "",
@@ -224,6 +225,7 @@ export function ManualProductForm({ lng }) {
       formData.append("itemSize", newProduct.itemSize);
       formData.append("itemWeight", newProduct.itemWeight);
       formData.append("itemLocation", newProduct.itemLocation);
+      formData.append("stockcoming", newProduct.stockcoming);
       formData.append(
         "printingOptions",
         JSON.stringify(newProduct.printingOptions),
@@ -242,6 +244,7 @@ export function ManualProductForm({ lng }) {
             description: "",
             category: "",
             totalAvailable: 0,
+            stockcoming: 0,
             colors: [],
             materials: "",
             itemSize: "",
@@ -392,6 +395,23 @@ export function ManualProductForm({ lng }) {
             value={newProduct.itemLocation}
             onChange={(e) =>
               setNewProduct({ ...newProduct, itemLocation: e.target.value })
+            }
+            className="mt-1 w-full bg-gray-700 text-white border-gray-600"
+          />
+        </div>
+        <div className="flex-1">
+          <Label htmlFor="stockcoming" className="text-gray-200">
+            {t("stockcoming")}
+          </Label>
+          <Input
+            id="stockcoming"
+            type="number"
+            value={newProduct.stockcoming}
+            onChange={(e) =>
+              setNewProduct({
+                ...newProduct,
+                stockcoming: parseInt(e.target.value) || 0,
+              })
             }
             className="mt-1 w-full bg-gray-700 text-white border-gray-600"
           />
