@@ -63,7 +63,7 @@ model Product {
   name            String
   description     String
   totalAvailable  Int
-  stockcoming     Int
+  stockcoming     Int?
   multiImages     Boolean          @default(false)
   categoryId      String
   createdAt       DateTime         @default(now())
