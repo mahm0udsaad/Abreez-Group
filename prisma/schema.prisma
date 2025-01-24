@@ -63,6 +63,7 @@ model Product {
   name            String
   description     String
   totalAvailable  Int
+  stockcoming     Int              @default(0)
   multiImages     Boolean          @default(false)
   categoryId      String
   createdAt       DateTime         @default(now())
